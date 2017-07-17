@@ -34,10 +34,7 @@ namespace hmitype
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "ListMessage";
-
+            this.components = new Container();
             ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(ListMessage));
             this.timerclose = new Timer(this.components);
             this.messageimage = new ImageList(this.components);
@@ -81,7 +78,7 @@ namespace hmitype
             base.ClientSize = new Size(261, 166);
             base.Controls.Add(this.colListBox1);
             base.FormBorderStyle = FormBorderStyle.None;
-         
+            base.Name = "ListMessage";
             base.ShowIcon = false;
             base.ShowInTaskbar = false;
             base.TopMost = true;

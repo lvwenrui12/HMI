@@ -44,6 +44,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -91,6 +95,12 @@
     </Compile>
     <Compile Include="encodetype.cs" />
     <Compile Include="eventtyte.cs" />
+    <Compile Include="fenlei.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="fenlei.Designer.cs">
+      <DependentUpon>fenlei.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +154,7 @@
     <Compile Include="pageobjs_.cs" />
     <Compile Include="pagexinxi.cs" />
     <Compile Include="pagexinxi_up.cs" />
+    <Compile Include="php.cs" />
     <Compile Include="Picturexinxi.cs" />
     <Compile Include="PosLaction.cs" />
     <Compile Include="progform.cs">
