@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<style type="text/css">
+body {	
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #FFF;
+}
+body,td,th {
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+	font-weight: bold;
+}
+.a3 {
+	line-height: 22px;
+	color: #F00;
+	text-align: left;
+}
+.biao{
+	font-size: 14px;
+	font-weight: normal;
+}
+.comtitle {	
+	align:"left";
+	valign:"middle";
+	height:25px;
+	background:#3366FF;
+	text-align: left;
+	color: #FFF;
+	font-size: 16px;
+}
+.comdec {
+	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei {
+	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+p{
+	 margin:1px;
+	 padding:0px;
+}
+.titleA {
+	font-size: 24px;
+}
+.titleB {
+	font-weight: normal;
+}
+.a0 {
+	align: left;
+	valign: top;
+	line-height: 22px;
+	text-align: left;
+}
+.a0_h{
+	background:#FFFF00; 
+	line-height:22px;
+	text-align: left;	
+}
+.xuhao {
+	text-align: center;
+	font-weight: normal;
+}
+.lianjie{
+	font-weight: normal;
+	font-size: 18px;
+}
+.lianjie {
+	text-align: left;
+}
+.comdec_bei1 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec1 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#00CCFF" alink="#00CCFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<p>&nbsp;</p>
+<table width="750" height="2" border="0" align="center" cellpadding="0" cellspacing="0" class="lianjie">
+  <tr>
+    <td align="left" valign="middle" class="lianjie"><span class="lianjie"><a href="index.htm" class="lianjie">返回首页</a></span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><span class="titleA"><strong>串口HMI系统变量列表 </strong><br />
+</span></p>
+<table width="750" height="22" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td height="22" align="left" valign="top" class="a0"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><span class="a0_h">注：所有变量名称使用小写字符 </span></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="750" border="1" align="center" cellpadding="0" cellspacing="0" class="biao">
+  <tr>
+    <td width="39" valign="top"><p>序号 </p></td>
+    <td width="70" valign="top"><p>名称 </p></td>
+    <td width="216" valign="top"><p>含义 </p></td>
+    <td width="415" valign="top"><p>示例/备注 </p></td>
+  </tr>
+  <tr>
+    <td width="39" height="68" class="xuhao">1</td>
+    <td width="70" class="xuhao"><p>dp</p></td>
+    <td width="216" align="left" valign="middle"><p class="comdec">当前页面ID</p></td>
+    <td width="415" valign="top" class="comdec"><p>1.dp=1 (设置当前页面为1,等同于page 1）</p>
+    <p>2.print dp(发送当面页面ID到串口) </p>
+    <p>3.n0.val=dp  (当前页面ID赋值给n0.val) </p></td>
+  </tr>
+  <tr>
+    <td class="xuhao">2</td>
+    <td width="70" class="xuhao">dim</td>
+    <td width="216" align="left" valign="middle"><p class="comdec">当前背光亮度值(0-100)</p></td>
+    <td width="415" valign="top" class="comdec">1.dim=50    2.dim=dim+10   3.dim=dim-10</td>
+  </tr>
+  <tr>
+    <td width="39" class="xuhao">3</td>
+    <td width="70" class="xuhao"><p>dims</p></td>
+    <td width="216" align="left" valign="middle"><p class="comdec">上电默认背光亮度值(0-100)</p></td>
+    <td width="415" valign="top" class="comdec"><p>1.dims=50    2.dims=dims+10   3.dims=dims-10</p></td>
+  </tr>
+  <tr>
+    <td width="39" class="xuhao"><p>4</p></td>
+    <td width="70" class="xuhao"><p>baud</p></td>
+    <td width="216" align="left" valign="middle"><p class="comdec">当前波特率值 </p></td>
+    <td width="415" valign="top" class="comdec"><p>baud=9600<br />
+    <span class="comdec_bei">设备支持的波特率有:2400 4800 9600 19200 38400 57600 115200 </span></p></td>
+  </tr>
+  <tr>
+    <td width="39" class="xuhao"><p class="xuhao">5</p></td>
+    <td width="70" class="xuhao"><p>bauds</p></td>
+    <td width="216" align="left" valign="middle"><p class="comdec">上电默认波特率值 </p></td>
+    <td width="415" valign="top" class="comdec"><p>bauds=9600</p></td>
+  </tr>
+  <tr>
+    <td width="39" class="xuhao"><p>6</p></td>
+    <td width="70" class="xuhao"><p>spax</p></td>
+    <td width="216" align="left" valign="middle" class="comdec"><p>字符显示横向间距</p>
+    <p>(上电默认为0)</p></td>
+    <td width="415" valign="top" class="comdec"><p>spax=2</p>
+    <p class="comdec_bei">备注： </p>
+    <span class="comdec_bei">仅对xstr指令写出来的字符有效，控件带的字符显示间距由控件内部的属性决定。</span></td>
+  </tr>
+  <tr>
+    <td width="39" class="xuhao"><p>7</p></td>
+    <td width="70" class="xuhao"><p>spay</p></td>
+    <td width="216" align="left" valign="middle" class="comdec"><p>字符显示纵向间距</p>
+    <p>(上电默认为0)</p></td>
+    <td width="415" valign="top" class="comdec"><p>spay=2</p>
+    <p class="comdec_bei">备注： </p>
+    <span class="comdec_bei">仅对xstr指令写出来的字符有效，控件带的字符显示间距由控件内部的属性决定。</span></td>
+  </tr>
+  <tr>
+    <td width="39" class="xuhao"><p>8</p></td>
+    <td width="70" class="xuhao"><p>thc</p></td>
+    <td width="216" align="left" valign="middle" class="comdec"><p>触摸绘图时的画笔色 </p></td>
+    <td width="415" valign="top" class="comdec"><p>1.thc=RED    2.thc=1024</p></td>
+  </tr>
+  <tr>
+    <td class="xuhao">9</td>
+    <td width="70" class="xuhao">thdra</td>
+    <td width="216" align="left" valign="middle" class="comdec">触摸绘图功能开关</td>
+    <td width="415" valign="top" class="comdec">thdra=0    (关闭)   thdra=1(打开)</td>
+  </tr>
+  <tr>
+    <td class="xuhao">10</td>
+    <td width="70" class="xuhao">ussp</td>
+    <td width="216" align="left" valign="middle" class="comdec">无串口数据自动睡眠时间(单位:秒,最小3，最大65535，上电默认0)</td>
+    <td width="415" valign="top" class="comdec">ussp=30(30秒无串口数据自动进入睡眠模式)</td>
+  </tr>
+  <tr>
+    <td class="xuhao">11</td>
+    <td width="70" class="xuhao">thsp</td>
+    <td width="216" align="left" valign="middle" class="comdec">无触摸操作自动睡眠时间(单位:秒,最小3，最大65535，上电默认0)</td>
+    <td width="415" valign="top" class="comdec">thsp=30(30秒无触摸操作自动进入睡眠模式)</td>
+  </tr>
+  <tr>
+    <td width="39" class="xuhao"><p>12</p></td>
+    <td width="70" class="xuhao"><p>thup</p></td>
+    <td width="216" align="left" valign="middle" class="comdec"><p>睡眠模式下触摸自动唤醒开关(上电默认0)</p></td>
+    <td width="415" valign="top" class="comdec"><p>thup=0(睡眠后触摸不会自动唤醒)<br />
+thup=1(睡眠后触摸自动唤醒)</p>
+    <span class="comdec_bei">不管thup为0还是1，睡眠模式下有触摸操作的时候设备均会发送触摸坐标到串口。</span></td>
+  </tr>
+  <tr>
+    <td width="39" class="xuhao">13</td>
+    <td width="70" class="xuhao"><p>wup</p></td>
+    <td width="216" align="left" valign="middle" class="comdec"><p>睡眠唤醒后刷新页面设置</p></td>
+    <td width="415" valign="top" class="comdec"><p>wup=255(上电默认， 睡眠唤醒后刷新睡眠前页面)<br />
+      wup=2 (睡眠唤醒后刷新页面指定页面:2)<br />
+      <span class="comdec_bei">备注：<br />
+      设备已经在睡眠状态下，也可以执行串口传过来<br />
+    的 wup=X 赋值。</span></p></td>
+  </tr>
+  <tr>
+    <td class="xuhao">14</td>
+    <td width="70" class="xuhao">sleep</td>
+    <td width="216" align="left" valign="middle" class="comdec">睡眠</td>
+    <td width="415" valign="top" class="comdec"><p class="comdec_bei">sleep=0 (退出睡眠)<br />
+      sleep=1 (进入睡眠)<br />
+      <span class="comdec_bei">备注：<br />
+      睡眠状态下可以执行如下指令：get,print,
+      printh。</span><span class="comdec_bei"> 也可以
+    执行 </span>sleep=1，wup=X 的赋值语句，并且支持上位软件联机，其他指令不会执行。如果是增强型及以上系列并且扩展IO配置为绑定控件事件时，睡眠模式下也不会产生中断事件。</p></td>
+  </tr>
+  <tr>
+    <td class="xuhao">15</td>
+    <td width="70" class="xuhao">bkcmd</td>
+    <td width="216" align="left" valign="middle" class="comdec">设置串口指令执行成功或者失败的数据返回(上电默认为2)</td>
+    <td width="415" valign="top" class="comdec">bkcmd=0(不返回结果) <br />
+bkcmd=1(只返回成功的结果) <br />
+bkcmd=2(只返回失败的结果) <br />
+bkcmd=3(成功或者失败都返回结果)<br />
+<span class="comdec_bei1">此设置只影响串口指令执行成功或者失败的结果返回，上位软件编辑界面时写入的指令执行错误的时候一定会返回错误结果，成功的时候一定不会返回执行结果。此设置也不会影响获取设备控件数据时的数据返回。</span></td>
+  </tr>
+  <tr>
+    <td width="39" class="xuhao"><p>16</p></td>
+    <td width="70" class="xuhao"><p>sendxy</p></td>
+    <td width="216" align="left" valign="middle" class="comdec"><p>实时发送触摸坐标功能开关 </p></td>
+    <td width="415" valign="top" class="comdec"><p>sendxy=0(关闭)   sendxy=1(打开)<br />
+        <span class="comdec_bei">备注:<br />
+      1打开发送功能以后，有触摸按下的时候设备会通过串口发送触摸坐标。 <br />
+    2.发送坐标的格式请参看本表格后面的&quot;串口HMI设备返回数据格式&quot;表格。 </span></p></td>
+  </tr>
+  <tr>
+    <td width="39" class="xuhao"><p>17</p></td>
+    <td width="70" class="xuhao"><p>delay</p></td>
+    <td width="216" align="left" valign="middle" class="comdec"><p>&nbsp;</p></td>
+    <td width="415" valign="top" class="comdec"><p>delay=100   (让设备停顿100ms)<br />
+        <span class="comdec_bei">备注： <br />
+      执行延时指令后，设备CPU不会执行任何指令，但是会继续接受串口指令保存到串口指令缓存区。 </span></p></td>
+  </tr>
+  <tr>
+    <td class="xuhao">18</td>
+    <td width="70" class="xuhao">rand</td>
+    <td width="216" align="left" valign="middle" class="comdec">随机数</td>
+    <td width="415" valign="top" class="comdec"><p>dim=rand (把一个随机数赋值给背光亮度)<br />
+      n0.val=rand (把一个随机数赋值给n0.val变量)<br />
+      <span class="comdec_bei">备注： <br />
+      1.使用随机数之前需要先使用randset指令设定一次随机数产生范围，如果不设置，默认是最小0，最大2147483647。设置完范围以后，每读取一次系统变量rand将会得到一个随机数。 </span></p>
+      <span class="comdec_bei">
+2.使用randset指令每设定一次范围，将一直有效，直到重新上电或者设备复位才会恢复默认。</span></td>
+  </tr>
+  <tr>
+    <td class="xuhao">19</td>
+    <td width="70" class="xuhao"><p>sys0<br />
+      sys1</p>
+sys2</td>
+    <td width="216" align="left" valign="middle" class="comdec">内置数值变量</td>
+    <td width="415" valign="top" class="comdec"><p>sys0=10     sys1=40   sys2=60  n.val=sys2<br />
+        <span class="comdec_bei">备注： <br />
+      sys0,sys1,sys2三个数值变量为全局类型，不用定义，不用创建，任何页面任何时刻任意使用。上电默认为0，可以读取，可以赋值，数据类型为int类型(即：最小-2147483648,最大2147483647)。页面间传递数值的时候推荐使用。 </span></p>
+      <span class="comdec_bei">
+使用内置数值变量做运算解析速度比使用控件属性变量更快。</span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99" class="xuhao">20</td>
+    <td width="70" bgcolor="#FFFF99" class="xuhao">rtc0-rtc6</td>
+    <td width="216" align="left" valign="middle" bgcolor="#FFFF99" class="comdec"><p>RTC时钟变量 </p>
+    <strong class="a3">(仅增强型及以上系列适用)</strong></td>
+    <td width="415" valign="top" bgcolor="#FFFF99" class="comdec"><p>n0.val=rtc5 (当前RTC的秒数值赋值给n0.val)</p>
+      <p>rtc0=2016(RTC的年设置为2016)<br />
+      </p>
+      <p>cov rtc5,t0.txt,0(当前RTC的秒数值转换给t0.txt)<br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+rtc0-rtc6分别表示年，月，日，时，分，秒 ，星期。</span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99" class="xuhao">21</td>
+    <td width="70" bgcolor="#FFFF99" class="xuhao">pio0-pio7</td>
+    <td width="216" align="left" valign="middle" bgcolor="#FFFF99" class="comdec"><p>扩展IO端口 </p>
+    <strong class="a3">(仅增强型及以上系列适用)</strong></td>
+    <td width="415" valign="top" bgcolor="#FFFF99" class="comdec"><p>pio4=1       (IO4置为1)<br />
+      n0.val=pio2 (io2的电平状态赋值给n0.val)<br />
+      cov pio3,t0.txt,0 (io3的电平状态转换给t0.txt)<br />
+      <span class="comdec_bei">备注： <br />
+      1.使用pio端口之前一定要先使用cfgpio指令配置好IO模式。 </span></p>
+      <span class="comdec_bei">
+2.上电默认所有扩展IO模式为上拉输入（内部上拉电阻为50K)。</span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99" class="xuhao">22</td>
+    <td width="70" bgcolor="#FFFF99" class="xuhao">pwm4-pwm7</td>
+    <td width="216" align="left" valign="middle" bgcolor="#FFFF99" class="comdec"><p>扩展IO占空比 </p>
+    <strong class="a3">(仅增强型及以上系列适用)</strong></td>
+    <td width="415" valign="middle" bgcolor="#FFFF99" class="comdec"><p>pwm4=30  (设置pwm4占空比为30)<br />
+pwm5=90  (设置pwm5占空比为90)<br />
+<span class="comdec_bei">备注： <br />
+1. 占空比最小值0最大值100,上电默认50。 <br />
+2.pwm4-pwm7依次对应扩展IO中的io4-io7,<br />
+io0-io3不支持PWM输出。 <br />
+3.设置好PWM占空比以后,需要使用cfgpio指令配置此IO的模式为PWM输出模式，相应IO才会开始输出PWM,配置完PWM模式后在PWM输出的过程中可以随时修改占空比，不用重新配置。 </span></p>
+      <span class="comdec_bei">
+4. 上电默认所有扩展IO模式为上拉输入（内部上拉电阻为50K)。</span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99" class="xuhao">23</td>
+    <td width="70" bgcolor="#FFFF99" class="xuhao">pwmf</td>
+    <td width="216" align="left" valign="middle" bgcolor="#FFFF99" class="comdec"><p>PWM输出的频率 </p>
+    <strong class="a3">(仅增强型及以上系列适用)</strong></td>
+    <td width="415" valign="middle" bgcolor="#FFFF99" class="comdec"><p>pwmf=1024 (设置pwm的频率为1024HZ)<br />
+      n0.val=pwmf (将PWM频率赋值给n0.val)<br />
+      cov pwmf,t0.txt(将PWM频率转换给t0.txt)<br />
+      <span class="comdec_bei">备注： <br />
+      1.频率单位为:HZ,范围为最小1，最大65535HZ，上电默认1000HZ。 </span></p>
+      <span class="comdec_bei">
+2.所有PWM输出统一为一个频率，不可单独设置。</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong class="titleA">串口HMI颜色代号表 </strong></p>
+<table width="750" height="22" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td height="22" align="left" valign="top" class="a0"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><strong>注：所有代号的书写均为大写</strong></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="750" border="1" align="center" cellpadding="0" cellspacing="0" class="biao">
+  <tr>
+    <td width="161">      代号 </td>
+    <td width="179"><p>10进制 </p></td>
+    <td width="386"><p>所表示的颜色 </p></td>
+  </tr>
+  <tr>
+    <td width="161"><p><span class="comdec">RED</span></p></td>
+    <td width="179"><p><span class="comdec">63488</span></p></td>
+    <td width="386"><p><span class="comdec">红色 </span></p></td>
+  </tr>
+  <tr>
+    <td width="161"><p><span class="comdec">BLUE</span></p></td>
+    <td width="179"><p><span class="comdec">31</span></p></td>
+    <td width="386"><p><span class="comdec">蓝色 </span></p></td>
+  </tr>
+  <tr>
+    <td width="161"><p><span class="comdec">GRAY</span></p></td>
+    <td width="179"><p><span class="comdec">33840</span></p></td>
+    <td width="386"><p><span class="comdec">灰色 </span></p></td>
+  </tr>
+  <tr>
+    <td width="161"><p><span class="comdec">BLACK</span></p></td>
+    <td width="179"><p><span class="comdec">0</span></p></td>
+    <td width="386"><p><span class="comdec">黑色 </span></p></td>
+  </tr>
+  <tr>
+    <td width="161"><p><span class="comdec">WHITE</span></p></td>
+    <td width="179"><p><span class="comdec">65535</span></p></td>
+    <td width="386"><p><span class="comdec">白色 </span></p></td>
+  </tr>
+  <tr>
+    <td width="161"><p><span class="comdec">GREEN</span></p></td>
+    <td width="179"><p><span class="comdec">2016</span></p></td>
+    <td width="386"><p><span class="comdec">绿色 </span></p></td>
+  </tr>
+  <tr>
+    <td width="161"><p><span class="comdec">BROWN</span></p></td>
+    <td width="179"><p><span class="comdec">48192</span></p></td>
+    <td width="386"><p><span class="comdec">橙色 </span></p></td>
+  </tr>
+  <tr>
+    <td width="161"><p><span class="comdec">YELLOW</span></p></td>
+    <td width="179"><p><span class="comdec">65504</span></p></td>
+    <td width="386"><p><span class="comdec">黄色 </span></p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="750" height="2" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td height="2" align="left" valign="top" class="lianjie"><a href="index.htm">返回首页</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

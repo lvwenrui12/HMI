@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<style type="text/css">
+body {	
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #FFF;
+}
+body,td,th {
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+	font-weight: bold;
+}
+.a3 {
+	line-height: 22px;
+	color: #F00;
+	text-align: left;
+}
+.biao{
+	font-size: 14px;
+	font-weight: normal;
+}
+.comtitle {	
+	align:"left";
+	valign:"middle";
+	height:25px;
+	background:#3366FF;
+	text-align: left;
+	color: #FFF;
+	font-size: 16px;
+}
+.comdec {
+	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei {
+	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+p{
+	 margin:1px;
+	 padding:0px;
+}
+.titleA {
+	font-size: 24px;
+}
+.titleB {
+	font-weight: normal;
+}
+.a0 {
+	align: left;
+	valign: top;
+	line-height: 22px;
+	text-align: left;
+}
+.a0_h{
+	background:#FFFF00; 
+	line-height:22px;
+	text-align: left;	
+}
+.xuhao {
+	text-align: center;
+	font-weight: normal;
+}
+.lianjie{
+	font-weight: normal;
+	font-size: 18px;
+	text-align: left;
+}
+.comtitle1 {	align:"left";
+	valign:"middle";
+	height:25px;
+	background:#3366FF;
+	text-align: left;
+	color: #FFF;
+	font-size: 16px;
+}
+.comdec1 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei1 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei2 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comtitle2 {	align:"left";
+	valign:"middle";
+	height:25px;
+	background:#3366FF;
+	text-align: left;
+	color: #FFF;
+	font-size: 16px;
+}
+.comtitle3 {	align:"left";
+	valign:"middle";
+	height:25px;
+	background:#3366FF;
+	text-align: left;
+	color: #FFF;
+	font-size: 16px;
+}
+.comdec_bei3 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei4 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei5 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comtitle4 {	align:"left";
+	valign:"middle";
+	height:25px;
+	background:#3366FF;
+	text-align: left;
+	color: #FFF;
+	font-size: 16px;
+}
+.a01 {	align: left;
+	valign: top;
+	line-height: 22px;
+	text-align: left;
+}
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#00CCFF" alink="#00CCFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<p>&nbsp;</p>
+<table width="750" height="2" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td align="left" valign="top" class="comdec"><span class="titleB"><span class="a01"><span class="biao"><a href="index.htm" class="lianjie">返回首页</a></span></span></span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p align="center"><strong class="titleA">串口HMI语句 </strong><br />
+</p>
+<p align="center">&nbsp;</p>
+<table width="750" height="22" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td height="22" align="left" valign="top" class="a0"><span class="a3">注：所有的逻辑语句只能在上位编辑状态下写入控件的事件中，不支持串口传输逻辑语句。</span></td>
+  </tr>
+</table>
+<table width="750" border="1" align="center" cellpadding="0" cellspacing="0" class="biao">
+  <tr>
+    <td class="comtitle">1.if</td>
+  </tr>
+  <tr>
+    <td height="119" class="comdec">实例1: （如果t0.txt等于&quot;123456&quot;那么就切换到页面1）<br />
+      if(t0.txt==&quot;123456&quot;) <br />
+      { <br />
+      page 1<br />
+      }<br />
+      实例2:(以下语句写在b0按钮的按下事件中将实现b0的txt内容在开始和停止之间来回切换)<br />
+      if(b0.txt==&quot;开始&quot;) <br />
+      { <br />
+      b0.txt=&quot;停止&quot;<br />
+      }else<br />
+      {<br />
+      b0.txt=&quot;开始&quot;<br />
+      }<br />
+      实例3:(以下语句写在b0按钮的按下事件中将实现b0的txt内容在1,2,3之间来回切换)<br />
+      if(b0.txt==&quot;1&quot;) <br />
+      { <br />
+      b0.txt=&quot;2&quot;<br />
+      }else if(b0.txt==&quot;2&quot;)<br />
+      {<br />
+      b0.txt=&quot;3&quot;<br />
+      }else<br />
+      {<br />
+      b0.txt=&quot;1&quot;<br />
+      }<br />
+      <span class="comdec_bei">备注:<br />
+      1.数值类型变量支持：1.大于判断(&gt;) 2.小于判断(&lt;) 3.等于判断(==) 4.不等于判断(!=) 5.大于等于判断(&gt;=)。 6.小于等于判断(&lt;=)。<br />
+    2.字符串类型仅支持1.等于判断(==)  2.不等于判断(!=)。    </span><br /></td>
+  </tr>
+  <tr>
+    <td class="comtitle">2.while</td>
+  </tr>
+  <tr>
+    <td height="233" class="comdec"><p>实例1: (n0.val一直自加到100为止，在自加过程中屏幕不会刷新显示，直到整个过程所有语句结束)<br />
+      while(n0.val&lt;100)<br />
+      {<br />
+      n0.val++<br />
+      }<br />
+      实例2: (n0.val一直自加到100为止，在自加过程中屏幕会一直不断的刷新n0控件的显示)<br />
+      while(n0.val&lt;100)<br />
+      {<br />
+      n0.val++<br />
+      doevents<br />
+      }<br />
+      <span class="comdec_bei">备注:<br />
+      1.在一个较多指令的过程执行中，或者在一个较长时间的循环语句中，系统所有控制权被此过程全部占用，在过程结束之前，尽管相应的内存数据可以任意正常读写，但是屏幕不会刷新显示，加入doevents后可以转让控制权给屏幕刷新，执行doevents之后，屏幕会刷新所有被改变过的控件，刷新完之后，控制权交回当前过程继续执行。防止屏幕呈现假死的显示状态。<br />
+    2.while语句循环过程中，设备不会响应触摸事件，串口指令会接收到缓冲区，但不会执行，直到当前过程所有语句执行完毕为止，请慎重使用，以防进入死循环。      </span></p></td>
+  </tr>
+  <tr>
+    <td class="comtitle">3.for</td>
+  </tr>
+  <tr>
+    <td height="203" class="comdec"><p>实例1: (n0.val一直自加到100为止，在自加过程中屏幕不会刷新显示，直到整个过程所有语句结束)<br />
+      for(n0.val=0;n0.val&lt;100;n0.val++)<br />
+      {<br />
+      }<br />
+      实例2: (n0.val一直自加到100为止，在自加过程中屏幕会一直不断的刷新n0控件的显示)<br />
+      for(n0.val=0;n0.val&lt;100;n0.val++)<br />
+      {<br />
+      doevents<br />
+      }<br />
+      <span class="comdec_bei">备注:<br />
+      1.在一个较多指令的过程执行中，或者在一个较长时间的循环语句中，系统所有控制权被此过程全部占用，在过程结束之前，尽管相应的内存数据可以任意正常读写，但是屏幕不会刷新显示，加入doevents后可以转让控制权给屏幕刷新，执行doevents之后，屏幕会刷新所有被改变过的控件，刷新完之后，控制权交回当前过程继续执行。防止屏幕呈现假死的显示状态。<br />
+      2.for语句循环过程中，设备不会响应触摸事件，串口指令会接收到缓冲区，但不会执行，直到当前过程所有语句执行完毕为止，请慎重使用，以防进入死循环。</span><br />
+    </p>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table width="750" height="2" border="0" align="center" cellpadding="0" cellspacing="0" class="lianjie">
+  <tr>
+    <td align="left" valign="middle" class="lianjie"><a href="index.htm">返回首页</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

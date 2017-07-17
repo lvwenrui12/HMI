@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<style type="text/css">
+body {	
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #FFF;
+}
+body,td,th {
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+}
+.a3 {
+	line-height: 22px;
+	color: #F00;
+	text-align: left;
+}
+.biao{
+	font-size: 14px;
+	font-weight: normal;
+}
+.comtitle {	
+	align:"left";
+	valign:"middle";
+	height:25px;
+	background:#3366FF;
+	text-align: left;
+	color: #FFF;
+	font-size: 16px;
+}
+.comdec {
+	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei {
+	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+p{
+	 margin:1px;
+	 padding:0px;
+}
+.titleA {
+	font-size: 24px;
+}
+.titleB {
+	font-weight: normal;
+}
+.a0 {
+	align: left;
+	valign: top;
+	line-height: 22px;
+	text-align: left;
+}
+.a0_h{
+	background:#FFFF00; 
+	line-height:22px;
+	text-align: left;	
+}
+.xuhao {
+	text-align: center;
+	font-weight: normal;
+}
+.lianjie{
+	font-weight: normal;
+	text-align: left;
+	font-size: 18px;
+}
+
+.comdec1 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec2 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec3 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec4 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#00CCFF" alink="#00CCFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<p>&nbsp;</p>
+<table width="750" height="2" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td align="left" valign="middle" class="comdec1"><span class="titleB"><span class="a011"><span class="biao"><a href="index.htm" class="lianjie">返回首页</a></span></span></span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p align="center" class="titleA"><strong>基本型串口HMI设备返回数据格式 </strong></p>
+<p align="center" class="titleA">&nbsp;</p>
+<table width="750" height="90" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td height="90" align="left" valign="top" class="a0"><p align="center" class="a3"><strong>表格一：串口指令执行成功或失败的通知格式 </strong></p>
+      <p align="center" class="a0"><strong>1.只有当系统变量bkcmd为非0的时候才会返回指令执行成功或者失败数据，每次上电后bmcmd默认为2，即只返回指令执行出错的结果。 </strong></p>
+      <p align="center" class="a0">2.<strong>上位软件编辑时写进资源文件的代码不受bkcmd影响，执行有错误时一定会返回错误数据，成功时不返回数据。 </strong>    </p>
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+        <td class="a0_h"><strong>3.设备返回数据的结束符为&quot;0XFF 0XFF 0XFF&quot;三个字节。 </strong></td>
+      </tr>
+  </table></td>
+  </tr>
+</table>
+<table width="750" border="1" align="center" cellpadding="0" cellspacing="0" class="biao">
+  <tr>
+    <td width="79"><p><br />
+      返回数据</p>
+      <p>第一位 </p></td>
+    <td width="168"><p>含义 </p></td>
+    <td width="447"><p>格式 </p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X00</p></td>
+    <td width="168" class="comdec"><p>无效指令 </p></td>
+    <td width="447" class="comdec"><p>0X00+结束符 <br />
+      (当收到用户发来的无效指令时返回此数据)</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X01</p></td>
+    <td width="168" class="comdec"><p>指令成功执行 </p></td>
+    <td width="447" class="comdec"><p>0X01+结束符 <br />
+      (用户发来的指令被成功执行完毕时返回此数据)</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X02</p></td>
+    <td width="168" class="comdec"><p>控件ID无效 </p></td>
+    <td width="447" class="comdec"><p>0X02+结束符 <br />
+      (用户发来的指令中包含无效控件ID或者无效控件名称时返回此数据)</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X03</p></td>
+    <td width="168" class="comdec"><p>页面ID无效 </p></td>
+    <td width="447" class="comdec"><p>0X03+结束符 <br />
+      (用户发来的指令中包含无效页面ID或者无效页面名称时返回此数据)</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X04</p></td>
+    <td width="168" class="comdec"><p>图片ID无效 </p></td>
+    <td width="447" class="comdec"><p>0X04+结束符 <br />
+      (用户发来的指令中包含无效图片ID时返回此数据)</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X05</p></td>
+    <td width="168" class="comdec"><p>字库ID无效 </p></td>
+    <td width="447" class="comdec"><p>0X05+结束符 <br />
+      (用户发来的指令中包含无效字库ID时返回此数据)</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X11</p></td>
+    <td width="168" class="comdec"><p>波特率设置无效 </p></td>
+    <td width="447" class="comdec"><p>0X11+结束符 <br />
+      (用户发来的波特率配置指令中包含无效波特率参数)<br />
+      设备支持的波特率有:2400 4800 9600 19200 38400 57600 115200</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X12</p></td>
+    <td width="168" class="comdec"><p>曲线控件ID号或通道号无效 </p></td>
+    <td width="447" class="comdec"><p>0X12+结束符 <br />
+      (用户使用add指令往曲线控件添加数据的时候，曲线控件ID号或通道号无效时返回此数据)</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X1A</p></td>
+    <td width="168" class="comdec"><p>变量名称无效 </p></td>
+    <td width="447" class="comdec"><p>0X1A+结束符 <br />
+      当串口收到的变量名称为无效名称时返回此数据 <br />
+      注：控件属性也称为变量，比如您设置一个控件的属性的时候，输入的是一个它没有的属性名称，也会返回此数据。 </p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X1B</p></td>
+    <td width="168" class="comdec"><p>变量运算无效 </p></td>
+    <td width="447" class="comdec"><p>0X1B+结束符 <br />
+      比如文本控件t0的txt属性赋值时应该写成t0.txt=&quot;abc&quot;<br />
+      如果你写成t0.txt=abc就出错了，再比如进度条j0的val属性应该是数值，所以要写成j0.val=50,如果写成j0.val=&quot;50&quot;或者j0.val=abc也会出错 。</p></td>
+  </tr>
+  <tr>
+    <td class="xuhao">0X1C</td>
+    <td width="168" class="comdec">赋值操作失败</td>
+    <td width="447" class="comdec"><p>0X1C+结束符 </p>
+属性赋值失败的时候返回此数据</td>
+  </tr>
+  <tr>
+    <td class="xuhao">0X1D</td>
+    <td width="168" class="comdec">EEPROM操作失败</td>
+    <td width="447" class="comdec"><p>0X1D+结束符 </p>
+操作EEPROM失败时返回此数据</td>
+  </tr>
+  <tr>
+    <td class="xuhao">0X1E</td>
+    <td width="168" class="comdec">参数数量无效</td>
+    <td width="447" class="comdec"><p>0X1E+结束符 </p>
+用户输入的指令中参数数量错误的时候返回此数据</td>
+  </tr>
+  <tr>
+    <td class="xuhao">0X1F</td>
+    <td width="168" class="comdec">IO操作失败</td>
+    <td width="447" class="comdec"><p>0X1F+结束符 </p>
+操作IO失败时返回此数据</td>
+  </tr>
+  <tr>
+    <td class="xuhao">0X20</td>
+    <td width="168" class="comdec">转义字符使用错误</td>
+    <td width="447" class="comdec">0X20+结束符<br />
+    转义字符使用错误时返回此数据</td>
+  </tr>
+  <tr>
+    <td class="xuhao">0X23</td>
+    <td width="168" class="comdec">变量名称太长</td>
+    <td width="447" class="comdec"><span class="comdec">0X23+结束符<br />
+    变量名称长度最大29个字符，超出就会返回此数据</span></td>
+  </tr>
+  <tr>
+    <td class="xuhao">0X24</td>
+    <td width="168" class="comdec"><span class="comdec4">串口缓冲区</span>溢出</td>
+    <td width="447" class="comdec"><p>0X24+结束符<br />
+    当串口缓冲区被占满以后会返回此数据</p>
+    <p>(缓冲区溢出以后，缓冲队列里的指令执行完成后会为缓冲区腾出空间以继续接收指令，在此之前，串口收到的数据将会丢弃)</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="750" height="91" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td height="91" align="left" valign="top" class="a01"><p align="center" class="a3"><strong>表格二：其他数据返回格式 </strong></p>
+      <p align="center" class="a0">1<strong>.以下数据的返回不受bkcmd影响。 </strong></p>
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td class="a0_h"><strong>2.设备返回数据的结束符为&quot;0XFF 0XFF 0XFF&quot;三个字节。 </strong></td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="750" border="1" align="center" cellpadding="0" cellspacing="0" class="biao">
+  <tr>
+    <td width="79"><br />
+      返回数据第一位 </td>
+    <td width="168"><p>含义 </p></td>
+    <td width="447"><p>格式 </p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X65</p></td>
+    <td width="168" class="comdec"><p>触摸热区事件返回 </p></td>
+    <td width="447" class="comdec"><p>0X65+页面ID+按键ID+触摸事件+结束符 <br />
+      (用户创建的控件被按下或弹起时返回此数据，前提是您勾选了控件的&quot;发送键值&quot;选框)<br />
+      (触摸事件的定义：按下事件0x01 弹起事件0X00)<br />
+      举例:0X65 0X00 0X02 0X01 0XFF 0XFF 0XFF<br />
+      含义:页面0 按钮2 按下 </p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X66</p></td>
+    <td width="168" class="comdec"><p>当前页面的ID号返回 </p></td>
+    <td width="447" class="comdec"><p>0X66+页面ID+结束符 <br />
+      (设备收到&quot;sendme&quot;指令时会返回此数据)<br />
+      举例：0X66 0X02 0XFF 0XFF 0XFF<br />
+      含义：当前页面ID为2</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X67</p></td>
+    <td width="168" class="comdec"><p>触摸坐标数据返回 </p></td>
+    <td width="447" class="comdec"><p>0X67++坐标X高位+坐标X低位+坐标Y高位+坐标Y低位+触摸事件状态+结束符 <br />
+      (当系统变量&quot;sendxy&quot;为1之后，有触摸事件时返回此数据)<br />
+      (触摸事件的定义：按下事件0x01 弹起事件0X00)<br />
+      举例:0X67 0X00 0X7A    0X00 0X1E 0X01 0XFF 0XFF 0XFF<br />
+      含义:坐标(122,30) 事件: 按下 </p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X68</p></td>
+    <td width="168" class="comdec"><p>睡眠模式触摸事件 </p></td>
+    <td width="447" class="comdec"><p>0X68++坐标X高位+坐标X低位+坐标Y高位+坐标Y低位+触摸事件状态+结束符 <br />
+      (当设备进入睡眠模式后，有触摸事件时返回此数据)<br />
+      (触摸事件的定义：按下事件0x01 弹起事件0X00)<br />
+      举例:0X68 0X00 0X7A    0X00 0X1E 0X01 0XFF 0XFF 0XFF<br />
+      含义:坐标(122,30) 事件: 按下 </p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X70</p></td>
+    <td width="168" class="comdec"><p>字符串变量数据返回 </p></td>
+    <td width="447" class="comdec"><p>0X70+变量内容ASCII码+结束符 <br />
+      使用get指令获取的变量为字符串类型时，返回此数据.<br />
+      举例:0X70 0X61 0X62 0X63 0XFF 0XFF 0XFF<br />
+      含义：返回字符串数据:&quot;abc&quot;</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X71</p></td>
+    <td width="168" class="comdec"><p>数值变量数据返回 </p></td>
+    <td width="447" class="comdec"><p>0X71+变量二进制数据（4字节小端模式,低位在前）+结束符 <br />
+      使用get指令获取的变量为数值时，返回此数据.<br />
+      举例:0X71 0X66 0X00 0X00 0X00 0XFF 0XFF 0XFF<br />
+      含义：返回数值数据:102</p></td>
+  </tr>
+  <tr>
+    <td class="xuhao">0X86</td>
+    <td width="168" class="comdec">设备自动进入睡眠模式</td>
+    <td width="447" class="comdec"><p>0x86+结束符</p>
+    <p>只有设备自动进入睡眠模式的时候会返回此数据，如果是执行串口指令sleep=1进入的睡眠不会返回此数据。</p></td>
+  </tr>
+  <tr>
+    <td class="xuhao">0X87</td>
+    <td width="168" class="comdec">设备自动唤醒</td>
+    <td width="447" class="comdec"><p>0x87+结束符</p>
+    <p>只有设备自动唤醒的时候会返回此数据，如果是执行串口指令sleep=0唤醒的睡眠不会返回此数据。</p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X88</p></td>
+    <td width="168" class="comdec"><p>系统启动成功 </p></td>
+    <td width="447" class="comdec"><p>0x88+结束符</p>
+    <p>设备上电初始化成功之后发送此数据 </p></td>
+  </tr>
+  <tr>
+    <td width="79" class="xuhao"><p>0X89</p></td>
+    <td width="168" class="comdec"><p>开始SD卡升级 </p></td>
+    <td width="447" class="comdec"><p>0x89+结束符</p>
+    <p>设备上电检测到SD卡之后将发送此数据,然后进入升级界面 </p></td>
+  </tr>
+  <tr>
+    <td class="xuhao">0XFD</td>
+    <td width="168" class="comdec">透传数据完成</td>
+    <td width="447" class="comdec"><p>0xFD+结束符 </p>
+透传数据结束并处理数据完成后发送此数据</td>
+  </tr>
+  <tr>
+    <td class="xuhao">0XFE</td>
+    <td width="168" class="comdec"><span class="comdec1">数据透传就绪</span></td>
+    <td width="447" class="comdec"><span class="comdec2">设备收到数据透传指令后，进入透传数据初始化，初始化完成以后发送此数据，表示此时已经进入数据透传模式，可以开始数据透传</span></td>
+  </tr>
+</table>
+<p><br clear="all" />
+</p>
+<table width="750" height="2" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td height="2" align="left" valign="top" class="comdec2"><span class="titleB"><span class="a012"><span class="biao"><a href="index.htm" class="lianjie">返回首页</a></span></span></span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

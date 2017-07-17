@@ -34,6 +34,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ColListBox">
+      <HintPath>..\packages\ColListBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Colpanel">
+      <HintPath>..\packages\Colpanel.dll</HintPath>
+    </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=10.6.0.3, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\DevComponents.DotNetBar2.dll</HintPath>
@@ -64,7 +70,9 @@
     <Compile Include="bianyijieguotype.cs" />
     <Compile Include="brushxinxi.cs" />
     <Compile Include="bytes_14.cs" />
+    <Compile Include="codemessagetype.cs" />
     <Compile Include="CodeRun.cs" />
+    <Compile Include="comcan_type.cs" />
     <Compile Include="Commake.cs" />
     <Compile Include="comtype_32.cs" />
     <Compile Include="comtype_64.cs" />
@@ -72,9 +80,16 @@
     <Compile Include="CURVE_PARAM.cs" />
     <Compile Include="Datafind.cs" />
     <Compile Include="datasize.cs" />
+    <Compile Include="datazhuan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datazhuan.Designer.cs">
+      <DependentUpon>datazhuan.cs</DependentUpon>
+    </Compile>
     <Compile Include="download.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="encodetype.cs" />
     <Compile Include="eventtyte.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -87,6 +102,7 @@
     <Compile Include="guidatamake.cs" />
     <Compile Include="guiimagetype.cs" />
     <Compile Include="GuiSlider.cs" />
+    <Compile Include="gujianinf.cs" />
     <Compile Include="hexreplace_type.cs" />
     <Compile Include="Hmi.cs" />
     <Compile Include="ifbianyi_.cs" />
@@ -96,6 +112,13 @@
     <Compile Include="Lcd.cs" />
     <Compile Include="lcddevxinxi.cs" />
     <Compile Include="Lcd_Set_.cs" />
+    <Compile Include="ListMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListMessage.Designer.cs">
+      <DependentUpon>ListMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="listmessage_type.cs" />
     <Compile Include="matt.cs" />
     <Compile Include="MessageForm.cs">
       <SubType>Form</SubType>
@@ -105,10 +128,12 @@
     </Compile>
     <Compile Include="MessageOpen.cs" />
     <Compile Include="mobj.cs" />
+    <Compile Include="modelxinxi.cs" />
     <Compile Include="MouseState.cs" />
     <Compile Include="mpage.cs" />
     <Compile Include="myappinf.cs" />
     <Compile Include="Myapp_inf.cs" />
+    <Compile Include="nameidtypecrc.cs" />
     <Compile Include="objattcaozuo.cs" />
     <Compile Include="objmark_.cs" />
     <Compile Include="objsetcom.cs" />
@@ -144,7 +169,14 @@
     <Compile Include="Sysatt.cs" />
     <Compile Include="sysinf.cs" />
     <Compile Include="systimer_type.cs" />
+    <Compile Include="textmessage_type.cs" />
     <Compile Include="timeinf.cs" />
+    <Compile Include="TopMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopMessage.Designer.cs">
+      <DependentUpon>TopMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="tp_devinf.cs" />
     <Compile Include="upappinf.cs" />
     <Compile Include="urldown.cs" />
@@ -154,8 +186,22 @@
     <Compile Include="Win32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="xitongtype_32.cs" />
+    <Compile Include="xitongtype_64.cs" />
     <Compile Include="zimoxinxi.cs" />
     <Compile Include="_eventtype.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="help\h1.pdf" />
+    <None Include="help\h2.pdf" />
+    <None Include="help\h3.pdf" />
+    <None Include="help\h4.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="help\help_back.htm" />
+    <Content Include="help\help_com.htm" />
+    <Content Include="help\help_for.htm" />
+    <Content Include="help\help_va.htm" />
+    <Content Include="help\index.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<style type="text/css">
+body {	
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #FFF;
+}
+body,td,th {
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+	font-weight: bold;
+}
+.a3 {
+	line-height: 22px;
+	color: #F00;
+	text-align: left;
+}
+.biao{
+	font-size: 14px;
+	font-weight: normal;
+}
+.comtitle {	
+	align:"left";
+	valign:"middle";
+	height:25px;
+	background:#3366FF;
+	text-align: left;
+	color: #FFF;
+	font-size: 16px;
+}
+.comdec {
+	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei {
+	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+p{
+	margin: 1px;
+	padding: 0px;
+	color: #000;
+}
+.titleA {
+	font-size: 24px;
+}
+.titleB {
+	font-weight: normal;
+}
+.a0 {
+	align: left;
+	valign: top;
+	line-height: 22px;
+	text-align: left;
+}
+.a0_z {
+	align: left;
+	valign: top;
+	line-height: 22px;
+	text-align: left;
+	color: #600;
+}
+.a0_h{
+	background:#FFFF00; 
+	line-height:22px;
+	text-align: left;	
+}
+.lianjie{
+	font-weight: normal;
+	font-size: 18px;
+	text-align: left;
+}
+.comdec1 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei1 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei11 {align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comtitle1 {	align:"left";
+	valign:"middle";
+	height:25px;
+	background:#3366FF;
+	text-align: left;
+	color: #FFF;
+	font-size: 16px;
+}
+.comtitle2 {	align:"left";
+	valign:"middle";
+	height:25px;
+	background:#3366FF;
+	text-align: left;
+	color: #FFF;
+	font-size: 16px;
+}
+.comdec2 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei111 {align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec3 {	align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+}
+.comdec_bei112 {align:left;
+	valign:top;
+	line-height:22px;
+	text-align: left;
+	color: #03C;
+	font-size: 16px;
+	font-weight: normal;
+}
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#00CCFF" alink="#00CCFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<p>&nbsp;</p>
+<table width="750" height="2" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td align="left" valign="top" class="comdec"><span class="titleB"><span class="a01"><span class="biao"><a href="index.htm" class="lianjie">返回首页</a></span></span></span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p align="center"><strong class="titleA">串口HMI指令表 </strong><br />
+</p>
+<p align="center">&nbsp;</p>
+<table width="750" height="122" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td height="118" align="left" valign="top" class="a0">注 ：
+      <table width="0" border="0">
+        <tr>
+          <td class="a0_h">1. 设备接受指令结束符为 &quot; 0XFF 0XFF 0XFF &quot; 三个字节 。</td>
+        </tr>
+      </table>
+      <p>2. 所有指令名以及参数全部使用ASCII  字符串格式 ， 非二进制数据 ， 便于阅读和调试 。<br />
+      3. 所有指令名使用小写字母(此处仅仅指的是指令名称为小写 ， 参数该大写的时候还是要大写) 。</p>
+      <p><span class="a0_z">4.  0.39  版本开始，在运行中修改控件的任何属性都将自动刷新，不再需要使用手动刷新指令。( 原来的版本在<br />
+        修改非加粗属性时需要手动刷新) 。</span><br />
+    <span class="a3">分类一: 对象及系统操作指令</span></p></td>
+  </tr>
+</table>
+<table width="750" border="1" align="center" cellpadding="0" cellspacing="0" class="biao">
+  <tr>
+    <td class="comtitle">1.page                     刷新页面</td>
+  </tr>
+  <tr>
+    <td height="134" class="comdec">page pageid<br />
+      pageid:页面ID或页面名称<br />
+      实例1:page 0         (刷新ID为0的页面)<br />
+      实例2:page main      (刷新名称为main的页面)<br />
+      <span class="comdec_bei">备注：<br />
+      </span>
+      <p class="comdec_bei">1.设备上电自动刷新第0页。 </p>
+    <span class="comdec_bei"> 2.也可以对系统变量dp赋值来实现跳转页面(如dp=0)，系统变量dp可以设置可以读取，具体请参看系统变量列表。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">2.ref 重绘控件</td>
+  </tr>
+  <tr>
+    <td height="158" class="comdec"><p>ref obj<br />
+      obj:控件ID或控件名称<br />
+      实例1:ref 1    (重绘ID为1的控件)<br />
+      实例2:ref t0   (重绘名称为t0的控件)<br />
+      <span class="comdec_bei">备注：<br />
+      如果一个控件被 GUI 指令画出来的内容遮挡或者被另外的控件遮挡之后需要再显示出来，就使用 ref 来重绘。</span>
+    </p></td>
+  </tr>
+  <tr>
+    <td class="comtitle"><span class="comtitle">3.click                    激活控件的按下/弹起事件</span></td>
+  </tr>
+  <tr>
+    <td height="180" class="comdec"><p><span class="comdec">click obj,event<br />
+obj:控件ID或控件名称<br />
+event:事件序号:0为弹起，1为按下<br />
+click b0,1  (激活名称为b0的控件的按下事件)<br />
+click 2,0   (激活ID为2的控件的弹起事件)<br />
+<span class="comdec_bei">备注： <br />
+控件的按下/弹起事件在屏幕上触摸的时候会自动激活，如果在没有触摸的情况下想要手动激活，就使用click指令即可。</span></span></p>    </td>
+  </tr>
+  <tr>
+    <td class="comtitle"><span class="comtitle">4.get 带格式获取变量值/常量值</span></td>
+  </tr>
+  <tr>
+    <td height="291" class="comdec"><p>get att<br />
+        att:变量名称 <br />
+        实例1:get t0.txt (返回控件t0的txt属性值) 实例2:get j0.val(返回控件j0的val属性值)<br />
+        实例3:get &quot;123&quot;(返回常量字符串&quot;123&quot;) 实例4:get 123(返回常量数值：&quot;123&quot;)<br />
+        <span class="comdec_bei">备注： <br />
+        1.使用get指令获取的变量为字符串类型时，返回的数据为0X70+字符串内码+结束符，如果是数值类型(如进度条的val属性)设备返回0X71+变量的4字节十六进制数据(int类型)+结束符。数值的存放模式为小端模式（即低位在前，高位在后）。 <br />
+        2.get指令可以由串口发送，也可以在上位软件编辑界写进用户代码中实现屏幕主动发送变量(主动发送的时候可以配合printh指令在前面加一段自定义标示来告诉单片机此变量是属于哪个控件的)。 <br />
+        3.get指令和print指令很类似,唯一的区别是get返回的数据带了起始标示符（0x70或0x71）和结束符(0xff 0xff 0xff)，而print没有。 </span></p>
+      <p class="comdec_bei">4..数据具体返回格式请查看本表格后面的&quot;串口HMI设备返回数据格式&quot;。</p>
+      </td>
+  </tr>
+  <tr>
+    <td class="comtitle"><span class="comtitle">5.print 无格式获取变量值/常量值</span></td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>print att<br />
+att:变量名称 <br />
+实例1: print  t0.txt (返回控件t0的txt属性值)   实例2:  print j0.val(返回控件j0的val属性值)<br />
+实例 3: print &quot;123&quot;(返回常量字符串&quot;123&quot;即：0x31 0x32 0x33)<br />
+实例 4: print 123(返回常量数值：123 即: 0x7b 0x00 0x00 0x00)<br />
+<span class="comdec_bei">备注： <br />
+1.使用print指令获取的变量为字符串类型时，设备直接返回字符串内码，如果是数值类型(如进度条的val属性)设备直接返回变量的4字节十六进制数据(int类型)，数值的存放模式为小端模式（即低位在前，高位在后）。 <br />
+2.使用print指令获取数据的时候，设备仅仅只发送数据内容，没有起始标示符，也没有结束符。 <br />
+3.print指令可以配合printh指令在前面加一段自定义标示来告诉单片机此变量是属于哪个控件的)。 </span></p>
+      <span class="comdec_bei">
+4.  print指令和get指令很类似,唯一的区别是get返回的数据带了起始标示符（0x70或0x71）和结束符(0xff  0xff 0xff)，而print没有。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">6.printh 让设备的串口发送自定义16进制byte</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>printh hex<br />
+      hex:需要发送的字符的16进制字符串表达式 <br />
+      实例:printh d0 a0(让设备发送0xd0 0xa0两个字节)<br />
+      <span class="comdec_bei">备注： <br />
+1.使用printh指令发送数据的时候，设备仅仅只发送指定的字符，不会发起始符，不会发空格,不会发结束符。 </span></p>
+      <span class="comdec_bei">
+2.参数中每组字符间必须有且只能有一个空格隔开，16进制的字符串表达式大小写均支持。</span></td>
+  </tr>
+  <tr>
+    <td height="169" class="comtitle">7.vis                             隐藏/显示控件</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>vis obj,state <br />
+      obj:控件名称或控件ID<br />
+      state:状态(0或1)<br />
+      实例1:vis b0,0 (隐藏b0控件) 实例2:vis b0,1 (显示b0控件)<br />
+      实例3: vis 1,0 (隐藏ID为1的控件) 实例4: vis 1,1 (显示ID为1的控件)<br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+第一个参数  为255表示 当前页面所有控件，例:vis 255,0(隐藏当前页面所有控件) vis 255,1(显示当前页面所有控件)。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">8.tsw                            控件触摸使能</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>tsw obj,state<br />
+      obj:控件名称或控件ID<br />
+      state:状态(0或1)<br />
+      实例1:tsw b0,0 (让名称为b0的控件触摸失效) 实例2:tsw  b0,1 (让名称为b0的控件触摸有效)<br />
+      实例3:tsw 1,0 (让ID为1的控件触摸失效) 实例4:tsw 1,1 (让ID为1的控件触摸有效)<br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+第一个参数  为255表示 当前页面所有控件，例:tsw 255,0(当前页面所有控件触摸失效) tsw 255,1(当前页面所有控件触摸有效)。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">9.randset                         随机数范围设置</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>randset  minval,maxval<br />
+      minval:最小值 <br />
+      maxval:最大值 <br />
+      实例:ranset  1,100 (设置当前随机数产生范围为最小1，最大100)<br />
+      <span class="comdec_bei">备注： <br />
+      1.使用随机数之前需要先使用randset指令设定一次随机数产生范围，如果不设置，默认是最小0，最大2147483647。设置完范围以后，每读取一次系统变量rand将会得到一个随机数。 </span></p>
+      <p class="comdec_bei">
+    2.使用randset指令每设定一次范围，将一直有效，直到重新上电或者设备复位才会恢复默认。</p>
+    <p class="comdec_bei">3.随机数设定范围的数据类型为int类型(即：最小-2147483648,最大2147483647)。</p></td>
+  </tr>
+  <tr>
+    <td class="comtitle">10.add 往曲线控件添加数据</td>
+  </tr>
+  <tr>
+    <td height="225" class="comdec"><p class="comdec">add objid,ch,val<br />
+        objid:曲线控件ID序号(此处必须是ID号，不支持使用控件名称)<br />
+        ch:曲线控件通道号<br />
+        val:数据 (最大255，最小0)<br />
+        实例1:add 1,0,30 (往ID为1的曲线控件的0通道添加数据30)<br />
+        实例2:add 1,1,n0.val (往ID为1的曲线控件的1通道添加数据n0.val)</p>
+      <p class="comdec"> <span class="comdec_bei">备注：<br />
+        1.曲线数据只支持8位数据，最小0，最大255。<br />
+    2.每个page页面最多支持4个曲线控件,每个曲线控件最多支持4个通道。可以连续发送数据，控件会自动平推显示数据.在发送数据的过程中也可以随时修改控件属性，比如随时修改各个通道的前景色或背景色。</span></p></td>
+  </tr>
+  <tr>
+    <td class="comtitle">11.cle                        清除曲线控件中的数据</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>cle objid,ch<br />
+      objid:曲线控件ID序号(此处必须是ID号，不支持使用控件名称)<br />
+      ch:曲线控件通道号(255表示所有通道)<br />
+      实例1:cle 1,0   (清除ID为1的曲线控件的0通道数据)<br />
+      实例2:cle 1,255 (清除ID为1的曲线控件的所有通道数据)<br />
+      <span class="comdec_bei">备注：<br />
+      1.通道号为255时表示清除此曲线控件内的所有通道数据。      </span></p>    </td>
+  </tr>
+  <tr>
+    <td class="comtitle">12.addt                          曲线数据透传指令</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>addt  objid,ch,qyt<br />
+      objid: 曲线控件ID序号(此处必须是ID号，不支持使用控件名称)<br />
+      ch:曲线控件中的通道号<br />
+      qyt:本次透传数据的点数量<br />
+      实例:addt 1,0,100  (ID为1的曲线控件进入数据透传模式，透传点数为100点)<br />
+      <span class="comdec_bei">备注：<br />
+      1.曲线数据只支持8位数据，最小0，最大255。单次透传数据量最大1024字节<br />
+      2.发完透传指令后，用户需要等待设备响应才能开始透传数据，设备收到透传指令后，准备透传初始化数据大概需要5ms左右(如果在透传指令执行前串口缓冲区还有很多别的指令，那时间会更长)，设备透传初始化准备好以后会发送一个透传就绪的数据给用户（0XFE+结束符），表示设备已经准备好，此时可以开始发送透传数据。透传数据为纯16进制数据，不再使用字符串，也不再需要结束符,设备收完指定的数据量以后，才会恢复指令接收状态。否则一直处于数据透传状态，透传数据完成以后,设备会发送结束标记给用户（0XFD+结束符）。<br />
+      3.在指定的透传数量传输完成以前，曲线不会刷新，透传完毕之后会立即自动刷新。</span><br />
+    </p>    </td>
+  </tr>
+  <tr>
+    <td class="comtitle">13.doevents                转让系统控制权给屏幕刷新</td>
+  </tr>
+  <tr>
+    <td height="124" class="comdec"><p>doevents <br />
+      实例: doevents (此指令不需要参数)<br />
+      <span class="comdec_bei">备注：<br />
+      1.在一个较多指令的过程执行中，或者在一个较长时间的循环语句中，系统所有控制权被此过程全部占用，在过程结束之前，尽管相应的内存数据可以任意正常读写，但是屏幕不会刷新显示，加入doevents后可以转让控制权给屏幕刷新，执行doevents之后，屏幕会刷新所有被改变过的控件，刷新完之后，控制权交回当前过程继续执行。防止屏幕呈现假死的显示状态。<br />
+    2.doevents多数情况下是配合while或for语句使用，使用方法请参看while或for语句的实例。</span></p>    </td>
+  </tr>
+  <tr>
+    <td class="comtitle"><span class="comtitle">14.sendme 发送当前页面ID号到串口</span></td>
+  </tr>
+  <tr>
+    <td class="comdec"><p><span class="comdec">sendme<br />
+实例1：sendme    (此指令不需要参数)</span><span class="comdec"><br />
+</span><span class="comdec_bei">备注:</span></p>
+      <span class="comdec_bei">设备收到此指令会立刻把当前页面的ID号发送到串口，如果想要每次刷新页面自动发送页面ID,请在页面的初始化事件里写上sendme语句即可。发送格式请参看本表格后面的&quot;串口HMI设备返回数据格式&quot;表格。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">15.cov 变量类型转换</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>cov att1,att2,lenth</p>
+    <p>att1:源变量</p>
+    <p>att2:目标变量</p>
+    <p>lenth:字符串的长度(0为自动长度，非0为固定长度)</p>
+    <p>实例1:cov h0.val,t0.txt,0 (把滑块h0的val数值变量转换成10进制字符串并赋值给文本t0的txt变量,长度为自动)</p>
+    <p>实例2:cov t0.txt,h0.val,0 (把文本t0的txt字符串变量转换为数值并赋值给滑块h0的val数值变量,长度为自动)</p>
+    <p class="comdec_bei">备注:</p>
+    <p class="comdec_bei">1.lenth始终表示的是字符串长度，数值转字符串的时候是目标变量的长度，字符串转数值的时候是源对变量长度。</p>
+    <p class="comdec_bei">2.如果目标变量和源变量类型相同，转换失败。</p></td>
+  </tr>
+  <tr>
+    <td class="comtitle">16.strlen 字符串变量字符长度测试</td>
+  </tr>
+  <tr>
+    <td class="comdec"><span class="comdec1">
+      <p>strlen att0,att1<br />
+        att0:需要测试的字符串变量 <br />
+        att1:把测试结果赋值给此变量 <br />
+        实例:strlen t0.txt,n0.val (把字符串变量t0.txt的实际字符长度赋值给n0.val)<br />
+  <span class="comdec_bei1">备注:<br />
+  1.strlen测试的是以字符为单位的长度，而btlen测试的是以字节为单位的长度,比如一个汉字用btlen测试出来的长度是2字节,用strlen测试出来的长度是1字符。<br />
+  2.被测试的变量必须是字符串类型，写入的变量必须是数值类型，否则会报错。<br />
+  </span></p></span></td>
+  </tr>
+  <tr>
+    <td class="comtitle"><span class="comtitle2">17.btlen 字符串变量字节长度测试</span></td>
+  </tr>
+  <tr>
+    <td class="comdec">btlen att0,att1<br />
+att0:需要测试的字符串变量 <br />
+att1:把测试结果赋值给此变量 <br />
+实例:btlen t0.txt,n0.val (把字符串变量t0.txt的实际字节长度赋值给n0.val)<br />
+<span class="comdec_bei11">备注:<br />
+1.<span class="comdec2"><span class="comdec_bei111">btlen测试的是以字节为单位的长度,<span class="comdec3"><span class="comdec_bei112">而</span></span></span></span>strlen测试的是以字符为单位的长度，比如一个汉字用btlen测试出来的长度是2字节,用strlen测试出来的长度是1字符。<br />
+2.被测试的变量必须是字符串类型，写入的变量必须是数值类型，否则会报错。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle"><span class="comtitle1">18.substr 字符串截取</span></td>
+  </tr>
+  <tr>
+    <td class="comdec"><p class="comdec">substr att0,att1,star,lenth<br />
+att0:源变量(必须是字符串变量)<br />
+att1:目标变量(必须是字符串变量)<br />
+star:在源变量中的字符起始位置 <br />
+lenth:截取字符串长度 </p>
+    <span class="comdec">    实例:substr t0.txt,t1.txt,0,2  (从t0.txt中的0位置开始截取2个字符赋值给t1.txt)</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle"><span class="comtitle">19.touch_j 触摸校准</span></td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>touch_j<br />
+      实例1：touch_j (进入触摸校准功能,此指令不需要参数) <br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+所有设备出厂时已经校准过，一般情况下不需要使用此功能</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">20.ref_stop 暂停屏幕刷新</td>
+  </tr>
+  <tr>
+    <td height="178" class="comdec_bei"><span class="comdec">ref_stop<br />
+      实例:ref_stop (此指令不需要参数)</span><br />
+      备注：<br />
+1.暂停屏幕刷新之后，所有语句会继续解析并执行，相应的属性赋值操作也会正常运行，但是屏幕上的控件不会刷新，修改任何控件的任何属性都不会自动刷新显示（但是属性已经被正常修改了）。直到设备收到恢复刷新指令(ref_star)后，被修改过的控件将会立刻刷新显示。<br />
+      2.暂停刷新之后，即便使用ref指令也不会立刻刷新，直到执行ref_star指令的时候统才会统一刷新，但是所有的gui绘图指令(比如画点，划线，画圆等)是不受影响的，会立即显示。<br /></td>
+  </tr>
+  <tr>
+    <td class="comtitle">21.ref_star 恢复屏幕刷新</td>
+  </tr>
+  <tr>
+    <td class="comdec">ref_star<br />
+      实例:ref_star (此指令不需要参数)<br />
+      <span class="comdec_bei">备注：<br />
+    此指令和ref_stop配合使用。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle"><span class="comtitle">22.com_stop 暂停串口指令执行</span></td>
+  </tr>
+  <tr>
+    <td align="right" class="comdec"><p>com_stop<br />
+      实例1:com_stop  (此指令不需要参数)<br />
+      <span class="comdec_bei">备注： <br />
+      1. 暂停串口指令执行之后设备会继续接受指令，但是都不会执行，全部放在指令缓存区，直到收到&quot;com_star&quot;指令后，设备会从暂停时的指令开始到当前为止的所有指令全部执行。 </span></p>
+      <span class="comdec_bei">
+2.使用指令暂停与恢复功能的时候，请评估您的设备的串口缓存区大小和指令缓存队列的最大数量是否足够支持你需要缓存的指令数目。这两项参数在你购买的设备规格书中的参数表中可以查询到。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">23.com_star 恢复串口指令执行</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>com_star<br />
+      实例1:com_star  (此指令不需要参数)<br />
+      <span class="comdec_bei">备注： <br />
+      1. 设备收到此指令之后，将从暂停时的指令开始到当前为止的所有指令全部执行。 </span></p>
+      <span class="comdec_bei">
+2.使用指令暂停与恢复功能的时候，请评估您的设备的串口缓存区大小和指令缓存队列的最大数量是否足够支持你需要缓存的指令数目。这两项参数在你购买的设备规格书中的参数表中可以查询到。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">24.code_c 清空串口指令缓冲区中还没有执行的所有指令</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>code_c<br />
+      实例1: code_c   (此指令不需要参数)</p>
+立即清空串口指令缓冲区还没有执行的所有指令。</td>
+  </tr>
+  <tr>
+    <td class="comtitle">25.rest 复位</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>rest</p>
+    <p>实例:rest (此指令不需要参数)</p></td>
+  </tr>
+  <tr>
+    <td class="comtitle">26. wepo                   写入一个变量到用户存储区(EEPROM) </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99" class="comdec"><p><strong class="a3">仅增强型及以上系列适用 </strong><br />
+      wepo att,add<br />
+      att:变量/常量 <br />
+      add:用户存储区位置(从0开始) <br />
+      实例1:wepo t0.txt,10   (将t0.txt的内容写入用户存储区的第10位置,在储存区中的占用空间为t0.txt的最大设置值+1，即t0的txt-maxl属性表示的大小+1)<br />
+      实例2:wepo &quot;abcd&quot;,10   (将字符串&quot;abcd&quot;写入用户存储区的第10位置，在储存区中占用大小为5字节)<br />
+      实例3:wepo 125,10    (将数值125写入用户存储区的第10位置, 在储存区中占用大小为4字节)<br />
+      <span class="comdec_bei">备注:<br />
+      1.写入内容为变量字符串的时候，在储存区中的占用空间为此变量的最大字符数+1；写入内容为常量字符串的时候，在储存区中的占用空间为此常量字符串的实际字符数+1。 <br />
+      2.写入内容为变量数值或常量数值的时候，在储存区中的占用空间统一为4字节。 </span></p>
+      <span class="comdec_bei">
+3.使用用户存储区读写操作过程中请切记规划好数据区位置，以免位置交错引起数据覆盖错乱。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">27.repo                   从用户存储区(EEPRO)读数据到一个变量</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99" class="comdec"><p><strong class="a3">仅增强型及以上系列适用 </strong><br />
+      repo att,add<br />
+      att:变量/常量 <br />
+      add:用户存储区位置(从0开始)  <br />
+      实例1:repo t0.txt,10   (从用户存储区的10位置读数据到t0.txt变量中,在储存区中的读取数据量为t0.txt的最大设置值+1，即t0的txt-maxl属性表示的大小+1)<br />
+      实例2.repo n0.val,10   (从用户存储区的10位置读数据到n0.val,在存储区中的读取数据量为4字节)<br />
+      <span class="comdec_bei">备注:<br />
+      1.读入内容为变量字符串的时候，在储存区中的读取数据量为此变量的最大字符数+1。 <br />
+      2.读入内容为变量数值时候，在储存区中的读取数据量统一为4字节。 </span></p>
+      <span class="comdec_bei">
+3.使用用户存储区读写操作过程中请切记规划好数据区位置，以免位置交错引起数据覆盖错乱。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">28.wept                     透传数据写入用户存储区(EEPROM)</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99" class="comdec"><p><strong class="a3">仅增强型及以上系列适用</strong> <br />
+      wept add,lenth<br />
+      add:用户存储区位置(从0开始) <br />
+      lenth:透传长度 <br />
+      实例:wept 10,30   (透传30个字节的数据存到EEPROM的10位置，占用空间为10-39)<br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+1.发完透传指令后，用户需要等待设备响应才能开始透传数据，设备收到透传指令后，准备透传初始化数据大概需要5ms左右(如果在透传指令执行前串口缓冲区还有很多别的指令，那时间会更长)，设备透传初始化准备好以后会发送一个透传就绪的数据给用户（0XFE+结束符），表示设备已经准备好，此时可以开始发送透传数据。透传数据为纯16进制数据，不再使用字符串，也不再需要结束符,设备收完指定的数据量以后，才会恢复指令接收状态。否则一直处于数据透传状态，透传数据完成以后,设备会发送结束标记给用户（0XFD+结束符）。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">29.rept                     从用户存储区读取数据并透传发送到串口</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99" class="comdec"><p><strong class="a3">仅增强型及以上系列适用</strong> <br />
+      rept add,lenth<br />
+      add:用户存储区位置(从0开始) <br />
+      lenth:读取并透传发送的长度 <br />
+      实例:rept 10,30   (从用户存储区的10位置读取30个字节并透传发送到串口)<br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+不管存储区中的数据是字符串还是数值，设备都按16进制来读取和发送指定的字节数量到串口，并且不会发结束符。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">30. cfgpio                     扩展IO模式配置</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99" class="comdec"><p><strong class="a3">仅增强型及以上系列适用</strong> <br />
+      cfgpio id,state,obj<br />
+      id:扩展IO的序号 <br />
+      state:配置模式(0-上拉输入模式,1-控件事件邦定输入模式,2-推挽输出模式,3-PWM输出模式,4-开漏模式)<br />
+      obj:绑定控件名称或ID(此参数仅在配置为控件事件邦定输入模式下有效，其他模式下无效)<br />
+      实例1:cfgpio 0,0,0   (将io0配置为上拉输入，配置为此模式后，任意时刻可以使用系统变量pio0读取当前输入电平,如:n0.val=pio0)<br />
+      实例2:cfgpio 1,2,0   (将io1配置为推挽输出,配置为此模式后，任意时刻可以使用系统变量pio1控制当前输出电平，如:pio1=1)<br />
+      实例3:cfgpio 2,1,b0 (将io2配置为控件事件邦定输入，邦定控件为b0,配置为此模式后，io2产生下降沿的时候将触发b0控件的按下事件，产生上升沿的时候将触发b0控件的弹起事件)<br />
+      实例4:cfgpio 4,3,0 (将io4配置为PWM输出模式，配置之前需要先设置占空比，即系统变量变量中的pwm4)<br />
+      <span class="comdec_bei">备注： <br />
+      1.只有io4-io7才支持PWM输出，其他IO不支持。配置其他IO为PWM模式会报错。 </span></p>
+      <span class="comdec_bei">
+2.使用控件事件邦定输入模式时，必须是在当前配置时刻的当前页面的控件才能邦定，不可以邦定其他页面的控件（即使是全局内存占用的控件也不可以），邦定当前页面控件以后，当重新刷新页面或者切换到别的页面后，邦定事件将不会继续触发，因此每次刷新页面需要重新邦定，建议将邦定代码写在页面的前初始化事件中最为合适。</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="750" height="90" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td height="90" align="left" valign="top" class="a0"><p><strong class="a3">分类二:GUI绘图指令 </strong><br />
+      注：GUI绘图指令主要应用在如下场合： <br />
+    当上位界面编辑软件无法实现您的某些特殊显示要求的时候，使用GUI指令自己绘图来实现自己想要的显示效果。大多数情况下其实是不需要使用这些绘图指令的，大多数的应用都可以通过界面编辑软件的控件操作来实现。 </p></td>
+  </tr>
+</table>
+<table width="750" border="1" align="center" cellpadding="0" cellspacing="0" class="biao">
+  <tr>
+    <td class="comtitle">1.cls 清屏指令</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>cls color<br />
+      color:十进制颜色值或颜色代号 <br />
+      实例1:cls  1024  (用十进制1024的颜色值刷屏)<br />
+      实例2：cls RED  (用代号为RED的颜色（RED代表红色）刷屏)<br />
+      <span class="comdec_bei">备注： <br />
+      1.想得到某个颜色的10进制数据可以使用设备配套的界面编辑软件&quot;TJCHMI&quot;获取，进入软件菜单栏&quot;工具&quot;-&quot;取色工具&quot;。 <br />
+      2.想了解设备支持的颜色代号表请参看本表格后面的&quot;串口HMI颜色代号表&quot;。 </span></p>
+      <span class="comdec_bei">
+3.本指令表中所有指令中的颜色参数，全部都可以使用设备支持的颜色代号，也可以使用10进制的颜色值，请知晓。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">2.pic 刷图指令</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>pic x,y,picid<br />
+      x:起始点x坐标； <br />
+      y:起始点y坐标； <br />
+      picid:图片ID； <br />
+      实例1:pic  10,20,0  (在坐标(10,20)位置显示资源文件中图片ID为0的图片)</p>
+实例2:pic  40,50,1  (在坐标(40,50)位置显示资源文件中图片ID为1的图片 )</td>
+  </tr>
+  <tr>
+    <td class="comtitle">3.picq 切图指令</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>格式:picq  x,y,w,h,picid<br />
+      x:屏幕起始点x坐标； <br />
+      y:屏幕起始点y坐标； <br />
+      w:区域宽度 ； <br />
+      h:区域高度； <br />
+      picid:图片ID； <br />
+      实例1:picq  20,50,30,20,0  （将图片0(必须是全屏图片)起始坐标(20,50)宽度30高度20这个区域切到屏幕上显示，显示坐标也是(20,50)的起始坐标） <br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+此指令要求图片必须是全屏图片，否则切出来的图像不是你想要的。图片上的切图区域和屏幕上的显示区是重叠的。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">4.xpic 高级切图指令</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>格式:xpic  x,y,w,h,x0,y0,picid<br />
+      x:屏幕起始点x坐标； <br />
+      y:屏幕起始点y坐标； <br />
+      w:区域宽度 ； <br />
+      h:区域高度； <br />
+      x0:图片起始点x坐标； <br />
+      y0:图片起始点y坐标； <br />
+      picid:图片ID； </p>
+实例1:xpic 20,50,30,20,40,15,0  （将图片0起始坐标(40,15)宽度30高度20这个区域切到屏幕上显示，屏幕上的显示起始坐标为(20,50)）</td>
+  </tr>
+  <tr>
+    <td class="comtitle">5.xstr 写字指令</td>
+  </tr>
+  <tr>
+    <td><p class="comdec">xstr  x,y,w,h,fontid,pointcolor,backcolor,xcenter,ycenter,sta,string<br />
+      x:起始点坐标x； <br />
+      y:起始点坐标y； <br />
+      w:区域宽度； <br />
+      h:区域高度； <br />
+      fontid:字库ID； <br />
+      pointcolor:字体颜色； <br />
+      backcolor:背景色(sta设置为切图或图片时，backcolor表示图片ID);<br />
+      xcenter:水平对齐方式(0为左对齐，1为居中，2为右对齐)；<br />
+      ycenter: 垂直对齐方式(0为上对齐，1为居中，2为下对齐)；<br />
+      sta:背景填充方式(0为切图，1为单色，2为图片，3为无背景,sta设置为切图或图片时，backcolor表示图片ID)<br />
+      string:字符内容；<br />
+      实例1:xstr 0,0,100,30,1,RED,BLACK,1,1,1,&quot;中国&quot; <br />
+      实例解释：使用字库1在起始坐标(0,0)，宽度100,高度30这个区域写出&quot;中国&quot;，字体色为RED，背景色为BLACK(如果不想写背景色(即无背景)可以设置sta参数为3),水平对齐方式为居中，垂直对齐方式也为居中。<br />
+      <span class="comdec_bei">备注： <br />
+     1.字符写到超过设定的w以后将自动换行，如果换行到h之后还有剩下的字符没写完，将会被忽略。</span></p>
+    <p class="comdec"><span class="comdec_bei">2.关于颜色值的说明请参看cls指令的备注。</span></p></td>
+  </tr>
+  <tr>
+    <td class="comtitle">6.fill  区域填充指令</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>fill x,y,w,h,color<br />
+      x:起始点坐标x ； <br />
+      y:起始点坐标y； <br />
+      w:区域宽度； <br />
+      h:区域高度； <br />
+      color:填充颜色； <br />
+      实例1:fill  0,0,100,30,RED   (在起始坐标(0,0)宽度100，高度30这个区域填充RED颜色)<br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+关于颜色值的说明请参看cls指令的备注。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">7．line  画线指令</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>line x,y,x2,y2,color<br />
+      x:起始点坐标x； <br />
+      y:起始点坐标y； <br />
+      x2:结束点坐标x ； <br />
+      y2:结束点坐标y； <br />
+      color:画线颜色； <br />
+      实例1:line  0,0,100,100,RED  (在坐标(0,0)和坐标(100,100)之间画出一条RED颜色的线)<br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+关于颜色值的说明请参看cls指令的备注。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">8.draw 画矩形</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>draw x,y,x2,y2,color<br />
+      x:起始点坐标x ； <br />
+      y:起始点坐标y； <br />
+      x2:结束点坐标x ； <br />
+      y2:结束点坐标y； <br />
+      color:画线颜色； <br />
+      实例1:draw 0,0,100,100,RED    (画一个矩形，左上角为(0,0),右下角为(100,100), 颜色为RED)<br />
+      <span class="comdec_bei">备注： <br />
+      1.draw画出来的是空心矩形，需要填充实心矩形的话请直接使用fill区域填充指令。 </span></p>
+      <span class="comdec_bei">
+2. 关于颜色值的说明请参看cls指令的备注。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">9.cir 画空心圆</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>cir x,y,r,color<br />
+      x:圆心坐标x <br />
+      y:圆心坐标y<br />
+      r:半径 <br />
+      color:画线颜色； <br />
+      实例1:cir  100,100,30,RED   以坐标(100,100)为圆心画一个半径为30的空心圆，颜色为RED<br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+关于颜色值的说明请参看cls指令的备注。</span></td>
+  </tr>
+  <tr>
+    <td class="comtitle">10.cirs                           画实心圆</td>
+  </tr>
+  <tr>
+    <td class="comdec"><p>cirs x,y,r,color<br />
+      x:圆心坐标x <br />
+      y:圆心坐标y<br />
+      r:半径 <br />
+      color:填充颜色； <br />
+      实例1:cir  100,100,30,RED   以坐标(100,100)为圆心画一个半径为30的实心圆，填充颜色为RED<br />
+      <span class="comdec_bei">备注： </span></p>
+      <span class="comdec_bei">
+关于颜色值的说明请参看cls指令的备注。</span></td>
+  </tr>
+</table>
+<table width="750" height="90" border="0" align="center" cellpadding="0" cellspacing="0" class="a1">
+  <tr>
+    <td height="90" align="left" valign="top" class="a0"><p class="comdec_bei">提示：本指令表中所有指令中的颜色参数，全部都可以使用设备支持的颜色代号，也可以使用10进制的颜色值，请知晓，想了解设备支持的颜色代号表请参看本表格后面的&quot;串口HMI颜色代号表&quot;，想得到某个颜色的10进制数据可以使用设备配套的界面编辑软件&quot;USART HMI&quot;获取，进入软件菜单栏&quot;工具&quot;-&quot;取色工具&quot;。</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="750" height="2" border="0" align="center" cellpadding="0" cellspacing="0" class="lianjie">
+  <tr>
+    <td align="left" valign="middle" class="lianjie"><a href="index.htm">返回首页</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
