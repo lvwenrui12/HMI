@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E7FF6EDC-5433-4635-95F4-24E0595E4E83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>hmitype</RootNamespace>
+    <AssemblyName>hmitype</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=10.6.0.3, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="appinf0.cs" />
+    <Compile Include="appinf1.cs" />
+    <Compile Include="attinf.cs" />
+    <Compile Include="attinf_Up.cs" />
+    <Compile Include="Attmake.cs" />
+    <Compile Include="attshulei.cs" />
+    <Compile Include="attshulei_type.cs" />
+    <Compile Include="attshuvis.cs" />
+    <Compile Include="attstrtype_32.cs" />
+    <Compile Include="attstrtype_64.cs" />
+    <Compile Include="bianyijieguotype.cs" />
+    <Compile Include="brushxinxi.cs" />
+    <Compile Include="bytes_14.cs" />
+    <Compile Include="CodeRun.cs" />
+    <Compile Include="Commake.cs" />
+    <Compile Include="comtype_32.cs" />
+    <Compile Include="comtype_64.cs" />
+    <Compile Include="CURVE_CHANNEL_PARAM.cs" />
+    <Compile Include="CURVE_PARAM.cs" />
+    <Compile Include="Datafind.cs" />
+    <Compile Include="datasize.cs" />
+    <Compile Include="download.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eventtyte.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="guanggaotype.cs" />
+    <Compile Include="GuiCurve.cs" />
+    <Compile Include="guidatamake.cs" />
+    <Compile Include="guiimagetype.cs" />
+    <Compile Include="GuiSlider.cs" />
+    <Compile Include="hexreplace_type.cs" />
+    <Compile Include="Hmi.cs" />
+    <Compile Include="ifbianyi_.cs" />
+    <Compile Include="ischonghui.cs" />
+    <Compile Include="keyboardlisttype.cs" />
+    <Compile Include="Kuozhan.cs" />
+    <Compile Include="Lcd.cs" />
+    <Compile Include="lcddevxinxi.cs" />
+    <Compile Include="Lcd_Set_.cs" />
+    <Compile Include="matt.cs" />
+    <Compile Include="MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageOpen.cs" />
+    <Compile Include="mobj.cs" />
+    <Compile Include="MouseState.cs" />
+    <Compile Include="mpage.cs" />
+    <Compile Include="myappinf.cs" />
+    <Compile Include="Myapp_inf.cs" />
+    <Compile Include="objattcaozuo.cs" />
+    <Compile Include="objmark_.cs" />
+    <Compile Include="objsetcom.cs" />
+    <Compile Include="objsetcom_P.cs" />
+    <Compile Include="objtype.cs" />
+    <Compile Include="objxinxi.cs" />
+    <Compile Include="pageidchange_.cs" />
+    <Compile Include="pageobjs_.cs" />
+    <Compile Include="pagexinxi.cs" />
+    <Compile Include="pagexinxi_up.cs" />
+    <Compile Include="Picturexinxi.cs" />
+    <Compile Include="PosLaction.cs" />
+    <Compile Include="progform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="progform.Designer.cs">
+      <DependentUpon>progform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Readdata.cs" />
+    <Compile Include="redianinf.cs" />
+    <Compile Include="Rtc.cs" />
+    <Compile Include="runapptype.cs" />
+    <Compile Include="runattinf.cs" />
+    <Compile Include="ScreenRef_.cs" />
+    <Compile Include="screenxinxi.cs" />
+    <Compile Include="SendCom_.cs" />
+    <Compile Include="Sendruncodestr_.cs" />
+    <Compile Include="Showpic.cs" />
+    <Compile Include="SLIDER_PARAM.cs" />
+    <Compile Include="Strmake.cs" />
+    <Compile Include="strxinxi.cs" />
+    <Compile Include="Sys.cs" />
+    <Compile Include="Sysatt.cs" />
+    <Compile Include="sysinf.cs" />
+    <Compile Include="systimer_type.cs" />
+    <Compile Include="timeinf.cs" />
+    <Compile Include="tp_devinf.cs" />
+    <Compile Include="upappinf.cs" />
+    <Compile Include="urldown.cs" />
+    <Compile Include="Usart.cs" />
+    <Compile Include="UsartUpdatainf.cs" />
+    <Compile Include="WebClientString.cs" />
+    <Compile Include="Win32.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xitongtype_32.cs" />
+    <Compile Include="zimoxinxi.cs" />
+    <Compile Include="_eventtype.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
