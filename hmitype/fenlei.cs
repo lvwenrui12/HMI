@@ -13,6 +13,7 @@ namespace hmitype
 {
     public partial class fenlei : UserControl
     {
+
         private JObject fenleijo;
 
         private List<string> fenleiid1 = new List<string>();
@@ -23,7 +24,7 @@ namespace hmitype
 
         private List<string> fenleiid4 = new List<string>();
 
-     
+      
         private ComboBox comboBox1;
 
         private ComboBox comboBox2;
@@ -43,14 +44,8 @@ namespace hmitype
         private Panel panel1;
         public fenlei()
         {
-
             InitializeComponent();
         }
-
-        private void fenlei_Load(object sender, EventArgs e)
-        {
-        }
-
         public string getid()
         {
             string result = "";
@@ -248,7 +243,5 @@ namespace hmitype
                 this.setnextcombox(this.fenleiid2[this.comboBox2.SelectedIndex], this.comboBox3, this.fenleiid3);
             }
         }
-
-      
     }
 }

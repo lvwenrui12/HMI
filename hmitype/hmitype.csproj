@@ -59,6 +59,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tcode">
+      <HintPath>..\packages\Tcode.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="appinf0.cs" />
@@ -107,11 +110,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FTPClient.cs" />
     <Compile Include="guanggaotype.cs" />
     <Compile Include="GuiCurve.cs" />
     <Compile Include="guidatamake.cs" />
     <Compile Include="guiimagetype.cs" />
+    <Compile Include="GuiObjControl.cs" />
+    <Compile Include="GuiObjControl_.cs" />
     <Compile Include="GuiSlider.cs" />
+    <Compile Include="GuiTimer.cs" />
     <Compile Include="gujianinf.cs" />
     <Compile Include="hexreplace_type.cs" />
     <Compile Include="Hmi.cs" />
@@ -172,7 +179,9 @@
     <Compile Include="screenxinxi.cs" />
     <Compile Include="SendCom_.cs" />
     <Compile Include="Sendruncodestr_.cs" />
+    <Compile Include="Showfont.cs" />
     <Compile Include="Showpic.cs" />
+    <Compile Include="size_tyte.cs" />
     <Compile Include="SLIDER_PARAM.cs" />
     <Compile Include="Strmake.cs" />
     <Compile Include="strxinxi.cs" />
@@ -181,6 +190,7 @@
     <Compile Include="sysinf.cs" />
     <Compile Include="systimer_type.cs" />
     <Compile Include="textmessage_type.cs" />
+    <Compile Include="textmsg.cs" />
     <Compile Include="timeinf.cs" />
     <Compile Include="TopMessage.cs">
       <SubType>Form</SubType>
@@ -188,8 +198,15 @@
     <Compile Include="TopMessage.Designer.cs">
       <DependentUpon>TopMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Touch.cs" />
     <Compile Include="tp_devinf.cs" />
     <Compile Include="upappinf.cs" />
+    <Compile Include="upload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="upload.Designer.cs">
+      <DependentUpon>upload.cs</DependentUpon>
+    </Compile>
     <Compile Include="urldown.cs" />
     <Compile Include="Usart.cs" />
     <Compile Include="UsartUpdatainf.cs" />

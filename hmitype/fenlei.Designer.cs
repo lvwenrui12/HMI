@@ -32,6 +32,9 @@ namespace hmitype
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.comboBox1 = new ComboBox();
             this.comboBox2 = new ComboBox();
             this.label2 = new Label();
@@ -111,13 +114,11 @@ namespace hmitype
             base.Controls.Add(this.comboBox1);
             base.Name = "fenlei";
             base.Size = new Size(589, 93);
-            base.Load += new EventHandler(this.fenlei_Load);
+        
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             base.ResumeLayout(false);
             base.PerformLayout();
-
-
         }
 
         #endregion
