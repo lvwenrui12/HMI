@@ -16,7 +16,7 @@ namespace hmitype
 
         public static byte com64qyt;
 
-        public static CodeRun.comrun_[] comrun = new CodeRun.comrun_[]
+        public static unsafe CodeRun.comrun_[] comrun = new CodeRun.comrun_[]
         {
             new CodeRun.comrun_(CodeRun.gui_c1com),
             new CodeRun.comrun_(CodeRun.gui_xstr),
@@ -995,13 +995,13 @@ namespace hmitype
                         if ((int)(CodeRun.myapp.brush.endx - CodeRun.myapp.brush.x + 1) > comcan[14] * 2 && (int)(CodeRun.myapp.brush.endy - CodeRun.myapp.brush.y + 1) > comcan[14] * 2)
                         {
                             myappinf expr_6EB_cp_0 = CodeRun.myapp;
-                            expr_6EB_cp_0.brush.x = expr_6EB_cp_0.brush.x + (ushort)((byte)comcan[14]);
+                            expr_6EB_cp_0.brush.x =(ushort)(expr_6EB_cp_0.brush.x + (ushort)((byte)comcan[14]));
                             myappinf expr_709_cp_0 = CodeRun.myapp;
-                            expr_709_cp_0.brush.y = expr_709_cp_0.brush.y + (ushort)((byte)comcan[14]);
+                            expr_709_cp_0.brush.y = (ushort)(expr_709_cp_0.brush.y + (ushort)((byte)comcan[14]));
                             myappinf expr_727_cp_0 = CodeRun.myapp;
-                            expr_727_cp_0.brush.endx = expr_727_cp_0.brush.endx - (ushort)((byte)comcan[14]);
+                            expr_727_cp_0.brush.endx =(ushort)(expr_727_cp_0.brush.endx - (ushort)((byte)comcan[14]));
                             myappinf expr_745_cp_0 = CodeRun.myapp;
-                            expr_745_cp_0.brush.endy = expr_745_cp_0.brush.endy - (ushort)((byte)comcan[14]);
+                            expr_745_cp_0.brush.endy =(ushort)(expr_745_cp_0.brush.endy - (ushort)((byte)comcan[14]));
                         }
                     }
                     if (CodeRun.myapp.brush.pw == 1)
@@ -1106,7 +1106,7 @@ namespace hmitype
                                 systimer_type* expr_14A = ptr;
                                 expr_14A->hexbufindex = (ushort)(expr_14A->hexbufindex << 8);
                                 systimer_type* expr_159 = ptr;
-                                expr_159->hexbufindex = expr_159->hexbufindex + (ushort)Hmi.Hexstrbuf[2];
+                                expr_159->hexbufindex = (ushort)(expr_159->hexbufindex + (ushort)Hmi.Hexstrbuf[2]);
                                 ptr->id = (byte)comcan[1];
                                 if (comcan[2] == 65535)
                                 {
@@ -1379,7 +1379,7 @@ namespace hmitype
                         return result;
                     }
                     b = buf[num];
-                    pos->star = num + 1;
+                    pos->star =(ushort)(num + 1);
                     num = Attmake.Attmake_GetstrAtt(buf, ref *pos, ref array[0]);
                     if (array[0].datafrom == 255)
                     {
@@ -1570,7 +1570,7 @@ namespace hmitype
                         }
                         if (b3 != 255)
                         {
-                            posLaction.star = poscode->star + (ushort)b + 1;
+                            posLaction.star = (ushort)(poscode->star + (ushort)b + 1);
                             posLaction.end = poscode->end;
                             b = Strmake.Strmake_StrGetcanshu(buf, &posLaction, CodeRun.myapp.Mycanshus, b3);
                             if (b == 0)
@@ -1589,7 +1589,7 @@ namespace hmitype
                             }
                             else if (b4 < 4)
                             {
-                                b4 = b3 - b4;
+                                b4 =Convert.ToByte(b3 - b4);
                                 if (CodeRun.jiexicans(buf, 0, 0, (int)b4, 0, ref array) == 0)
                                 {
                                     result = 0;
@@ -1604,7 +1604,7 @@ namespace hmitype
                             else if (b4 < 14)
                             {
                                 b4 -= 10;
-                                b4 = b3 - b4;
+                                b4 = Convert.ToByte(b3 - b4);
                                 if (CodeRun.jiexicans(buf, 0, 0, (int)b4, 0, ref array) == 0)
                                 {
                                     result = 0;
@@ -1619,7 +1619,7 @@ namespace hmitype
                             else if (b4 < 24)
                             {
                                 b4 -= 20;
-                                b4 = b3 - b4;
+                                b4 = Convert.ToByte(b3 - b4);
                                 if (CodeRun.jiexicans(buf, 0, 0, (int)b4, 0, ref array) == 0)
                                 {
                                     result = 0;
