@@ -43,7 +43,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap add
+        public static Bitmap add
         {
             get
             {
@@ -52,7 +52,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap bianyi
+        public static Bitmap bianyi
         {
             get
             {
@@ -61,7 +61,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Icon chload
+        public static Icon chload
         {
             get
             {
@@ -70,7 +70,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Icon enload
+        public static Icon enload
         {
             get
             {
@@ -79,7 +79,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap glzy8_com_1
+        public static Bitmap glzy8_com_1
         {
             get
             {
@@ -88,7 +88,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap glzy8_com_148
+        public static Bitmap glzy8_com_148
         {
             get
             {
@@ -97,7 +97,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap glzy8_com_153
+        public static Bitmap glzy8_com_153
         {
             get
             {
@@ -106,7 +106,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap glzy8_com_23
+        public static Bitmap glzy8_com_23
         {
             get
             {
@@ -115,7 +115,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap glzy8_com_37
+        public static Bitmap glzy8_com_37
         {
             get
             {
@@ -124,7 +124,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap glzy8_com_38
+        public static Bitmap glzy8_com_38
         {
             get
             {
@@ -133,7 +133,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap glzy8_com_45
+        public static Bitmap glzy8_com_45
         {
             get
             {
@@ -142,7 +142,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap glzy8_com_6
+        public static Bitmap glzy8_com_6
         {
             get
             {
@@ -151,7 +151,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap glzy8_com_89
+        public static Bitmap glzy8_com_89
         {
             get
             {
@@ -169,7 +169,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap ID
+        public static Bitmap ID
         {
             get
             {
@@ -178,7 +178,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Icon iteadico
+        public static Icon iteadico
         {
             get
             {
@@ -196,7 +196,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap iteadtopmainlogo
+        public static Bitmap iteadtopmainlogo
         {
             get
             {
@@ -205,7 +205,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap logo
+        public static Bitmap logo
         {
             get
             {
@@ -214,7 +214,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap open
+        public static Bitmap open
         {
             get
             {
@@ -223,7 +223,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap tiaoshi
+        public static Bitmap tiaoshi
         {
             get
             {
@@ -232,7 +232,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Icon tjcico
+        public static Icon tjcico
         {
             get
             {
@@ -250,7 +250,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap tjctopmainlogo
+        public static Bitmap tjctopmainlogo
         {
             get
             {
@@ -268,7 +268,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal static Bitmap 设置
+        public static Bitmap 设置
         {
             get
             {
@@ -277,7 +277,7 @@ namespace USARTHMI.Properties
             }
         }
 
-        internal Resources()
+        public Resources()
         {
         }
     }

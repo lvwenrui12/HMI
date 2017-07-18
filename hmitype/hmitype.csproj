@@ -104,6 +104,7 @@
     <Compile Include="fenlei.Designer.cs">
       <DependentUpon>fenlei.cs</DependentUpon>
     </Compile>
+    <Compile Include="FIRMWARE_TABLE.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +122,7 @@
     <Compile Include="GuiSlider.cs" />
     <Compile Include="GuiTimer.cs" />
     <Compile Include="gujianinf.cs" />
+    <Compile Include="hexhead.cs" />
     <Compile Include="hexreplace_type.cs" />
     <Compile Include="Hmi.cs" />
     <Compile Include="ifbianyi_.cs" />

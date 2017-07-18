@@ -11,6 +11,7 @@
     <AssemblyName>USARTHMI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,8 +31,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ColListBox">
+      <HintPath>..\packages\ColListBox.dll</HintPath>
+    </Reference>
     <Reference Include="Colpanel">
       <HintPath>..\packages\Colpanel.dll</HintPath>
     </Reference>
@@ -85,6 +92,24 @@
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sysset.Designer.cs">
+      <DependentUpon>sysset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tanchuang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tanchuang.Designer.cs">
+      <DependentUpon>tanchuang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USARTUP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USARTUP.Designer.cs">
+      <DependentUpon>USARTUP.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\hmitype\hmitype.csproj">
