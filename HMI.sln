@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USARTHMI.Properties", "USAR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "run", "run\run.csproj", "{783744EA-5E8C-4F9C-9364-FCA27733243C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rsapp", "rsapp\rsapp.csproj", "{54FB1796-D448-4755-847E-EC2876BE5978}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{783744EA-5E8C-4F9C-9364-FCA27733243C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{783744EA-5E8C-4F9C-9364-FCA27733243C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{783744EA-5E8C-4F9C-9364-FCA27733243C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54FB1796-D448-4755-847E-EC2876BE5978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54FB1796-D448-4755-847E-EC2876BE5978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54FB1796-D448-4755-847E-EC2876BE5978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54FB1796-D448-4755-847E-EC2876BE5978}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

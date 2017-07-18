@@ -110,6 +110,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formchuantiinf.cs" />
     <Compile Include="FTPClient.cs" />
     <Compile Include="guanggaotype.cs" />
     <Compile Include="GuiCurve.cs" />
