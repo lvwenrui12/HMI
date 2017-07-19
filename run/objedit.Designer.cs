@@ -60,7 +60,7 @@ namespace run
             this.imageList1.TransparentColor = Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "lockpic-64.png");
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = Color.FromArgb(72, 149, 253);
             base.Controls.Add(this.label2);
             base.Controls.Add(this.label1);

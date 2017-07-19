@@ -114,7 +114,7 @@ namespace hmitype
             this.button3.Text = "下次再升级";
             this.button3.Click += new EventHandler(this.button3_Click);
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.ClientSize = new Size(489, 216);
             base.Controls.Add(this.button3);
             base.Controls.Add(this.button1);

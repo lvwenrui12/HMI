@@ -70,7 +70,7 @@ namespace USARTHMI
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.ClientSize = new Size(539, 204);
             base.Controls.Add(this.linkLabel1);
             base.Controls.Add(this.pictureBox1);

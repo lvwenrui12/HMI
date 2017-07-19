@@ -35,8 +35,7 @@ namespace rsapp
 
         private Myapp_inf Myapp = null;
 
-        private IContainer components = null;
-
+     
         private Label label1;
 
         private PictureBox pictureBoxzi;

@@ -449,7 +449,7 @@ namespace USARTHMI
             this.metroTileItem8.TitleTextAlignment = ContentAlignment.BottomCenter;
             this.metroTileItem8.TitleTextFont = new Font("ËÎÌו", 12f, FontStyle.Regular, GraphicsUnit.Point, 134);
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = Color.White;
             base.ClientSize = new Size(865, 576);
             base.Controls.Add(this.superTabControl2);

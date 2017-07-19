@@ -260,7 +260,7 @@ namespace hmitype
             this.timer1.Enabled = true;
             this.timer1.Tick += new EventHandler(this.timer1_Tick);
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.ClientSize = new Size(450, 150);
             base.Controls.Add(this.panelEx1);
             base.FormBorderStyle = FormBorderStyle.None;

@@ -130,7 +130,7 @@ namespace USARTHMI
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.Visible = false;
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = Color.FromArgb(194, 217, 247);
             base.ClientSize = new Size(583, 273);
             base.Controls.Add(this.checkBox3);

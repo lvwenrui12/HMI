@@ -103,7 +103,7 @@ namespace hmitype
             this.panel1.Size = new Size(561, 22);
             this.panel1.TabIndex = 31;
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.Controls.Add(this.panel1);
             base.Controls.Add(this.label4);
             base.Controls.Add(this.comboBox4);

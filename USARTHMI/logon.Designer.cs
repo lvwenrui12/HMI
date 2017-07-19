@@ -58,7 +58,7 @@ namespace USARTHMI
             this.label1.Text = "label1";
             this.label1.TextAlign = ContentAlignment.MiddleCenter;
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.ClientSize = new Size(284, 262);
             base.Controls.Add(this.label1);
             base.MaximizeBox = false;

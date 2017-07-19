@@ -268,7 +268,7 @@ namespace rsapp
             this.delToolStripMenuItem.Text = "删除";
             this.delToolStripMenuItem.Click += new EventHandler(this.delToolStripMenuItem_Click);
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = Color.White;
             base.Controls.Add(this.tabControl1);
             base.Name = "objattoo";

@@ -108,7 +108,7 @@ namespace rsapp
             this.button2.Visible = false;
             this.button2.Click += new EventHandler(this.button2_Click);
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.ClientSize = new Size(553, 461);
             base.Controls.Add(this.button2);
             base.Controls.Add(this.textBox1);

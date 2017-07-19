@@ -90,7 +90,7 @@ namespace rsapp
             this.label3.TabIndex = 6;
             this.label3.Text = "请务必妥善保管您的密码!";
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.ClientSize = new Size(426, 157);
             base.Controls.Add(this.label3);
             base.Controls.Add(this.buttonX2);

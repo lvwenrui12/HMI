@@ -139,7 +139,7 @@ namespace rsapp
             this.label1.Name = "label1";
             this.label1.Text = "0";
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = SystemColors.Control;
             base.Controls.Add(this.listBox1);
             base.Controls.Add(this.bar1);

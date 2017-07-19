@@ -55,7 +55,7 @@ namespace hmitype
             this.progressBarX1.TextVisible = true;
             this.progressBarX1.Value = 50;
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.ClientSize = new Size(535, 59);
             base.Controls.Add(this.progressBarX1);
             base.FormBorderStyle = FormBorderStyle.None;

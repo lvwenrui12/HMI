@@ -2003,13 +2003,13 @@ namespace USARTHMI
                         mobj mobj = new mobj(this.Myapp, this.dpage);
                         mobj = current.copyobj();
                         mobj expr_4B2_cp_0_cp_0 = mobj;
-                        expr_4B2_cp_0_cp_0.myobj.redian.x = expr_4B2_cp_0_cp_0.myobj.redian.x + (ushort)num;
+                        expr_4B2_cp_0_cp_0.myobj.redian.x =(ushort)(expr_4B2_cp_0_cp_0.myobj.redian.x + (ushort)num);
                         mobj expr_4CD_cp_0_cp_0 = mobj;
-                        expr_4CD_cp_0_cp_0.myobj.redian.y = expr_4CD_cp_0_cp_0.myobj.redian.y + (ushort)num2;
+                        expr_4CD_cp_0_cp_0.myobj.redian.y = (ushort)(expr_4CD_cp_0_cp_0.myobj.redian.y + (ushort)num2);
                         mobj expr_4E8_cp_0_cp_0 = mobj;
-                        expr_4E8_cp_0_cp_0.myobj.redian.endx = expr_4E8_cp_0_cp_0.myobj.redian.endx + (ushort)num;
+                        expr_4E8_cp_0_cp_0.myobj.redian.endx =(ushort)(expr_4E8_cp_0_cp_0.myobj.redian.endx + (ushort)num);
                         mobj expr_503_cp_0_cp_0 = mobj;
-                        expr_503_cp_0_cp_0.myobj.redian.endy = expr_503_cp_0_cp_0.myobj.redian.endy + (ushort)num2;
+                        expr_503_cp_0_cp_0.myobj.redian.endy = (ushort)(expr_503_cp_0_cp_0.myobj.redian.endy + (ushort)num2);
                         mobj.Myapp = this.Myapp;
                         mobj.Mypage = this.dpage;
                         if (mobj.myobj.objType != objtype.page)

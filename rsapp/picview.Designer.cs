@@ -63,7 +63,7 @@ namespace rsapp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = ImageLayout.None;
             base.ClientSize = new Size(884, 550);
             base.Controls.Add(this.panel1);

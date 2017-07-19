@@ -36,7 +36,7 @@ namespace run
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.SuspendLayout();
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = Color.White;
             base.Name = "runscr";
             base.Size = new Size(315, 236);

@@ -54,7 +54,7 @@ namespace hmitype
             this.buttonX1 = new ButtonX();
             this.textBox3 = new TextBoxX();
             this.button1 = new ButtonX();
-          //this.fenlei1 = new fenlei();
+         this.fenlei1 = new fenlei();
             ((ISupportInitialize)this.pictureBox1).BeginInit();
             base.SuspendLayout();
             this.label2.AutoSize = true;
@@ -180,12 +180,12 @@ namespace hmitype
             this.button1.TabIndex = 31;
             this.button1.Text = "ÉÏ´«";
             this.button1.Click += new EventHandler(this.buttonX2_Click);
-            //this.fenlei1.Location = new Point(72, 10);
-            //this.fenlei1.Name = "fenlei1";
-            //this.fenlei1.Size = new Size(664, 20);
-            //this.fenlei1.TabIndex = 22;
+            this.fenlei1.Location = new Point(72, 10);
+            this.fenlei1.Name = "fenlei1";
+            this.fenlei1.Size = new Size(664, 20);
+            this.fenlei1.TabIndex = 22;
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.ClientSize = new Size(697, 400);
             base.Controls.Add(this.button1);
             base.Controls.Add(this.textBox3);
@@ -194,7 +194,7 @@ namespace hmitype
             base.Controls.Add(this.textBox5);
             base.Controls.Add(this.label3);
             base.Controls.Add(this.textBox4);
-        //  base.Controls.Add(this.fenlei1);
+         base.Controls.Add(this.fenlei1);
             base.Controls.Add(this.label9);
             base.Controls.Add(this.linkLabel1);
             base.Controls.Add(this.pictureBox1);

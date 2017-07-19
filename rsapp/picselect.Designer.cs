@@ -94,7 +94,7 @@ namespace rsapp
             this.picadmin1.TabIndex = 0;
             this.picadmin1.picselect += new EventHandler(this.picadmin1_picselect);
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.ClientSize = new Size(246, 509);
             base.Controls.Add(this.panel1);
             base.Controls.Add(this.picadmin1);

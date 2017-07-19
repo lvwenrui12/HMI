@@ -611,7 +611,7 @@ namespace USARTHMI
             this.runscr1.Runcodestr += new EventHandler(this.runscr1_Runcodestr);
             this.runscr1.Resize += new EventHandler(this.runscr1_Resize);
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = Color.FromArgb(194, 217, 247);
             base.ClientSize = new Size(1008, 721);
             base.Controls.Add(this.textEditorControl1);

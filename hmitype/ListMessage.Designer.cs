@@ -35,14 +35,14 @@ namespace hmitype
         private void InitializeComponent()
         {
             this.components = new Container();
-            ComponentResourceManager manager = new ComponentResourceManager(typeof(ListMessage));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(ListMessage));
             this.timerclose = new Timer(this.components);
             this.messageimage = new ImageList(this.components);
             this.colListBox1 = new ColListBox();
             base.SuspendLayout();
             this.timerclose.Interval = 10;
             this.timerclose.Tick += new EventHandler(this.timer1_Tick);
-            this.messageimage.ImageStream = (ImageListStreamer)manager.GetObject("messageimage.ImageStream");
+            this.messageimage.ImageStream = (ImageListStreamer)resources.GetObject("messageimage.ImageStream");
             this.messageimage.TransparentColor = Color.Transparent;
             this.messageimage.Images.SetKeyName(0, "message-0.ico");
             this.messageimage.Images.SetKeyName(1, "message-1.ico");
@@ -50,7 +50,7 @@ namespace hmitype
             this.messageimage.Images.SetKeyName(3, "message-3.ico");
             this.messageimage.Images.SetKeyName(4, "message-4.ico");
             this.colListBox1.BackColor = Color.White;
-            this.colListBox1.BackgroundImage = (Image)manager.GetObject("colListBox1.BackgroundImage");
+            this.colListBox1.BackgroundImage = (Image)resources.GetObject("colListBox1.BackgroundImage");
             this.colListBox1.EditState = false;
             this.colListBox1.idwidth = 5;
             this.colListBox1.imglayout = 0;
@@ -73,11 +73,11 @@ namespace hmitype
             this.colListBox1.Size = new Size(0x7d, 0x42);
             this.colListBox1.TabIndex = 0;
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = Color.Silver;
             base.ClientSize = new Size(0x105, 0xa6);
             base.Controls.Add(this.colListBox1);
-            base.FormBorderStyle = FormBorderStyle.None;
+            base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             base.Name = "ListMessage";
             base.ShowIcon = false;
             base.ShowInTaskbar = false;

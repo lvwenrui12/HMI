@@ -53,7 +53,7 @@ namespace hmitype
             this.timer1.Interval = 1;
             this.timer1.Tick += new EventHandler(this.timer1_Tick);
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             base.ClientSize = new Size(377, 51);
             base.Controls.Add(this.label3);
             base.FormBorderStyle = FormBorderStyle.None;

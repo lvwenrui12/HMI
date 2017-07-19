@@ -190,7 +190,7 @@ namespace rsapp
             this.panel1.Style.BackColor2.Color = Color.White;
             this.panel1.TabIndex = 44;
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = Color.Black;
             base.Controls.Add(this.panel1);
             base.Controls.Add(this.bar1);

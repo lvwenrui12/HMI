@@ -175,7 +175,7 @@ namespace rsapp
             this.imageList1.TransparentColor = Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "delete.ico");
             base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = AutoScaleMode.Font;
+            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = Color.White;
             base.Controls.Add(this.comboBox1);
             base.Controls.Add(this.textBox1);
