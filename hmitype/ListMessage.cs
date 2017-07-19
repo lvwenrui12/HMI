@@ -13,23 +13,15 @@ namespace hmitype
 {
     public partial class ListMessage : Form
     {
-      
-        public EventHandler KeyEnter;
-
-        public ColListBox listbox1;
-
-        private Point vispoint = new Point(-5000, -5000);
-
-        private TopMessage Topm1;
-
-      
-
-        private Timer timerclose;
-
         private ColListBox colListBox1;
-
+        private IContainer components;
+        public EventHandler KeyEnter;
+        public ColListBox listbox1;
         private ImageList messageimage;
-
+        private Timer timerclose;
+        private TopMessage Topm1;
+        private Point vispoint;
+        
         public bool vis
         {
             get

@@ -85,7 +85,9 @@
     <Compile Include="comtype_64.cs" />
     <Compile Include="CURVE_CHANNEL_PARAM.cs" />
     <Compile Include="CURVE_PARAM.cs" />
+    <Compile Include="databianyitype.cs" />
     <Compile Include="Datafind.cs" />
+    <Compile Include="dataput.cs" />
     <Compile Include="datasize.cs" />
     <Compile Include="datazhuan.cs">
       <SubType>Form</SubType>
@@ -114,6 +116,7 @@
     <Compile Include="Formchuantiinf.cs" />
     <Compile Include="FTPClient.cs" />
     <Compile Include="guanggaotype.cs" />
+    <Compile Include="guicombianyi.cs" />
     <Compile Include="GuiCurve.cs" />
     <Compile Include="guidatamake.cs" />
     <Compile Include="guiimagetype.cs" />
@@ -129,6 +132,7 @@
     <Compile Include="ischonghui.cs" />
     <Compile Include="keyboardlisttype.cs" />
     <Compile Include="Kuozhan.cs" />
+    <Compile Include="LcCL_type.cs" />
     <Compile Include="Lcd.cs" />
     <Compile Include="lcddevxinxi.cs" />
     <Compile Include="Lcd_Set_.cs" />
@@ -174,6 +178,7 @@
       <DependentUpon>progform.cs</DependentUpon>
     </Compile>
     <Compile Include="Readdata.cs" />
+    <Compile Include="readdata0.cs" />
     <Compile Include="redianinf.cs" />
     <Compile Include="Rtc.cs" />
     <Compile Include="runapptype.cs" />

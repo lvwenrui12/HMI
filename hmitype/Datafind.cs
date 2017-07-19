@@ -66,44 +66,85 @@ namespace hmitype
             return result;
         }
 
-        public unsafe static uint Datafind_FindU32_Flash(uint* val, uint datastar, ushort datarows, ushort datalenth)
+        //public unsafe static uint Datafind_FindU32_Flash(uint* val, uint datastar, ushort datarows, ushort datalenth)
+        //{
+        //    int i = 0;
+        //    int num = (int)(datarows - 1);
+        //    uint[] array = new uint[2];
+        //    uint result;
+        //    while (i < num)
+        //    {
+        //        uint num2 = (uint)(i + (num - i >> 1));
+        //        fixed (void* ptr = array)
+        //        {
+        //            Readdata.SPI_Flash_Read((byte*)ptr, datastar + num2 * (uint)datalenth, 8u);
+        //        }
+        //        if (array[0] > *val)
+        //        {
+        //            num = (int)(num2 - 1u);
+        //        }
+        //        else
+        //        {
+        //            if (array[0] >= *val)
+        //            {
+        //                result = array[1];
+        //                return result;
+        //            }
+        //            i = (int)(num2 + 1u);
+        //        }
+        //    }
+        //    fixed (void* ptr2 = (void*)(&array[0]))
+        //    {
+        //        Readdata.SPI_Flash_Read((byte*)ptr2, (uint)((ulong)datastar + (ulong)((long)(i * (int)datalenth))), 8u);
+        //    }
+        //    if (array[0] == *val)
+        //    {
+        //        result = array[1];
+        //        return result;
+        //    }
+        //    result = 4294967295u;
+        //    return result;
+        //}
+
+        public static unsafe uint Datafind_FindU32_Flash(uint* val, uint datastar, ushort datarows, ushort datalenth)
         {
             int i = 0;
-            int num = (int)(datarows - 1);
-            uint[] array = new uint[2];
-            uint result;
-            while (i < num)
-            {
-                uint num2 = (uint)(i + (num - i >> 1));
-                fixed (void* ptr = array)
-                {
-                    Readdata.SPI_Flash_Read((byte*)ptr, datastar + num2 * (uint)datalenth, 8u);
-                }
-                if (array[0] > *val)
-                {
-                    num = (int)(num2 - 1u);
-                }
-                else
-                {
-                    if (array[0] >= *val)
-                    {
-                        result = array[1];
-                        return result;
-                    }
-                    i = (int)(num2 + 1u);
-                }
-            }
-            fixed (void* ptr2 = (void*)(&array[0]))
-            {
-                Readdata.SPI_Flash_Read((byte*)ptr2, (uint)((ulong)datastar + (ulong)((long)(i * (int)datalenth))), 8u);
-            }
-            if (array[0] == *val)
-            {
-                result = array[1];
-                return result;
-            }
-            result = 4294967295u;
-            return result;
+			int num = (int)(datarows - 1);
+			uint[] array = new uint[2];
+			uint result;
+			while (i < num)
+			{
+				uint num2 = (uint)(i + (num - i >> 1));
+				fixed (void* ptr = array)
+				{
+					Readdata.SPI_Flash_Read((byte*)ptr, datastar + num2 * (uint)datalenth, 8u);
+				}
+				if (array[0] > *val)
+				{
+					num = (int)(num2 - 1u);
+				}
+				else
+				{
+					if (array[0] >= *val)
+					{
+						result = array[1];
+						return result;
+					}
+					i = (int)(num2 + 1u);
+				}
+			}
+			fixed (void* ptr2 =array)
+			{
+				Readdata.SPI_Flash_Read((byte*)ptr2, (uint)((ulong)datastar + (ulong)((long)(i * (int)datalenth))), 8u);
+			}
+			if (array[0] == *val)
+			{
+				result = array[1];
+				return result;
+			}
+			result = 4294967295u;
+			return result;
         }
+
     }
 }

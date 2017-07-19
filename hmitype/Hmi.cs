@@ -79,7 +79,7 @@ namespace hmitype
             Commake.NorComSta.runmod = 1;
         }
 
-        public static void Hmi_Init()
+        public static unsafe void Hmi_Init()
         {
             strxinxi strxinxi = default(strxinxi);
             appinf0 appinf = default(appinf0);
@@ -120,6 +120,7 @@ namespace hmitype
                     Readdata.Readdata_ReadStr(ref strxinxi, 0);
                     if (strxinxi.size < 8192)
                     {
+                      
                         Readdata.SPI_Flash_Read(Hmi.myapp.mymerry, Hmi.myapp.app.strdataadd + strxinxi.addbeg, (uint)strxinxi.size);
                         Hmi.myapp.ovemerrys = strxinxi.size;
                     }
@@ -206,7 +207,7 @@ namespace hmitype
             byte result;
             if (index < Hmi.myapp.dpagexinxi.objqyt)
             {
-                ushort index2 = Hmi.myapp.dpagexinxi.objstar + (ushort)index;
+                ushort index2 =(ushort)(Hmi.myapp.dpagexinxi.objstar + (ushort)index);
                 Readdata.Readdata_ReadObj(ref objxinxi, (int)index2);
                 if (objxinxi.objType < 50)
                 {
@@ -231,7 +232,7 @@ namespace hmitype
             {
                 if (Hmi.myapp.pageobjs[index].vis == 1)
                 {
-                    ushort index2 = Hmi.myapp.dpagexinxi.objstar + (ushort)index;
+                    ushort index2 = (ushort)(Hmi.myapp.dpagexinxi.objstar + (ushort)index);
                     Readdata.Readdata_ReadObj(ref objxinxi, (int)index2);
                     if (objxinxi.objType < 50)
                     {
@@ -306,8 +307,8 @@ namespace hmitype
                     {
                         Readdata.Readdata_ReadStr(ref strxinxi, (int)(Hmi.myapp.dpagexinxi.zhilingstar + 1));
                         Readdata.SPI_Flash_Read(Hmi.myapp.mymerry + Hmi.myapp.ovemerrys, Hmi.myapp.app.strdataadd + strxinxi.addbeg, (uint)strxinxi.size);
-                        Hmi.myapp.dpagemerrypos = Hmi.myapp.ovemerrys + strxinxi.size;
-                        Hmi.myapp.Hexstrindex = Hmi.myapp.dpagexinxi.zhilingstar + 2;
+                        Hmi.myapp.dpagemerrypos =(ushort)(Hmi.myapp.ovemerrys + strxinxi.size);
+                        Hmi.myapp.Hexstrindex = (ushort)(Hmi.myapp.dpagexinxi.zhilingstar + 2);
                         Hmi.myapp.pagestate = 0;
                     }
                     result = 1;
@@ -354,7 +355,7 @@ namespace hmitype
                 else
                 {
                     posLaction.star = 0;
-                    posLaction.end = strxinxi.size - 1;
+                    posLaction.end = (ushort)(strxinxi.size - 1);
                     if (Hmi.myapp.upapp.runapptype == runapptype.run)
                     {
                         if (CodeRun.Coderun_Run(Hmi.Hexstrbuf, &posLaction) == 0 && Hmi.myapp.errcode < 255)
@@ -373,8 +374,8 @@ namespace hmitype
             ushort result;
             if (buf[bufpos->star] == 112 && buf[bufpos->star + 1] == 91 && buf[bufpos->end] == 93)
             {
-                posLaction.star = bufpos->star + 2;
-                posLaction.end = bufpos->end - 1;
+                posLaction.star = (ushort)(bufpos->star + 2);
+                posLaction.end =(ushort)(bufpos->end - 1);
                 byte b;
                 int num = CodeRun.strgetS32(buf, &posLaction, &b);
                 if (b == 0)
@@ -429,8 +430,8 @@ namespace hmitype
             ushort result;
             if (buf[bufpos->star] == 98 && buf[bufpos->star + 1] == 91 && buf[bufpos->end] == 93)
             {
-                posLaction.star = bufpos->star + 2;
-                posLaction.end = bufpos->end - 1;
+                posLaction.star =(ushort)(bufpos->star + 2);
+                posLaction.end = (ushort)(bufpos->end - 1);
                 byte b;
                 int num = CodeRun.strgetS32(buf, &posLaction, &b);
                 if (b == 0)
@@ -503,7 +504,7 @@ namespace hmitype
         public unsafe static void Hmi_Getredian(byte state)
         {
             objxinxi objxinxi = default(objxinxi);
-            byte b = Hmi.myapp.dpagexinxi.objqyt - 1;
+            byte b =(byte)(Hmi.myapp.dpagexinxi.objqyt - 1);
             int num = (int)(Hmi.myapp.dpagexinxi.objstar + (ushort)Hmi.myapp.dpagexinxi.objqyt - 1);
             if (Hmi.myapp.dpagexinxi.objqyt != 0)
             {
@@ -612,7 +613,7 @@ namespace hmitype
                     {
                         Hmi.Hmi_SetHexIndex((int)ptr->hexbufindex);
                         ptr->val = 65535;
-                        Hmi.myapp.systimerbuf[1] = b + 1;
+                        Hmi.myapp.systimerbuf[1] = (byte)(b + 1);
                         result = 1;
                         return result;
                     }
@@ -624,7 +625,7 @@ namespace hmitype
                     {
                         Hmi.Hmi_SetHexIndex((int)ptr->hexbufindex);
                         ptr->val = 65535;
-                        Hmi.myapp.systimerbuf[1] = b + 1;
+                        Hmi.myapp.systimerbuf[1] =(byte)(b + 1);
                         result = 1;
                         return result;
                     }

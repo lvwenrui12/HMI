@@ -48,7 +48,7 @@ namespace hmitype
         {
             guiimagetype value = default(guiimagetype);
             zimoxinxi zimoxinxi = default(zimoxinxi);
-            byte b = this.Myapp.guidire + 10;
+            byte b = Convert.ToByte(this.Myapp.guidire + 10);
             for (int i = 0; i < this.Myapp.images.Count; i++)
             {
                 this.label3.Visible = true;
@@ -86,7 +86,7 @@ namespace hmitype
                         {
                             if (zimoxinxi.state == 0 && datasize.Language == 1)
                             {
-                                zimoxinxi.encode = ((zimoxinxi.qyt < 100u) ? 1 : 3);
+                                zimoxinxi.encode = (byte)((zimoxinxi.qyt < 100u) ? 1 : 3);
                             }
                             else
                             {

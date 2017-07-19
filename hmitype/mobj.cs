@@ -35,8 +35,8 @@ namespace hmitype
             {
                 this.myobj.redian.x = 0;
                 this.myobj.redian.y = 0;
-                this.myobj.redian.endx = this.Myapp.lcdwidth - 1;
-                this.myobj.redian.endy = this.Myapp.lcdheight - 1;
+                this.myobj.redian.endx = (ushort)(this.Myapp.lcdwidth - 1);
+                this.myobj.redian.endy = (ushort)(this.Myapp.lcdheight - 1);
                 if (this.objid == 0 && this.atts.Count < 1)
                 {
                     this.atts = objattcaozuo.Getmatts(objtype.page, ref this.myobj.redian);
@@ -593,7 +593,7 @@ namespace hmitype
                 }
                 else
                 {
-                    byte b = matt.att.attlei & 15;
+                    byte b = Convert.ToByte(matt.att.attlei & 15);
                     if (!newstr.IsdataS32(matt.att.attlei))
                     {
                         result = false;
@@ -1986,7 +1986,7 @@ namespace hmitype
                         }
                         else
                         {
-                            num = this.atts[i].zhi.getbytestoint((int)latt.merrylenth, latt.state & 15);
+                            num = this.atts[i].zhi.getbytestoint((int)latt.merrylenth, (byte)(latt.state & 15));
                             Kuozhan.memcpy((byte*)(&latt.pos), (byte*)(&num), 4);
                         }
                     }
@@ -2031,14 +2031,14 @@ namespace hmitype
                     return result;
                 }
                 latt.state = attshulei.UU16.typevalue;
-                latt.pos = this.myobj.redian.endx - this.myobj.redian.x + 1;
+                latt.pos = (ushort)(this.myobj.redian.endx - this.myobj.redian.x + 1);
                 if (!this.Mypage.Allattbytes_set(this.objid, "w", latt))
                 {
                     result = false;
                     return result;
                 }
                 latt.state = attshulei.UU16.typevalue;
-                latt.pos = this.myobj.redian.endy - this.myobj.redian.y + 1;
+                latt.pos =(ushort)(this.myobj.redian.endy - this.myobj.redian.y + 1);
                 if (!this.Mypage.Allattbytes_set(this.objid, "h", latt))
                 {
                     result = false;
@@ -2090,7 +2090,8 @@ namespace hmitype
                     bts.Add("E".GetbytesssASCII());
                 }
             }
-            fixed (void* ptr = (void*)(&this.myobj.redian.events))
+            fixed (void* ptr = (&this.myobj.redian.events))
+            //fixed (void* ptr = (void*)(&this.myobj.redian.events))
             {
                 ushort* ptr2 = (ushort*)ptr;
                 for (int i = 0; i < 8; i++)
@@ -2751,7 +2752,7 @@ namespace hmitype
             if (num < 65535)
             {
                 fengge.star = num;
-                fengge.end = num + 1;
+                fengge.end = (ushort)(num + 1);
                 result = 5;
             }
             else
@@ -2760,7 +2761,7 @@ namespace hmitype
                 if (num < 65535)
                 {
                     fengge.star = num;
-                    fengge.end = num + 1;
+                    fengge.end = (ushort)(num + 1);
                     result = 4;
                 }
                 else
@@ -2769,7 +2770,7 @@ namespace hmitype
                     if (num < 65535)
                     {
                         fengge.star = num;
-                        fengge.end = num + 1;
+                        fengge.end = (ushort)(num + 1);
                         result = 1;
                     }
                     else
@@ -2778,7 +2779,7 @@ namespace hmitype
                         if (num < 65535)
                         {
                             fengge.star = num;
-                            fengge.end = num + 1;
+                            fengge.end =(ushort)(num + 1);
                             result = 6;
                         }
                         else
@@ -2871,7 +2872,7 @@ namespace hmitype
                             {
                                 if (this.atts[j].att.attlei != attshulei.Sstr.typevalue)
                                 {
-                                    byte b = this.atts[j].att.attlei & 15;
+                                    byte b = Convert.ToByte(this.atts[j].att.attlei & 15);
                                     if (this.atts[j].att.merrylenth == 1)
                                     {
                                         text = text.Replace("'&" + this.atts[j].name.Getstring(datasize.Myencoding) + "&'", this.atts[j].zhi[0].ToString());
@@ -2965,16 +2966,16 @@ namespace hmitype
                     sLIDER_PARAM.MinVal = (ushort)this.GetattVal_string("minval").Getint();
                     sLIDER_PARAM.NowVal = (ushort)this.GetattVal_string("val").Getint();
                     sLIDER_PARAM.LastVal = 65535;
-                    this.atts[5].att.pos = this.myobj.attpos + 6;
-                    this.atts[6].att.pos = this.myobj.attpos + 6;
-                    this.atts[7].att.pos = this.myobj.attpos + 6;
-                    this.atts[8].att.pos = this.myobj.attpos + 8;
-                    this.atts[9].att.pos = this.myobj.attpos + 8;
-                    this.atts[10].att.pos = this.myobj.attpos + 4;
-                    this.atts[11].att.pos = this.myobj.attpos + 5;
-                    this.atts[12].att.pos = this.myobj.attpos + 10;
-                    this.atts[13].att.pos = this.myobj.attpos + 12;
-                    this.atts[14].att.pos = this.myobj.attpos + 14;
+                    this.atts[5].att.pos =(ushort)(this.myobj.attpos + 6);
+                    this.atts[6].att.pos =(ushort)(this.myobj.attpos + 6);
+                    this.atts[7].att.pos =(ushort)(this.myobj.attpos + 6);
+                    this.atts[8].att.pos =(ushort)(this.myobj.attpos + 8);
+                    this.atts[9].att.pos =(ushort)(this.myobj.attpos + 8);
+                    this.atts[10].att.pos =(ushort)(this.myobj.attpos + 4);
+                    this.atts[11].att.pos =(ushort)(this.myobj.attpos + 5);
+                    this.atts[12].att.pos =(ushort)(this.myobj.attpos + 10);
+                    this.atts[13].att.pos =(ushort)(this.myobj.attpos + 12);
+                    this.atts[14].att.pos = (ushort)(this.myobj.attpos + 14);
                     sLIDER_PARAM.structToBytes().CopyTo(lbytes, num);
                     num += Marshal.SizeOf(default(SLIDER_PARAM));
                     result = (ushort)(num - beg);
@@ -3006,26 +3007,26 @@ namespace hmitype
                     cURVE_PARAM.GridY = (byte)this.GetattVal_string("gdh").Getint();
                     cURVE_PARAM.RefFlag = 0;
                     cURVE_PARAM.CH_qyt = (byte)(this.GetattVal_string("ch").Getint() + 1);
-                    cURVE_PARAM.objWid = this.myobj.redian.endx - this.myobj.redian.x + 1;
-                    cURVE_PARAM.objHig = this.myobj.redian.endy - this.myobj.redian.y + 1;
+                    cURVE_PARAM.objWid = (ushort)(this.myobj.redian.endx - this.myobj.redian.x + 1);
+                    cURVE_PARAM.objHig =(ushort)(this.myobj.redian.endy - this.myobj.redian.y + 1);
                     cURVE_PARAM.Bkclr = (ushort)this.GetattVal_string("bco").Getint();
                     cURVE_PARAM.Griclr = (ushort)this.GetattVal_string("gdc").Getint();
                     cURVE_PARAM.DrawDir = (byte)this.GetattVal_string("dir").Getint();
                     ushort num3;
                     if ((double)cURVE_PARAM.objWid * 0.3 > 120.0)
                     {
-                        num3 = cURVE_PARAM.objWid + 120;
+                        num3 =(ushort)(cURVE_PARAM.objWid + 120);
                     }
                     else
                     {
                         num3 = (ushort)((double)cURVE_PARAM.objWid * 1.3);
                     }
-                    this.atts[5].att.pos = this.myobj.attpos + 11;
-                    this.atts[6].att.pos = this.myobj.attpos + 5;
-                    this.atts[7].att.pos = this.myobj.attpos + 5;
-                    this.atts[8].att.pos = this.myobj.attpos + 13;
-                    this.atts[9].att.pos = this.myobj.attpos + 2;
-                    this.atts[10].att.pos = this.myobj.attpos + 3;
+                    this.atts[5].att.pos = (ushort)(this.myobj.attpos + 11);
+                    this.atts[6].att.pos =(ushort)(this.myobj.attpos + 5);
+                    this.atts[7].att.pos = (ushort)(this.myobj.attpos + 5);
+                    this.atts[8].att.pos = (ushort)(this.myobj.attpos + 13);
+                    this.atts[9].att.pos =(ushort)(this.myobj.attpos + 2);
+                    this.atts[10].att.pos = (ushort)(this.myobj.attpos + 3);
                     cURVE_PARAM.structToBytes().CopyTo(lbytes, num);
                     num += Marshal.SizeOf(default(CURVE_PARAM));
                     num2 = (ushort)((int)num2 + Marshal.SizeOf(default(CURVE_PARAM)) + Marshal.SizeOf(default(CURVE_CHANNEL_PARAM)) * (int)cURVE_PARAM.CH_qyt);
@@ -3034,7 +3035,7 @@ namespace hmitype
                         this.atts[11 + i].att.pos = (ushort)((int)this.myobj.attpos + Marshal.SizeOf(default(CURVE_PARAM)) + Marshal.SizeOf(default(CURVE_CHANNEL_PARAM)) * i + 4);
                         cURVE_CHANNEL_PARAM = default(CURVE_CHANNEL_PARAM);
                         cURVE_CHANNEL_PARAM.BufPos.star = (ushort)((int)num2 + i * (int)num3);
-                        cURVE_CHANNEL_PARAM.BufPos.end = cURVE_CHANNEL_PARAM.BufPos.star + num3 - 1;
+                        cURVE_CHANNEL_PARAM.BufPos.end = (ushort)(cURVE_CHANNEL_PARAM.BufPos.star + num3 - 1);
                         switch (i)
                         {
                             case 0:
@@ -3050,7 +3051,7 @@ namespace hmitype
                                 cURVE_CHANNEL_PARAM.Penclr = (ushort)this.GetattVal_string("pco3").Getint();
                                 break;
                         }
-                        cURVE_CHANNEL_PARAM.res0 = num3 - 1;
+                        cURVE_CHANNEL_PARAM.res0 =(ushort)(num3 - 1);
                         cURVE_CHANNEL_PARAM.BufNext = cURVE_CHANNEL_PARAM.BufPos.star;
                         cURVE_CHANNEL_PARAM.DotLen = 0;
                         cURVE_CHANNEL_PARAM.structToBytes().CopyTo(lbytes, num);

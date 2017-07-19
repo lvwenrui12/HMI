@@ -70,41 +70,35 @@ namespace hmitype
 
         public unsafe static byte GuiCurveAdd(GuiCurve.CURVE_INDEX* index, byte data)
         {
-            CURVE_PARAM* ptr = (CURVE_PARAM*)(GuiCurve.myapp.mymerry + index->offset);
-            byte result;
-            if (index->Ch < ptr->CH_qyt)
+            CURVE_PARAM* curve_paramPtr = (CURVE_PARAM*)(myapp.mymerry + index->offset);
+            if (index->Ch < curve_paramPtr->CH_qyt)
             {
-                CURVE_CHANNEL_PARAM* ptr2 = ptr + (long)sizeof(CURVE_PARAM) / (long)sizeof(CURVE_CHANNEL_PARAM) + (long)(sizeof(CURVE_CHANNEL_PARAM) * (int)index->Ch) / (long)sizeof(CURVE_CHANNEL_PARAM);
-                if ((ushort)data > ptr->objHig)
+                CURVE_CHANNEL_PARAM* curve_channel_paramPtr = (CURVE_CHANNEL_PARAM*)((((uint)curve_paramPtr) + sizeof(CURVE_PARAM)) + (sizeof(CURVE_CHANNEL_PARAM) * index->Ch));
+                if (data > curve_paramPtr->objHig)
                 {
-                    GuiCurve.myapp.mymerry[ptr2->BufNext] = (byte)(ptr->objHig - 1);
+                    myapp.mymerry[curve_channel_paramPtr->BufNext] = (byte)(curve_paramPtr->objHig - 1);
                 }
                 else
                 {
-                    GuiCurve.myapp.mymerry[ptr2->BufNext] = data;
+                    myapp.mymerry[curve_channel_paramPtr->BufNext] = data;
                 }
-                if (ptr2->BufNext != ptr2->BufPos.end)
+                if (curve_channel_paramPtr->BufNext != curve_channel_paramPtr->BufPos.end)
                 {
-                    CURVE_CHANNEL_PARAM* expr_A6 = ptr2;
-                    expr_A6->BufNext = expr_A6->BufNext + 1;
+                    curve_channel_paramPtr->BufNext = (ushort)(curve_channel_paramPtr->BufNext + 1);
                 }
                 else
                 {
-                    ptr2->BufNext = ptr2->BufPos.star;
+                    curve_channel_paramPtr->BufNext = curve_channel_paramPtr->BufPos.star;
                 }
-                if (ptr2->DotLen < ptr->objWid)
+                if (curve_channel_paramPtr->DotLen < curve_paramPtr->objWid)
                 {
-                    CURVE_CHANNEL_PARAM* expr_E1 = ptr2;
-                    expr_E1->DotLen = expr_E1->DotLen + 1;
+                    curve_channel_paramPtr->DotLen = (ushort)(curve_channel_paramPtr->DotLen + 1);
                 }
-                GuiCurve.myapp.pageobjs[index->objID].refFlag = 1;
-                result = 1;
+                myapp.pageobjs[index->objID].refFlag = 1;
+                return 1;
             }
-            else
-            {
-                result = 0;
-            }
-            return result;
+            return 0;
+
         }
 
         public unsafe static byte CurveRefBack(objxinxi* obj, byte ID)
@@ -124,7 +118,7 @@ namespace hmitype
             {
                 if (ptr->BackType == 0)
                 {
-                    Showpic.Showpic_ShowXpic((int)obj->redian.x, (int)obj->redian.y, obj->redian.endx - obj->redian.x + 1, obj->redian.endy - obj->redian.y + 1, (int)obj->redian.x, (int)obj->redian.y, ptr->PicID);
+                    Showpic.Showpic_ShowXpic((int)obj->redian.x, (int)obj->redian.y, (ushort)(obj->redian.endx - obj->redian.x + 1), (ushort)(obj->redian.endy - obj->redian.y + 1), (int)obj->redian.x, (int)obj->redian.y, ptr->PicID);
                 }
                 else if (ptr->BackType == 2)
                 {
@@ -158,268 +152,267 @@ namespace hmitype
 
         public unsafe static byte GuiCurveRef(objxinxi* obj, byte ID)
         {
-            byte b = 0;
-            byte[] array = new byte[4];
-            ushort[] array2 = new ushort[4];
-            ushort[] array3 = new ushort[4];
-            ushort[] array4 = new ushort[4];
-            ushort[] array5 = new ushort[4];
-            byte[] array6 = new byte[4];
-            int num = 0;
-            int num2 = 0;
-            Picturexinxi picturexinxi = default(Picturexinxi);
-            CURVE_PARAM* ptr = (CURVE_PARAM*)(GuiCurve.myapp.mymerry + obj->attpos);
-            CURVE_CHANNEL_PARAM*[] array7 = new CURVE_CHANNEL_PARAM*[4];
-            short num3 = 0;
-            short num4 = 0;
-            short num5 = 0;
-            byte result;
-            if (ptr->CH_qyt > 4)
+            byte qyt = 0;
+            byte[] buffer = new byte[4];
+            ushort[] numArray = new ushort[4];
+            ushort[] numArray2 = new ushort[4];
+            ushort[] numArray3 = new ushort[4];
+            ushort[] numArray4 = new ushort[4];
+            byte[] buffer2 = new byte[4];
+            int num9 = 0;
+            int num10 = 0;
+            Picturexinxi pic = new Picturexinxi();
+            CURVE_PARAM* curve_paramPtr = (CURVE_PARAM*)(myapp.mymerry + obj->attpos);
+            CURVE_CHANNEL_PARAM*[] curve_channel_paramPtrArray = new CURVE_CHANNEL_PARAM*[4];
+            short x = 0;
+            short num12 = 0;
+            short endy = 0;
+            short y = 0;
+            short num17 = 0;
+            if (curve_paramPtr->CH_qyt <= 4)
             {
-                result = 0;
-            }
-            else
-            {
-                for (byte b2 = 0; b2 < ptr->CH_qyt; b2 += 1)
+                byte num3;
+                for (num3 = 0; num3 < curve_paramPtr->CH_qyt; num3 = (byte)(num3 + 1))
                 {
-                    array7[(int)b2] = ptr + (long)sizeof(CURVE_PARAM) / (long)sizeof(CURVE_CHANNEL_PARAM) + (long)(sizeof(CURVE_CHANNEL_PARAM) * (int)b2) / (long)sizeof(CURVE_CHANNEL_PARAM);
+                    curve_channel_paramPtrArray[num3] = (CURVE_CHANNEL_PARAM*)((((uint)curve_paramPtr) + sizeof(CURVE_PARAM)) + (sizeof(CURVE_CHANNEL_PARAM) * num3));
                 }
-                byte b3 = 0;
-                for (byte b2 = 0; b2 < ptr->CH_qyt; b2 += 1)
+                byte num2 = 0;
+                num3 = 0;
+                while (num3 < curve_paramPtr->CH_qyt)
                 {
-                    array[(int)b2] = 1;
-                    array4[(int)b2] = array7[(int)b2]->DotLen;
-                    if (array4[(int)b2] > 0)
+                    buffer[num3] = 1;
+                    numArray3[num3] = curve_channel_paramPtrArray[num3]->DotLen;
+                    if (numArray3[num3] > 0)
                     {
-                        b3 += 1;
+                        num2 = (byte)(num2 + 1);
                     }
-                    array5[(int)b2] = obj->redian.x;
-                    if (ptr->DrawDir == 0)
+                    numArray4[num3] = obj->redian.x;
+                    if (curve_paramPtr->DrawDir == 0)
                     {
-                        array2[(int)b2] = array7[(int)b2]->BufNext - 1;
-                        num5 = -1;
+                        numArray[num3] = (ushort)(curve_channel_paramPtrArray[num3]->BufNext - 1);
+                        num17 = -1;
                     }
                     else
                     {
-                        num5 = (short)(array7[(int)b2]->BufNext - array7[(int)b2]->BufPos.star);
-                        if (num5 >= (short)array4[(int)b2])
+                        num17 = (short)(curve_channel_paramPtrArray[num3]->BufNext - curve_channel_paramPtrArray[num3]->BufPos.star);
+                        if (num17 >= numArray3[num3])
                         {
-                            array2[(int)b2] = array7[(int)b2]->BufNext - array7[(int)b2]->DotLen;
+                            numArray[num3] = (ushort)(curve_channel_paramPtrArray[num3]->BufNext - curve_channel_paramPtrArray[num3]->DotLen);
                         }
                         else
                         {
-                            array2[(int)b2] = array7[(int)b2]->BufPos.end - (array7[(int)b2]->DotLen - (ushort)num5) + 1;
+                            numArray[num3] = (ushort)((curve_channel_paramPtrArray[num3]->BufPos.end - (curve_channel_paramPtrArray[num3]->DotLen - num17)) + 1);
                         }
-                        if (ptr->DrawDir == 2)
+                        if (curve_paramPtr->DrawDir == 2)
                         {
-                            num5 = (short)(obj->redian.endx - obj->redian.x + 1);
-                            if (array4[(int)b2] < (ushort)num5)
+                            num17 = (short)((obj->redian.endx - obj->redian.x) + 1);
+                            if (numArray3[num3] < num17)
                             {
-                                ushort[] expr_1DE_cp_0 = array5;
-                                byte expr_1DE_cp_1 = b2;
-                                expr_1DE_cp_0[(int)expr_1DE_cp_1] = expr_1DE_cp_0[(int)expr_1DE_cp_1] + (ushort)(num5 - (short)array4[(int)b2]);
+                                numArray4[num3] = (ushort)(numArray4[num3] + ((ushort)(num17 - numArray3[num3])));
                             }
                         }
-                        num5 = 1;
+                        num17 = 1;
                     }
+                    num3 = (byte)(num3 + 1);
                 }
-                if (b3 == 0)
+                if (num2 == 0)
                 {
-                    GuiCurve.CurveRefBack(obj, ID);
+                    CurveRefBack(obj, ID);
                 }
                 else
                 {
-                    if (ptr->BackType == 0)
+                    if (curve_paramPtr->BackType == 0)
                     {
-                        b = 5;
-                        Readdata.Readdata_ReadPic(ref picturexinxi, (int)ptr->PicID);
-                        num = (int)(picturexinxi.addbeg + GuiCurve.myapp.app.picdataadd);
-                        if (GuiCurve.myapp.upapp.lcddev.guidire == 0)
+                        qyt = 5;
+                        Readdata.Readdata_ReadPic(ref pic, curve_paramPtr->PicID);
+                        num9 = (int)(pic.addbeg + myapp.app.picdataadd);
+                        if (myapp.upapp.lcddev.guidire == 0)
                         {
-                            num += (int)(obj->redian.y * picturexinxi.W + obj->redian.x) << 1;
-                            num2 = (int)b << 1;
+                            num9 += ((obj->redian.y * pic.W) + obj->redian.x) << 1;
+                            num10 = qyt << 1;
                         }
-                        else if (GuiCurve.myapp.upapp.lcddev.guidire == 1)
+                        else if (myapp.upapp.lcddev.guidire == 1)
                         {
-                            num += (int)(picturexinxi.H - obj->redian.endy - 1 + obj->redian.x * picturexinxi.H) << 1;
-                            num2 = (int)((ushort)b * picturexinxi.H) << 1;
+                            num9 += (((pic.H - obj->redian.endy) - 1) + (obj->redian.x * pic.H)) << 1;
+                            num10 = (qyt * pic.H) << 1;
                         }
-                        else if (GuiCurve.myapp.upapp.lcddev.guidire == 2)
+                        else if (myapp.upapp.lcddev.guidire == 2)
                         {
-                            num += (int)((picturexinxi.H - obj->redian.endy) * picturexinxi.W - obj->redian.x - (ushort)b) << 1;
-                            num2 = (int)b * -2;
+                            num9 += ((((pic.H - obj->redian.endy) * pic.W) - obj->redian.x) - qyt) << 1;
+                            num10 = qyt * -2;
                         }
-                        else if (GuiCurve.myapp.upapp.lcddev.guidire == 3)
+                        else if (myapp.upapp.lcddev.guidire == 3)
                         {
-                            num += (int)(obj->redian.y + (picturexinxi.W - obj->redian.x - (ushort)b) * picturexinxi.H) << 1;
-                            num2 = (int)((ushort)b * picturexinxi.H) * -2;
+                            num9 += (obj->redian.y + (((pic.W - obj->redian.x) - qyt) * pic.H)) << 1;
+                            num10 = (qyt * pic.H) * -2;
                         }
                     }
-                    else if (ptr->BackType == 2)
+                    else if (curve_paramPtr->BackType == 2)
                     {
-                        b = 5;
-                        Readdata.Readdata_ReadPic(ref picturexinxi, (int)ptr->PicID);
-                        num = (int)(picturexinxi.addbeg + GuiCurve.myapp.app.picdataadd);
-                        if (GuiCurve.myapp.upapp.lcddev.guidire == 0)
+                        qyt = 5;
+                        Readdata.Readdata_ReadPic(ref pic, curve_paramPtr->PicID);
+                        num9 = (int)(pic.addbeg + myapp.app.picdataadd);
+                        if (myapp.upapp.lcddev.guidire == 0)
                         {
-                            num2 = (int)b << 1;
+                            num10 = qyt << 1;
                         }
-                        else if (GuiCurve.myapp.upapp.lcddev.guidire == 1)
+                        else if (myapp.upapp.lcddev.guidire == 1)
                         {
-                            num2 = (int)((ushort)b * picturexinxi.H) << 1;
+                            num10 = (qyt * pic.H) << 1;
                         }
-                        else if (GuiCurve.myapp.upapp.lcddev.guidire == 2)
+                        else if (myapp.upapp.lcddev.guidire == 2)
                         {
-                            num += (int)(picturexinxi.W - (ushort)b) << 1;
-                            num2 = (int)b * -2;
+                            num9 += (pic.W - qyt) << 1;
+                            num10 = qyt * -2;
                         }
-                        else if (GuiCurve.myapp.upapp.lcddev.guidire == 3)
+                        else if (myapp.upapp.lcddev.guidire == 3)
                         {
-                            num += (int)((picturexinxi.W - (ushort)b) * picturexinxi.H) << 1;
-                            num2 = (int)((ushort)b * picturexinxi.H) * -2;
+                            num9 += ((pic.W - qyt) * pic.H) << 1;
+                            num10 = (qyt * pic.H) * -2;
                         }
                     }
                     else
                     {
-                        num3 = (short)obj->redian.x;
-                        num4 = num3 + (short)ptr->GridX;
+                        x = (short)obj->redian.x;
+                        num12 = (short)(x + curve_paramPtr->GridX);
                     }
-                    for (short num6 = (short)obj->redian.x; num6 <= (short)obj->redian.endx; num6 += (short)b)
+                    for (short i = (short)obj->redian.x; i <= obj->redian.endx; i = (short)(i + qyt))
                     {
-                        short num7 = num6 + 5 - 1;
-                        if (num7 > (short)obj->redian.endx)
+                        short endx = (short)((i + 5) - 1);
+                        if (endx > obj->redian.endx)
                         {
-                            num7 = (short)obj->redian.endx;
+                            endx = (short)obj->redian.endx;
                         }
-                        if (ptr->BackType == 1)
+                        if (curve_paramPtr->BackType == 1)
                         {
-                            if (ptr->GridX > 0)
+                            if (curve_paramPtr->GridX > 0)
                             {
-                                ushort num8;
-                                if (num6 == num3)
+                                ushort num15;
+                                ushort num16;
+                                if (i == x)
                                 {
-                                    Lcd.LCD_addset((int)((ushort)num6), (int)obj->redian.y, (int)((ushort)num6), (int)obj->redian.endy, 1);
-                                    Lcd.Lcd_WR_POINT((uint)ptr->objHig, ptr->Griclr);
-                                    num8 = (ushort)(num6 + 1);
+                                    Lcd.LCD_addset((ushort)i, obj->redian.y, (ushort)i, obj->redian.endy, 1);
+                                    Lcd.Lcd_WR_POINT(curve_paramPtr->objHig, curve_paramPtr->Griclr);
+                                    num15 = (ushort)(i + 1);
                                 }
                                 else
                                 {
-                                    num8 = (ushort)num6;
+                                    num15 = (ushort)i;
                                 }
-                                ushort num9;
-                                if (num8 + 5 >= (ushort)num4)
+                                if ((num15 + 5) >= num12)
                                 {
-                                    num9 = (ushort)(num4 - 1);
-                                    num3 = num4;
-                                    num4 += (short)ptr->GridX;
+                                    num16 = (ushort)(num12 - 1);
+                                    x = num12;
+                                    num12 = (short)(num12 + curve_paramPtr->GridX);
                                 }
                                 else
                                 {
-                                    num9 = num8 + 5 - 1;
+                                    num16 = (ushort)((num15 + 5) - 1);
                                 }
-                                b = (byte)(num9 - (ushort)num6 + 1);
-                                if (num6 + (short)b > (short)obj->redian.endx)
+                                qyt = (byte)((num16 - i) + 1);
+                                if ((i + qyt) > obj->redian.endx)
                                 {
-                                    num9 = (ushort)num7;
-                                    b = (byte)(num7 - num6 + 1);
+                                    num16 = (ushort)endx;
+                                    qyt = (byte)((endx - i) + 1);
                                 }
-                                if (ptr->GridY > 0)
+                                if (curve_paramPtr->GridY > 0)
                                 {
-                                    for (short num10 = (short)obj->redian.endy; num10 >= (short)obj->redian.y; num10 -= (short)ptr->GridY)
+                                    endy = (short)obj->redian.endy;
+                                    while (endy >= obj->redian.y)
                                     {
-                                        short num11 = num10 - (short)ptr->GridY + 1;
-                                        if (num11 < (short)obj->redian.y)
+                                        y = (short)((endy - curve_paramPtr->GridY) + 1);
+                                        if (y < obj->redian.y)
                                         {
-                                            num11 = (short)obj->redian.y;
+                                            y = (short)obj->redian.y;
                                         }
-                                        Lcd.LCD_addset((int)num8, (int)((ushort)num10), (int)num9, (int)((ushort)num10), 1);
-                                        Lcd.Lcd_WR_POINT((uint)(num9 - num8 + 1), ptr->Griclr);
-                                        Lcd.LCD_addset((int)num8, (int)((ushort)num11), (int)num9, (int)((ushort)(num10 - 1)), 1);
-                                        Lcd.Lcd_WR_POINT((uint)((num9 - num8 + 1) * (ushort)(num10 - num11)), ptr->Bkclr);
+                                        Lcd.LCD_addset(num15, (ushort)endy, num16, (ushort)endy, 1);
+                                        Lcd.Lcd_WR_POINT((ushort)((num16 - num15) + 1), curve_paramPtr->Griclr);
+                                        Lcd.LCD_addset(num15, (ushort)y, num16, (ushort)(endy - 1), 1);
+                                        Lcd.Lcd_WR_POINT((uint)(((num16 - num15) + 1) * (endy - y)), curve_paramPtr->Bkclr);
+                                        endy = (short)(endy - curve_paramPtr->GridY);
                                     }
                                 }
                                 else
                                 {
-                                    num = (int)(ptr->objHig * (num9 - num8 + 1));
-                                    Lcd.LCD_addset((int)num8, (int)obj->redian.y, (int)num9, (int)obj->redian.endy, 1);
-                                    Lcd.Lcd_WR_POINT((uint)num, ptr->Bkclr);
+                                    num9 = curve_paramPtr->objHig * ((num16 - num15) + 1);
+                                    Lcd.LCD_addset(num15, obj->redian.y, num16, obj->redian.endy, 1);
+                                    Lcd.Lcd_WR_POINT((uint)num9, curve_paramPtr->Bkclr);
                                 }
                             }
-                            else if (ptr->GridY > 0)
+                            else if (curve_paramPtr->GridY > 0)
                             {
-                                for (short num10 = (short)obj->redian.endy; num10 >= (short)obj->redian.y; num10 -= (short)ptr->GridY)
+                                for (endy = (short)obj->redian.endy; endy >= obj->redian.y; endy = (short)(endy - curve_paramPtr->GridY))
                                 {
-                                    short num11 = num10 - (short)ptr->GridY + 1;
-                                    if (num11 < (short)obj->redian.y)
+                                    y = (short)((endy - curve_paramPtr->GridY) + 1);
+                                    if (y < obj->redian.y)
                                     {
-                                        num11 = (short)obj->redian.y;
+                                        y = (short)obj->redian.y;
                                     }
-                                    Lcd.LCD_addset((int)((ushort)num6), (int)((ushort)num11), (int)((ushort)num7), (int)((ushort)num10), 1);
-                                    b = (byte)(num7 - num6 + 1);
-                                    Lcd.Lcd_WR_POINT((uint)((short)b * (num10 - num11)), ptr->Bkclr);
-                                    Lcd.Lcd_WR_POINT((uint)b, ptr->Griclr);
+                                    Lcd.LCD_addset((ushort)i, (ushort)y, (ushort)endx, (ushort)endy, 1);
+                                    qyt = (byte)((endx - i) + 1);
+                                    Lcd.Lcd_WR_POINT((uint)(qyt * (endy - y)), curve_paramPtr->Bkclr);
+                                    Lcd.Lcd_WR_POINT(qyt, curve_paramPtr->Griclr);
                                 }
                             }
                             else
                             {
-                                b = (byte)(num7 - num6 + 1);
-                                num = (int)(ptr->objHig * (ushort)(num7 - num6 + 1));
-                                Lcd.LCD_addset((int)((ushort)num6), (int)obj->redian.y, (int)((ushort)num7), (int)obj->redian.endy, 1);
-                                Lcd.Lcd_WR_POINT((uint)num, ptr->Bkclr);
+                                qyt = (byte)((endx - i) + 1);
+                                num9 = curve_paramPtr->objHig * ((endx - i) + 1);
+                                Lcd.LCD_addset((ushort)i, obj->redian.y, (ushort)endx, obj->redian.endy, 1);
+                                Lcd.Lcd_WR_POINT((uint)num9, curve_paramPtr->Bkclr);
                             }
                         }
                         else
                         {
-                            Lcd.LCD_addset((int)((ushort)num6), (int)obj->redian.y, (int)((ushort)num7), (int)obj->redian.endy, 1);
-                            if ((GuiCurve.myapp.upapp.lcddev.guidire & 1) > 0)
+                            Lcd.LCD_addset((ushort)i, obj->redian.y, (ushort)endx, obj->redian.endy, 1);
+                            if ((myapp.upapp.lcddev.guidire & 1) > 0)
                             {
-                                Showpic.Showpic_SendDataOffset((uint)num, (ushort)(picturexinxi.H << 1), (ushort)(num7 - num6 + 1), (byte)ptr->objHig);
+                                Showpic.Showpic_SendDataOffset((uint)num9, (ushort)(pic.H << 1), (ushort)((endx - i) + 1), (byte)curve_paramPtr->objHig);
                             }
                             else
                             {
-                                Showpic.Showpic_SendDataOffset((uint)num, (ushort)(picturexinxi.W << 1), ptr->objHig, (byte)(num7 - num6 + 1));
+                                Showpic.Showpic_SendDataOffset((uint)num9, (ushort)(pic.W << 1), curve_paramPtr->objHig, (byte)((endx - i) + 1));
                             }
-                            num += num2;
+                            num9 += num10;
                         }
-                        for (byte b2 = 0; b2 < ptr->CH_qyt; b2 += 1)
+                        for (num3 = 0; num3 < curve_paramPtr->CH_qyt; num3 = (byte)(num3 + 1))
                         {
-                            if (array4[(int)b2] > 0 && num6 >= (short)array5[(int)b2])
+                            if ((numArray3[num3] > 0) && (i >= numArray4[num3]))
                             {
-                                for (b3 = 0; b3 < b; b3 += 1)
+                                for (num2 = 0; num2 < qyt; num2 = (byte)(num2 + 1))
                                 {
-                                    byte b4 = GuiCurve.myapp.mymerry[array2[(int)b2]];
-                                    byte b5 = array6[(int)b2];
-                                    if (array[(int)b2] > 0)
+                                    byte num6;
+                                    byte num5 = myapp.mymerry[numArray[num3]];
+                                    byte num4 = buffer2[num3];
+                                    if (buffer[num3] > 0)
                                     {
-                                        b5 = b4;
-                                        array[(int)b2] = 0;
+                                        num4 = num5;
+                                        buffer[num3] = 0;
                                     }
-                                    if (b4 > b5)
+                                    if (num5 > num4)
                                     {
-                                        byte qyt = b4 - b5 + 1;
-                                        Lcd.LCD_addset((int)((ushort)(num6 + (short)b3)), (int)(obj->redian.endy - (ushort)b4), (int)((ushort)(num6 + (short)b3)), (int)(obj->redian.endy - (ushort)b5), 1);
-                                        Lcd.Lcd_WR_POINT((uint)qyt, array7[(int)b2]->Penclr);
+                                        num6 = (byte)((num5 - num4) + 1);
+                                        Lcd.LCD_addset((ushort)(i + num2), (ushort)(obj->redian.endy - num5), (ushort)(i + num2), (ushort)(obj->redian.endy - num4), 1);
+                                        Lcd.Lcd_WR_POINT(num6, curve_channel_paramPtrArray[num3]->Penclr);
                                     }
                                     else
                                     {
-                                        byte qyt = b5 - b4 + 1;
-                                        Lcd.LCD_addset((int)((ushort)(num6 + (short)b3)), (int)(obj->redian.endy - (ushort)b5), (int)((ushort)(num6 + (short)b3)), (int)(obj->redian.endy - (ushort)b4), 1);
-                                        Lcd.Lcd_WR_POINT((uint)qyt, array7[(int)b2]->Penclr);
+                                        num6 = (byte)((num4 - num5) + 1);
+                                        Lcd.LCD_addset((ushort)(i + num2), (ushort)(obj->redian.endy - num4), (ushort)(i + num2), (ushort)(obj->redian.endy - num5), 1);
+                                        Lcd.Lcd_WR_POINT(num6, curve_channel_paramPtrArray[num3]->Penclr);
                                     }
-                                    array6[(int)b2] = b4;
-                                    array2[(int)b2] = array2[(int)b2] + (ushort)num5;
-                                    if (array2[(int)b2] > array7[(int)b2]->BufPos.end)
+                                    buffer2[num3] = num5;
+                                    numArray[num3] = (ushort)(numArray[num3] + num17);
+                                    if (numArray[num3] > curve_channel_paramPtrArray[num3]->BufPos.end)
                                     {
-                                        array2[(int)b2] = array7[(int)b2]->BufPos.star;
+                                        numArray[num3] = curve_channel_paramPtrArray[num3]->BufPos.star;
                                     }
-                                    else if (array2[(int)b2] < array7[(int)b2]->BufPos.star)
+                                    else if (numArray[num3] < curve_channel_paramPtrArray[num3]->BufPos.star)
                                     {
-                                        array2[(int)b2] = array7[(int)b2]->BufPos.end;
+                                        numArray[num3] = curve_channel_paramPtrArray[num3]->BufPos.end;
                                     }
-                                    ushort[] expr_ABE_cp_0 = array4;
-                                    byte expr_ABE_cp_1 = b2;
-                                    expr_ABE_cp_0[(int)expr_ABE_cp_1] = expr_ABE_cp_0[(int)expr_ABE_cp_1] - 1;
-                                    if (array4[(int)b2] == 0)
+                                    numArray3[num3] = (ushort)(numArray3[num3] - 1);
+                                    if (numArray3[num3] == 0)
                                     {
                                         break;
                                     }
@@ -428,48 +421,46 @@ namespace hmitype
                         }
                     }
                 }
-                GuiCurve.myapp.pageobjs[ID].refFlag = 0;
-                result = 0;
+                myapp.pageobjs[ID].refFlag = 0;
             }
-            return result;
+            return 0;
+
         }
 
-        public unsafe static byte GuiCruveClear(byte id, byte ch)
+        public static unsafe byte GuiCruveClear(byte id, byte ch)
         {
-            byte b = 255;
-            byte result;
-            for (byte b2 = 0; b2 < 5; b2 += 1)
+            byte num2 = 0xff;
+            for (byte i = 0; i < 5; i = (byte)(i + 1))
             {
-                if (GuiCurve.CurveIndex[(int)b2].objID == id)
+                if (CurveIndex[i].objID == id)
                 {
-                    CURVE_PARAM* ptr = (CURVE_PARAM*)(GuiCurve.myapp.mymerry + GuiCurve.CurveIndex[(int)b2].offset);
-                    if (ch < ptr->CH_qyt)
+                    CURVE_PARAM* curve_paramPtr = (CURVE_PARAM*)(myapp.mymerry + CurveIndex[i].offset);
+                    if (ch < curve_paramPtr->CH_qyt)
                     {
-                        b = ch;
+                        num2 = ch;
                     }
-                    else if (ch == 255)
+                    else if (ch == 0xff)
                     {
                         ch = 0;
-                        b = ptr->CH_qyt - 1;
+                        num2 = (byte)(curve_paramPtr->CH_qyt - 1);
                     }
-                    if (b < 255)
+                    if (num2 < 0xff)
                     {
-                        while (ch <= b)
+                        while (ch <= num2)
                         {
-                            CURVE_CHANNEL_PARAM* ptr2 = ptr + (long)sizeof(CURVE_PARAM) / (long)sizeof(CURVE_CHANNEL_PARAM) + (long)(sizeof(CURVE_CHANNEL_PARAM) * (int)ch) / (long)sizeof(CURVE_CHANNEL_PARAM);
-                            ptr2->DotLen = 0;
-                            ptr2->BufNext = ptr2->BufPos.star;
-                            GuiCurve.myapp.pageobjs[id].refFlag = 1;
-                            ch += 1;
+                            CURVE_CHANNEL_PARAM* curve_channel_paramPtr = (CURVE_CHANNEL_PARAM*)((((uint)curve_paramPtr) + sizeof(CURVE_PARAM)) + (sizeof(CURVE_CHANNEL_PARAM) * ch));
+                            curve_channel_paramPtr->DotLen = 0;
+                            curve_channel_paramPtr->BufNext = curve_channel_paramPtr->BufPos.star;
+                            myapp.pageobjs[id].refFlag = 1;
+                            ch = (byte)(ch + 1);
                         }
-                        result = 1;
-                        return result;
+                        return 1;
                     }
                 }
             }
-            result = 0;
-            return result;
+            return 0;
         }
+
 
         public unsafe static byte GuiCruveCmd(byte id, byte ch, byte data)
         {
@@ -488,7 +479,7 @@ namespace hmitype
                 {
                     GuiCurve.CurveIndex[(int)b].Ch = ch;
                     byte b2;
-                    fixed (void* ptr = (void*)(&GuiCurve.CurveIndex[(int)b]))
+                    fixed (void* ptr =(&GuiCurve.CurveIndex[(int)b]))
                     {
                         b2 = GuiCurve.GuiCurveAdd((GuiCurve.CURVE_INDEX*)ptr, data);
                     }
@@ -541,7 +532,7 @@ namespace hmitype
             byte result;
             if (GuiCurve.CurveTranCount > 0)
             {
-                fixed (void* ptr = (void*)(&GuiCurve.CurveIndex[(int)GuiCurve.CurveTranIndex]))
+                fixed (void* ptr =(&GuiCurve.CurveIndex[(int)GuiCurve.CurveTranIndex]))
                 {
                     GuiCurve.GuiCurveAdd((GuiCurve.CURVE_INDEX*)ptr, dat);
                 }

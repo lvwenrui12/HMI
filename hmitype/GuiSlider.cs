@@ -10,33 +10,33 @@ namespace hmitype
         {
             if (pSliRam->Mode > 0)
             {
-                byte b = pSliRam->CursorHig / 2;
-                byte b2 = pSliRam->CursorHig - b;
+                byte b = Convert.ToByte(pSliRam->CursorHig / 2);
+                byte b2 = Convert.ToByte(pSliRam->CursorHig - b);
                 if (pSliRam->NowVal >= pSliRam->MaxVal)
                 {
-                    pSliRam->TouchPos = obj->redian.y + (ushort)b2 - 1;
+                    pSliRam->TouchPos = (ushort)(obj->redian.y + (ushort)b2 - 1);
                 }
                 else if (pSliRam->NowVal <= pSliRam->MinVal)
                 {
-                    pSliRam->TouchPos = obj->redian.endy - (ushort)b;
+                    pSliRam->TouchPos = (ushort)(obj->redian.endy - (ushort)b);
                 }
                 else
                 {
-                    ushort num = (pSliRam->NowVal - pSliRam->MinVal) * (obj->redian.endy - obj->redian.y - (ushort)pSliRam->CursorHig + 1) / (pSliRam->MaxVal - pSliRam->MinVal + 1);
-                    pSliRam->TouchPos = obj->redian.endy - (ushort)b2 - num;
+                    ushort num = (ushort)((pSliRam->NowVal - pSliRam->MinVal) * (obj->redian.endy - obj->redian.y - (ushort)pSliRam->CursorHig + 1) / (pSliRam->MaxVal - pSliRam->MinVal + 1));
+                    pSliRam->TouchPos = (ushort)(obj->redian.endy - (ushort)b2 - num);
                 }
             }
             else
             {
-                byte b = pSliRam->CursorWid / 2;
-                byte b2 = pSliRam->CursorWid - b;
+                byte b = Convert.ToByte(pSliRam->CursorWid / 2);
+                byte b2 = Convert.ToByte(pSliRam->CursorWid - b);
                 if (pSliRam->NowVal >= pSliRam->MaxVal)
                 {
-                    pSliRam->TouchPos = obj->redian.endx - (ushort)b2 + 1;
+                    pSliRam->TouchPos =(ushort)(obj->redian.endx - (ushort)b2 + 1);
                 }
                 else if (pSliRam->NowVal <= pSliRam->MinVal)
                 {
-                    pSliRam->TouchPos = obj->redian.x + (ushort)b;
+                    pSliRam->TouchPos = (ushort)(obj->redian.x + (ushort)b);
                 }
                 else
                 {
@@ -89,19 +89,19 @@ namespace hmitype
         {
             if (pSliRam->Mode > 0)
             {
-                byte b = pSliRam->CursorHig / 2;
-                *CurXPos = (obj->redian.endx - obj->redian.x + 1 - (ushort)pSliRam->CursorWid) / 2 + obj->redian.x;
-                *CurXEnd = *CurXPos + (ushort)pSliRam->CursorWid - 1;
-                *CurYEnd = pSliRam->TouchPos + (ushort)b;
-                *CurYPos = *CurYEnd - (ushort)pSliRam->CursorHig + 1;
+                byte b = (byte)(pSliRam->CursorHig / 2);
+                *CurXPos = (ushort)((obj->redian.endx - obj->redian.x + 1 - (ushort)pSliRam->CursorWid) / 2 + obj->redian.x);
+                *CurXEnd = (ushort)(*CurXPos + (ushort)pSliRam->CursorWid - 1);
+                *CurYEnd =(ushort)(pSliRam->TouchPos + (ushort)b);
+                *CurYPos = (ushort)(*CurYEnd - (ushort)pSliRam->CursorHig + 1);
             }
             else
             {
-                byte b = pSliRam->CursorWid / 2;
-                *CurYPos = (obj->redian.endy - obj->redian.y + 1 - (ushort)pSliRam->CursorHig) / 2 + obj->redian.y;
-                *CurYEnd = *CurYPos + (ushort)pSliRam->CursorHig - 1;
-                *CurXPos = pSliRam->TouchPos - (ushort)b;
-                *CurXEnd = *CurXPos + (ushort)pSliRam->CursorWid - 1;
+                byte b =(Convert.ToByte(pSliRam->CursorWid / 2));
+                *CurYPos = (ushort)((obj->redian.endy - obj->redian.y + 1 - (ushort)pSliRam->CursorHig) / 2 + obj->redian.y);
+                *CurYEnd =(ushort)(*CurYPos + (ushort)pSliRam->CursorHig - 1);
+                *CurXPos =(ushort)(pSliRam->TouchPos - (ushort)b);
+                *CurXEnd = (ushort)(*CurXPos + (ushort)pSliRam->CursorWid - 1);
             }
             byte result;
             if (pSliRam->CursorType > 0)
@@ -139,19 +139,19 @@ namespace hmitype
                 if (*CurYEnd < pSliRam->LastPos)
                 {
                     num4 = pSliRam->LastPos;
-                    num2 = num4 - (ushort)pSliRam->CursorHig + 1;
+                    num2 =(ushort)(num4 - (ushort)pSliRam->CursorHig + 1);
                     if (*CurYEnd >= num2)
                     {
-                        num2 = *CurYEnd + 1;
+                        num2 =(ushort)(*CurYEnd + 1);
                     }
                 }
                 else if (*CurYEnd > pSliRam->LastPos)
                 {
                     num4 = pSliRam->LastPos;
-                    num2 = num4 - (ushort)pSliRam->CursorHig + 1;
+                    num2 = (ushort)(num4 - (ushort)pSliRam->CursorHig + 1);
                     if (num4 >= *CurYPos)
                     {
-                        num4 = *CurYPos - 1;
+                        num4 = (ushort)(*CurYPos - 1);
                     }
                 }
             }
@@ -162,19 +162,19 @@ namespace hmitype
                 if (*CurXPos < pSliRam->LastPos)
                 {
                     num = pSliRam->LastPos;
-                    num3 = num + (ushort)pSliRam->CursorWid - 1;
+                    num3 =(ushort)(num + (ushort)pSliRam->CursorWid - 1);
                     if (*CurXEnd >= num)
                     {
-                        num = *CurXEnd + 1;
+                        num =(ushort)(*CurXEnd + 1);
                     }
                 }
                 else if (*CurXPos > pSliRam->LastPos)
                 {
                     num = pSliRam->LastPos;
-                    num3 = num + (ushort)pSliRam->CursorWid - 1;
+                    num3 = (ushort)(num + (ushort)pSliRam->CursorWid - 1);
                     if (num3 >= *CurXPos)
                     {
-                        num3 = *CurXPos - 1;
+                        num3 =(ushort)(*CurXPos - 1);
                     }
                 }
             }
@@ -273,16 +273,16 @@ namespace hmitype
             ushort nowVal = pSliRam->NowVal;
             if (pSliRam->Mode > 0)
             {
-                byte b = pSliRam->CursorHig / 2;
-                byte b2 = pSliRam->CursorHig - b;
+                byte b =Convert.ToByte(pSliRam->CursorHig / 2);
+                byte b2 =(byte) (pSliRam->CursorHig / 2);
                 if (val >= obj->redian.endy - (ushort)b)
                 {
-                    pSliRam->TouchPos = obj->redian.endy - (ushort)b;
+                    pSliRam->TouchPos =(ushort)(obj->redian.endy - (ushort)b);
                     pSliRam->NowVal = pSliRam->MinVal;
                 }
                 else if (val <= obj->redian.y + (ushort)b2 - 1)
                 {
-                    pSliRam->TouchPos = obj->redian.y + (ushort)b2 - 1;
+                    pSliRam->TouchPos = (ushort)(obj->redian.y + (ushort)b2 - 1);
                     pSliRam->NowVal = pSliRam->MaxVal;
                 }
                 else
@@ -293,16 +293,16 @@ namespace hmitype
             }
             else
             {
-                byte b = pSliRam->CursorWid / 2;
-                byte b2 = pSliRam->CursorWid - b;
+                byte b = Convert.ToByte(pSliRam->CursorWid / 2);
+                byte b2 = Convert.ToByte(pSliRam->CursorWid - b);
                 if (val <= obj->redian.x + (ushort)b)
                 {
-                    pSliRam->TouchPos = obj->redian.x + (ushort)b;
+                    pSliRam->TouchPos = (ushort)(obj->redian.x + (ushort)b);
                     pSliRam->NowVal = pSliRam->MinVal;
                 }
                 else if (val >= obj->redian.endx - (ushort)b2 + 1)
                 {
-                    pSliRam->TouchPos = obj->redian.endx - (ushort)b2 + 1;
+                    pSliRam->TouchPos = (ushort)(obj->redian.endx - (ushort)b2 + 1);
                     pSliRam->NowVal = pSliRam->MaxVal;
                 }
                 else

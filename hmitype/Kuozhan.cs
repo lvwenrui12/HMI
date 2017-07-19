@@ -2069,25 +2069,27 @@ namespace hmitype
 
         public static object BytesTostruct(this byte[] bytes, Type strcutType)
         {
-            IntPtr intPtr = 0;
-            object result;
+            object obj2;
+            IntPtr destination = new IntPtr();
+            int cb = 0;
             try
             {
-                int num = Marshal.SizeOf(strcutType);
-                intPtr = Marshal.AllocHGlobal(num);
-                Marshal.Copy(bytes, 0, intPtr, num);
-                result = Marshal.PtrToStructure(intPtr, strcutType);
+                cb = Marshal.SizeOf(strcutType);
+                destination = Marshal.AllocHGlobal(cb);
+                Marshal.Copy(bytes, 0, destination, cb);
+                obj2 = Marshal.PtrToStructure(destination, strcutType);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                MessageOpen.Show(ex.Message);
-                result = null;
+                MessageOpen.Show(exception.Message);
+                obj2 = null;
             }
             finally
             {
-                Marshal.FreeHGlobal(intPtr);
+                Marshal.FreeHGlobal(destination);
             }
-            return result;
+            return obj2;
+
         }
 
         public unsafe static void BytesToptr(this byte[] bytes, byte* pt)
@@ -2121,7 +2123,7 @@ namespace hmitype
                 {
                     try
                     {
-                        fixed (void* ptr = (void*)(&bytes[beg]))
+                        fixed (void* ptr =(&bytes[beg]))
                         {
                             IntPtr ptr2 = new IntPtr(ptr);
                             result = Marshal.PtrToStructure(ptr2, strcutType);
@@ -2725,7 +2727,7 @@ namespace hmitype
             int num3 = 0;
             for (int i = 0; i < num2; i++)
             {
-                array[i] = (bytes[i] ^ array2[num3]);
+                array[i] =(byte) (bytes[i] ^ array2[num3]);
                 if (num3 == num)
                 {
                     num3 = 0;
@@ -2744,7 +2746,7 @@ namespace hmitype
             int num3 = 0;
             for (int i = 0; i < num; i++)
             {
-                array[i] = (bytes[i] ^ array2[num3]);
+                array[i] =(byte) (bytes[i] ^ array2[num3]);
                 num3++;
                 if (num3 > 3)
                 {
@@ -2771,7 +2773,7 @@ namespace hmitype
             }
             for (int i = 6; i < array.Length; i++)
             {
-                array[i] = (bytes[i] ^ array2[num3]);
+                array[i] =(byte) (bytes[i] ^ array2[num3]);
                 num3++;
                 if (num3 > 3)
                 {

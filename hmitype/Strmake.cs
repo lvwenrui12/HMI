@@ -278,7 +278,7 @@ namespace hmitype
                             result = 0;
                             return result;
                         }
-                        cancode[num2].end = num - 1;
+                        cancode[num2].end = (ushort)(num - 1);
                         num += 1;
                         num2 += 1;
                     }
@@ -485,7 +485,7 @@ namespace hmitype
                 byte b2;
                 if (b > lenth)
                 {
-                    b2 = b - lenth;
+                    b2 = (byte)(b - lenth);
                     for (int i = 1; i <= (int)b2; i++)
                     {
                         num /= 10;

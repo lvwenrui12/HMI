@@ -173,7 +173,7 @@ namespace hmitype
             int num = (int)Showfont.myapp.brush.x;
             int num2 = (int)Showfont.myapp.brush.y;
             byte result;
-            if (buf == 0)
+            if ((int)buf == 0)
             {
                 MessageBox.Show("error");
                 result = 0;
@@ -193,21 +193,21 @@ namespace hmitype
                         if (Showfont.myapp.brush.sta < 10)
                         {
                             myappinf expr_AA_cp_0 = Showfont.myapp;
-                            expr_AA_cp_0.brush.sta = expr_AA_cp_0.brush.sta + 10;
+                            expr_AA_cp_0.brush.sta = Convert.ToByte(expr_AA_cp_0.brush.sta + 10);
                         }
                     }
                     if (Showfont.myapp.brush.endx >= Showfont.myapp.upapp.lcddev.width)
                     {
-                        Showfont.myapp.brush.endx = Showfont.myapp.upapp.lcddev.width - 1;
+                        Showfont.myapp.brush.endx = Convert.ToByte(Showfont.myapp.upapp.lcddev.width - 1);
                     }
                     if (Showfont.myapp.brush.endy >= Showfont.myapp.upapp.lcddev.height)
                     {
-                        Showfont.myapp.brush.endy = Showfont.myapp.upapp.lcddev.height - 1;
+                        Showfont.myapp.brush.endy = Convert.ToByte(Showfont.myapp.upapp.lcddev.height - 1);
                     }
                     if (Showfont.myapp.brush.sta < 10)
                     {
                         myappinf expr_199_cp_0 = Showfont.myapp;
-                        expr_199_cp_0.brush.sta = expr_199_cp_0.brush.sta + 10;
+                        expr_199_cp_0.brush.sta = Convert.ToByte(expr_199_cp_0.brush.sta + 10);
                     }
                     if (Showfont.myapp.brush.sta == 0 || Showfont.myapp.brush.sta == 2 || Showfont.myapp.brush.sta == 10 || Showfont.myapp.brush.sta == 12)
                     {
@@ -223,7 +223,7 @@ namespace hmitype
                         if (Showfont.myapp.brush.sta < 10)
                         {
                             myappinf expr_26F_cp_0 = Showfont.myapp;
-                            expr_26F_cp_0.brush.sta = expr_26F_cp_0.brush.sta + 10;
+                            expr_26F_cp_0.brush.sta =Convert.ToByte(expr_26F_cp_0.brush.sta + 10);
                         }
                     }
                     if (Showfont.myapp.brush.sta > 9)
@@ -349,7 +349,7 @@ namespace hmitype
                     byte h;
                     if (Showfont.myapp.brush.mzimo.codeh_star == 0 || Showfont.myapp.brush.pw != 0 || *buf <= 126)
                     {
-                        b = Showfont.myapp.brush.mzimo.h / 2;
+                        b =Convert.ToByte(Showfont.myapp.brush.mzimo.h / 2);
                         h = 0;
                     }
                     else

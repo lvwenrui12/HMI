@@ -70,6 +70,17 @@ namespace hmitype
             this.FromOpen(message, datasize.softname, MessageBoxButtons.OK, Color.FromArgb(7, 104, 169));
         }
 
+        public MessageForm(string message, Color color)
+        {
+            this.FromOpen(message, datasize.softname, MessageBoxButtons.OK, color);
+        }
+
+        public MessageForm(string message, string title, MessageBoxButtons mb)
+        {
+            this.FromOpen(message, title, mb, Color.FromArgb(7, 104, 169));
+        }
+
+
         private void FromOpen(string message, string title, MessageBoxButtons mb, Color color)
         {
             this.InitializeComponent();

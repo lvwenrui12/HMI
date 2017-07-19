@@ -719,7 +719,7 @@ namespace hmitype
                 }
                 b += 1;
             }
-            result = ((datasize.Language == 0) ? 2 : 3);
+            result =Convert.ToByte(((datasize.Language == 0) ? 2 : 3));
             return result;
         }
 

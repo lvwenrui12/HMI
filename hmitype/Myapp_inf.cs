@@ -790,7 +790,7 @@ namespace hmitype
                             }
                             foreach (mobj mobj in mpage.objs)
                             {
-                                mobj mobj;
+                                //mobj mobj;
                                 foreach (matt current in mobj.atts)
                                 {
                                     if (current.att.attlei == attshulei.Font.typevalue)
@@ -810,7 +810,7 @@ namespace hmitype
                             }
                             foreach (mobj mobj in mpage.objs)
                             {
-                                mobj mobj;
+                                //mobj mobj;
                                 foreach (matt current in mobj.atts)
                                 {
                                     if (current.att.attlei == attshulei.Picid.typevalue)

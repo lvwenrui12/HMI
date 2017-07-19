@@ -647,12 +647,24 @@ namespace hmitype
 
         public unsafe static byte Attmake_AttAdd(byte* buf, ref runattinf b1, ref runattinf b2, ref runattinf b3, byte yunsuan)
         {
-            return Attmake.Attmake_AttAdd(buf, &b1, &b2, &b3, yunsuan);
+            //return Attmake.Attmake_AttAdd(buf, &b1, &b2, &b3, yunsuan);
+
+            fixed (runattinf* runattinfRef = (&b1))
+            {
+                fixed (runattinf* runattinfRef2 = (&b2))
+                {
+                    fixed (runattinf* runattinfRef3 = (&b3))
+                    {
+                        return Attmake_AttAdd(buf, runattinfRef, runattinfRef2, runattinfRef3, yunsuan);
+                    }
+                }
+            }
+
         }
 
         public static void attinfUpToDown(this attinf_Up attup, ref attinf attdown, byte encodeh_star)
         {
-            attdown.state = (attup.attlei & 15);
+            attdown.state =(byte) (attup.attlei & 15);
             if (attup.isxiugai == 1)
             {
                 attdown.state |= 16;
@@ -802,11 +814,11 @@ namespace hmitype
                     if (yunsuan == 43)
                     {
                         ptr += num4;
-                        num5 = b2->att.merrylenth - num4 - 1;
+                        num5 =(ushort)(b2->att.merrylenth - num4 - 1);
                     }
                     else
                     {
-                        num5 = b2->att.merrylenth - 1;
+                        num5 =(ushort)(b2->att.merrylenth - 1);
                     }
                     if (num5 > num3)
                     {
@@ -1164,9 +1176,9 @@ namespace hmitype
                 }
                 if (num2 != 65535)
                 {
-                    att->att.pos = bufpos->star + 1;
+                    att->att.pos =(ushort)(bufpos->star + 1);
                     att->attlei = attshulei.Sstr.typevalue;
-                    att->att.merrylenth = num3 - bufpos->star;
+                    att->att.merrylenth =(ushort)(num3 - bufpos->star);
                     att->datafrom = 253;
                     att->isxiugai = 0;
                     att->Pz = buf + att->att.pos;
@@ -1367,7 +1379,7 @@ namespace hmitype
                         return;
                     }
                     posLaction.star = bufpos->star;
-                    posLaction.end = num2 - 1;
+                    posLaction.end = (ushort)(num2 - 1);
                     ushort num6;
                     ushort num7;
                     if (num3 > 0)
@@ -1377,8 +1389,8 @@ namespace hmitype
                         {
                             return;
                         }
-                        posLaction.star = num2 + 1;
-                        posLaction.end = num3 - 1;
+                        posLaction.star = (ushort)(num2 + 1);
+                        posLaction.end =(ushort)(num3 - 1);
                         if (num6 == Attmake.myapp.dpage)
                         {
                             num7 = Hmi.Hmi_GetObjid(buf, &posLaction, Attmake.myapp.dobjnameseradd, (uint)Attmake.myapp.dpagexinxi.objqyt);
@@ -1391,13 +1403,13 @@ namespace hmitype
                             num7 = Hmi.Hmi_GetObjid(buf, &posLaction, strxinxi.addbeg + Attmake.myapp.app.strdataadd, (uint)pagexinxi.objqyt);
                             num4 = pagexinxi.attdatapos;
                         }
-                        posLaction.star = num3 + 1;
+                        posLaction.star = (ushort)(num3 + 1);
                     }
                     else
                     {
                         num6 = Attmake.myapp.dpage;
                         num7 = Hmi.Hmi_GetObjid(buf, &posLaction, Attmake.myapp.dobjnameseradd, (uint)Attmake.myapp.dpagexinxi.objqyt);
-                        posLaction.star = num2 + 1;
+                        posLaction.star =(ushort)(num2 + 1);
                         num4 = Attmake.myapp.dpagexinxi.attdatapos;
                     }
                     posLaction.end = bufpos->end;
@@ -1433,7 +1445,7 @@ namespace hmitype
                 }
                 num = Attmake.myapp.app.strdataadd + num4;
                 Readdata.SPI_Flash_Read((byte*)(&att->att), num, (uint)datasize.attxinxisize);
-                att->attlei = (att->att.state & 15);
+                att->attlei =(byte) (att->att.state & 15);
                 if ((att->att.state & 16) > 0)
                 {
                     att->isxiugai = 1;

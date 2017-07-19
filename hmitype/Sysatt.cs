@@ -404,7 +404,7 @@ namespace hmitype
             {
                 uint num = 0u;
                 Kuozhan.memcpy((byte*)(&num), name, (int)lenth);
-                fixed (void* ptr = (void*)(&Sysatt.xitong32[0]))
+                fixed (void* ptr = (&Sysatt.xitong32[0]))
                 {
                     num = Datafind.Datafind_FindU32_Memory(&num, (uint*)ptr, Sysatt.xitong32qyt, (uint)(Marshal.SizeOf(default(xitongtype_32)) / 4));
                 }
@@ -418,7 +418,7 @@ namespace hmitype
                 ulong num2 = 0uL;
                 Kuozhan.memcpy((byte*)(&num2), name, (int)lenth);
                 uint num;
-                fixed (void* ptr = (void*)(&Sysatt.xitong64[0]))
+                fixed (void* ptr = (&Sysatt.xitong64[0]))
                 {
                     num = Datafind.Datafind_FindU64_Memory(&num2, (uint*)ptr, Sysatt.xitong64qyt, (uint)(Marshal.SizeOf(default(xitongtype_64)) / 4));
                 }

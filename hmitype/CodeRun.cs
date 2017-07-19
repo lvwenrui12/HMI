@@ -1771,11 +1771,11 @@ namespace hmitype
                                         num2 += 2u;
                                         try
                                         {
-                                            fixed (void* ptr4 = (void*)(&array[0]))
+                                            fixed (void* ptr4 =(&array[0]))
                                             {
                                                 try
                                                 {
-                                                    fixed (void* ptr5 = (void*)(&array[2]))
+                                                    fixed (void* ptr5 = (&array[2]))
                                                     {
                                                         Kuozhan.memcpy((byte*)ptr4, (byte*)ptr5, datasize.runattinfsize);
                                                     }
