@@ -172,6 +172,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="zikuadmin.resx">
+      <DependentUpon>zikuadmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="zikucreat.resx">
       <DependentUpon>zikucreat.cs</DependentUpon>
     </EmbeddedResource>
