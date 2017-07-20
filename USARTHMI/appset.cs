@@ -200,14 +200,16 @@ namespace USARTHMI
             }
             else
             {
-                for (int i = 0; i < datasize.Modes[this.selectxilieindex].Length; i++)
+                if (datasize.Modes!=null)
                 {
-                    modelxinxi modelxinxi = datasize.Modes[this.selectxilieindex][i];
-                    MetroTileItem metroTileItem = new MetroTileItem();
-                    metroTileItem.Tag = i.ToString();
-                    metroTileItem.SymbolColor = Color.Empty;
-                    metroTileItem.Text = string.Concat(new string[]
+                    for (int i = 0; i < datasize.Modes[this.selectxilieindex].Length; i++)
                     {
+                        modelxinxi modelxinxi = datasize.Modes[this.selectxilieindex][i];
+                        MetroTileItem metroTileItem = new MetroTileItem();
+                        metroTileItem.Tag = i.ToString();
+                        metroTileItem.SymbolColor = Color.Empty;
+                        metroTileItem.Text = string.Concat(new string[]
+                        {
                         "<font size=\"10\"><br/><br/>inch:",
                         modelxinxi.inch,
                         "(",
@@ -219,24 +221,25 @@ namespace USARTHMI
                         "B Frequency:",
                         modelxinxi.GPU,
                         "</font>"
-                    });
-                    metroTileItem.TileColor = eMetroTileColor.Gray;
-                    metroTileItem.TileSize = new Size(this.tem0.TileSize.Width, this.tem0.TileSize.Height);
-                    metroTileItem.TileStyle.CornerType = eCornerType.Square;
-                    metroTileItem.TitleText = modelxinxi.Modelstring;
-                    metroTileItem.TitleTextAlignment = ContentAlignment.TopLeft;
-                    metroTileItem.TitleTextFont = new Font(this.tem0.TitleTextFont.Name, this.tem0.TitleTextFont.Size);
-                    metroTileItem.Click += new EventHandler(this.ItemModel_Click);
-                    this.itemmodels.Add(metroTileItem);
-                    this.itemContainer2.SubItems.Add(metroTileItem);
-                }
-                this.itemPanel2.Refresh();
-                for (int i = 0; i < datasize.Modes[this.selectxilieindex].Length; i++)
-                {
-                    if (datasize.Modes[this.selectxilieindex][i].Modelstring == this.Myapp.Model.Modelstring)
+                        });
+                        metroTileItem.TileColor = eMetroTileColor.Gray;
+                        metroTileItem.TileSize = new Size(this.tem0.TileSize.Width, this.tem0.TileSize.Height);
+                        metroTileItem.TileStyle.CornerType = eCornerType.Square;
+                        metroTileItem.TitleText = modelxinxi.Modelstring;
+                        metroTileItem.TitleTextAlignment = ContentAlignment.TopLeft;
+                        metroTileItem.TitleTextFont = new Font(this.tem0.TitleTextFont.Name, this.tem0.TitleTextFont.Size);
+                        metroTileItem.Click += new EventHandler(this.ItemModel_Click);
+                        this.itemmodels.Add(metroTileItem);
+                        this.itemContainer2.SubItems.Add(metroTileItem);
+                    }
+                    this.itemPanel2.Refresh();
+                    for (int i = 0; i < datasize.Modes[this.selectxilieindex].Length; i++)
                     {
-                        this.selectitem(this.itemmodels, i, ref this.selectmodelindex);
-                        break;
+                        if (datasize.Modes[this.selectxilieindex][i].Modelstring == this.Myapp.Model.Modelstring)
+                        {
+                            this.selectitem(this.itemmodels, i, ref this.selectmodelindex);
+                            break;
+                        }
                     }
                 }
             }

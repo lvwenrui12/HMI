@@ -441,8 +441,13 @@ namespace hmitype
             matt.att.isbangding = isbangding;
             matt.att.isxiugai = isxiugai;
             matt.att.chonghui = chonghui;
-            matt.zhushi = datasize.Objzhushiencoding.GetBytes(zhushi);
+            if (datasize.Objzhushiencoding != null)
+            {
+                matt.zhushi = datasize.Objzhushiencoding.GetBytes(zhushi);//  获取编码方式
+
+            }
             atts.Add(matt);
+
         }
 
         public static void Getlinpath()

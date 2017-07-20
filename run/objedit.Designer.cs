@@ -33,47 +33,57 @@ namespace run
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-       
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(objedit));
-            this.label1 = new Label();
-            this.label2 = new Label();
-            this.imageList1 = new ImageList(this.components);
-            base.SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(objedit));
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
             this.label1.AutoSize = true;
-            this.label1.Location = new Point(3, 11);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             this.label1.Visible = false;
+            // 
+            // label2
+            // 
             this.label2.AutoSize = true;
-            this.label2.Location = new Point(3, 23);
+            this.label2.Location = new System.Drawing.Point(3, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
             this.label2.Visible = false;
-            this.imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            this.imageList1.TransparentColor = Color.Transparent;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "lockpic-64.png");
-            base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = Color.FromArgb(72, 149, 253);
-            base.Controls.Add(this.label2);
-            base.Controls.Add(this.label1);
-            base.Name = "objedit";
-            base.Load += new EventHandler(this.objedit_Load);
-            base.PreviewKeyDown += new PreviewKeyDownEventHandler(this.objedit_PreviewKeyDown);
-            base.MouseMove += new MouseEventHandler(this.objedit_MouseMove);
-            base.KeyUp += new KeyEventHandler(this.objedit_KeyUp);
-            base.MouseDown += new MouseEventHandler(this.objedit_MouseDown);
-            base.MouseUp += new MouseEventHandler(this.objedit_MouseUp);
-            base.KeyDown += new KeyEventHandler(this.objedit_KeyDown);
-            base.ResumeLayout(false);
-            base.PerformLayout();
+            // 
+            // objedit
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(149)))), ((int)(((byte)(253)))));
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Name = "objedit";
+            this.Load += new System.EventHandler(this.objedit_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.objedit_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.objedit_KeyUp);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.objedit_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.objedit_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.objedit_MouseUp);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.objedit_PreviewKeyDown);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

@@ -136,6 +136,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="resouces\about.jpg" />
+    <None Include="Resources\iteadico.ico" />
+    <None Include="Resources\tjcico.ico" />
     <None Include="Resources\open.bmp" />
     <None Include="Resources\guanyu.bmp" />
     <None Include="Resources\add.bmp" />

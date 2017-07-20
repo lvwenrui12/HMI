@@ -179,8 +179,8 @@ namespace USARTHMI
             this.buttonItem38 = new ButtonItem();
             this.cmdStyleVS2005 = new ButtonItem();
             this.gongju0 = new Bar();
-            this.buttonItem2 = new ButtonItem();
-            this.buttonItem3 = new ButtonItem();
+            this.btnOpen = new ButtonItem();
+            this.btnNew = new ButtonItem();
             this.tsave = new ButtonItem();
             this.tbianyi = new ButtonItem();
             this.buttonItem18 = new ButtonItem();
@@ -930,8 +930,8 @@ namespace USARTHMI
             this.gongju0.IsMaximized = false;
             this.gongju0.Items.AddRange(new BaseItem[]
             {
-        this.buttonItem2,
-        this.buttonItem3,
+        this.btnOpen,
+        this.btnNew,
         this.tsave,
         this.tbianyi,
         this.buttonItem18,
@@ -944,16 +944,16 @@ namespace USARTHMI
             this.gongju0.TabIndex = 1;
             this.gongju0.TabStop = false;
             this.gongju0.Text = "bar6";
-            this.buttonItem2.ButtonStyle = eButtonStyle.ImageAndText;
-            this.buttonItem2.Image = Resources.open;
-            this.buttonItem2.Name = "buttonItem2";
-            this.buttonItem2.Text = "打开";
-            this.buttonItem2.Click += new EventHandler(this.buttonItem2_Click);
-            this.buttonItem3.ButtonStyle = eButtonStyle.ImageAndText;
-            this.buttonItem3.Image = Resources.add;
-            this.buttonItem3.Name = "buttonItem3";
-            this.buttonItem3.Text = "新建";
-            this.buttonItem3.Click += new EventHandler(this.buttonItem3_Click);
+            this.btnOpen.ButtonStyle = eButtonStyle.ImageAndText;
+            this.btnOpen.Image = Resources.open;
+            this.btnOpen.Name = "buttonItem2";
+            this.btnOpen.Text = "打开";
+            this.btnOpen.Click += new EventHandler(this.btnOpen_Click);
+            this.btnNew.ButtonStyle = eButtonStyle.ImageAndText;
+            this.btnNew.Image = Resources.add;
+            this.btnNew.Name = "buttonItem3";
+            this.btnNew.Text = "新建";
+            this.btnNew.Click += new EventHandler(this.btnNew_Click);
             this.tsave.ButtonStyle = eButtonStyle.ImageAndText;
             this.tsave.Icon = (Icon)resources.GetObject("tsave.Icon");
             this.tsave.Name = "tsave";

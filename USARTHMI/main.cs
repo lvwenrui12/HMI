@@ -131,9 +131,9 @@ namespace USARTHMI
 
         private Bar gongju0;
 
-        private ButtonItem buttonItem2;
+        private ButtonItem btnOpen;
 
-        private ButtonItem buttonItem3;
+        private ButtonItem btnNew;
 
         private DockSite dockSite3;
 
@@ -1824,15 +1824,19 @@ namespace USARTHMI
             Kuozhan.Openhttp(datasize.Bianyipath);
         }
 
-        private void buttonItem2_Click(object sender, EventArgs e)
+        #region 打开
+        private void btnOpen_Click(object sender, EventArgs e)
         {
             this.filecaozuo("open", "");
         }
+        #endregion
 
-        private void buttonItem3_Click(object sender, EventArgs e)
+        #region 新建
+        private void btnNew_Click(object sender, EventArgs e)
         {
             this.filecaozuo("add", "");
-        }
+        } 
+        #endregion
 
         private void buttonItem25_Click(object sender, EventArgs e)
         {
