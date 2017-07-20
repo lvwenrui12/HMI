@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using USARTHMI.Properties;
+//using USARTHMI.Properties;
 namespace USARTHMI
 {
     public partial class about : DevComponents.DotNetBar.OfficeForm

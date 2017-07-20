@@ -40,7 +40,7 @@ namespace USARTHMI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.components = new Container();
+         
             ComponentResourceManager resources = new ComponentResourceManager(typeof(main));
             this.web1label = new Label();
             this.webBrowser2 = new WebBrowser();
@@ -887,12 +887,12 @@ namespace USARTHMI
             this.gongju0.TabStop = false;
             this.gongju0.Text = "bar6";
             this.buttonItem2.ButtonStyle = eButtonStyle.ImageAndText;
-            this.buttonItem2.Image = Resources.open;
+            //this.buttonItem2.Image = Resources.open;
             this.buttonItem2.Name = "buttonItem2";
             this.buttonItem2.Text = "打开";
             this.buttonItem2.Click += new EventHandler(this.buttonItem2_Click);
             this.buttonItem3.ButtonStyle = eButtonStyle.ImageAndText;
-            this.buttonItem3.Image = Resources.add;
+            //this.buttonItem3.Image = Resources.add;
             this.buttonItem3.Name = "buttonItem3";
             this.buttonItem3.Text = "新建";
             this.buttonItem3.Click += new EventHandler(this.buttonItem3_Click);
@@ -902,12 +902,12 @@ namespace USARTHMI
             this.tsave.Text = "保存";
             this.tsave.Click += new EventHandler(this.buttonItem25_Click);
             this.tbianyi.ButtonStyle = eButtonStyle.ImageAndText;
-            this.tbianyi.Image = Resources.bianyi;
+            //this.tbianyi.Image = Resources.bianyi;
             this.tbianyi.Name = "tbianyi";
             this.tbianyi.Text = "编译";
             this.tbianyi.Click += new EventHandler(this.buttonItem17_Click);
             this.buttonItem18.ButtonStyle = eButtonStyle.ImageAndText;
-            this.buttonItem18.Image = Resources.tiaoshi;
+            //this.buttonItem18.Image = Resources.tiaoshi;
             this.buttonItem18.Name = "buttonItem18";
             this.buttonItem18.Text = "调试";
             this.buttonItem18.Click += new EventHandler(this.buttonItem18_Click);
@@ -1411,7 +1411,7 @@ namespace USARTHMI
             this.labelX1.Size = new Size(55, 17);
             this.labelX1.TabIndex = 7;
             this.labelX1.Text = "Ver:0.35";
-            this.pictureBox1.Image = Resources.guanyu;
+            //this.pictureBox1.Image = Resources.guanyu;
             this.pictureBox1.Location = new Point(114, 42);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new Size(303, 203);

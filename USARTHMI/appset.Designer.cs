@@ -41,7 +41,7 @@ namespace USARTHMI
             this.Text = "appset";
 
           
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(appset));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(appset));
             this.itemPanel1 = new ItemPanel();
             this.itemContainer1 = new ItemContainer();
             this.metroTileItem0 = new MetroTileItem();
@@ -287,10 +287,10 @@ namespace USARTHMI
             this.panelEx2.Name = "panelEx2";
             this.panelEx2.Size = new Size(19, 17);
 
-            this.panelEx2.Style.BackgroundImage = (Image)componentResourceManager.GetObject("panelEx2.Style.BackgroundImage");
+            this.panelEx2.Style.BackgroundImage = (Image)resources.GetObject("panelEx2.Style.BackgroundImage");
             this.panelEx2.Style.BackgroundImagePosition = eBackgroundImagePosition.Center;
             this.panelEx2.StyleMouseDown.Alignment = StringAlignment.Center;
-            this.panelEx2.StyleMouseDown.BackgroundImage = (Image)componentResourceManager.GetObject("panelEx2.StyleMouseDown.BackgroundImage");
+            this.panelEx2.StyleMouseDown.BackgroundImage = (Image)resources.GetObject("panelEx2.StyleMouseDown.BackgroundImage");
             this.panelEx2.StyleMouseOver.Alignment = StringAlignment.Center;
             this.panelEx2.TabIndex = 2;
             this.superTabItem2.AttachedControl = this.superTabControlPanel2;

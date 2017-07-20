@@ -37,7 +37,7 @@ namespace USARTHMI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.components = new Container();
+      
             this.com1 = new SerialPort(this.components);
             this.label2 = new Label();
             this.label4 = new Label();

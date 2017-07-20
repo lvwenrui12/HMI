@@ -41,7 +41,7 @@ namespace USARTHMI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(apprun));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(apprun));
             this.label6 = new Label();
             this.label1 = new Label();
             this.checkBox1 = new CheckBox();
@@ -273,7 +273,7 @@ namespace USARTHMI
             this.comboBox3.ItemHeight = 18;
             this.comboBox3.Name = "comboBox3";
             this.Button3.ButtonStyle = eButtonStyle.ImageAndText;
-            this.Button3.Image = Resources.tiaoshi;
+            //this.Button3.Image = Resources.tiaoshi;
             this.Button3.Name = "Button3";
             this.Button3.Text = "Áª»ú";
             this.Button3.Click += new EventHandler(this.toolStripButton3_Click_1);
@@ -530,7 +530,7 @@ namespace USARTHMI
             this.textEditorControl1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
             this.textEditorControl1.AutoScroll = true;
             this.textEditorControl1.BorderStyle = BorderStyle.FixedSingle;
-            this.textEditorControl1.Encoding = (Encoding)componentResourceManager.GetObject("textEditorControl1.Encoding");
+            this.textEditorControl1.Encoding = (Encoding)resources.GetObject("textEditorControl1.Encoding");
             this.textEditorControl1.IsIconBarVisible = false;
             this.textEditorControl1.Location = new Point(4, 553);
             this.textEditorControl1.Name = "textEditorControl1";

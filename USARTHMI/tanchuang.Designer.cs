@@ -35,7 +35,7 @@ namespace USARTHMI
         {
             this.components = new System.ComponentModel.Container();
 
-            this.components = new Container();
+       
             this.webBrowser1 = new WebBrowser();
             this.checkBox1 = new CheckBox();
             this.timer1 = new Timer(this.components);
