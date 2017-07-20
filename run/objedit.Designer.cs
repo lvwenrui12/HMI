@@ -36,8 +36,8 @@ namespace run
             components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 
-            this.components = new Container();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(objedit));
+       
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(objedit));
             this.label1 = new Label();
             this.label2 = new Label();
             this.imageList1 = new ImageList(this.components);
@@ -56,7 +56,7 @@ namespace run
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
             this.label2.Visible = false;
-            this.imageList1.ImageStream = (ImageListStreamer)componentResourceManager.GetObject("imageList1.ImageStream");
+            this.imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             this.imageList1.TransparentColor = Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "lockpic-64.png");
             base.AutoScaleDimensions = new SizeF(6f, 12f);

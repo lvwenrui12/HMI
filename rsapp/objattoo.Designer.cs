@@ -37,7 +37,7 @@ namespace rsapp
         private void InitializeComponent()
         {
             this.components = new Container();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(objattoo));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(objattoo));
             this.label2 = new Label();
             this.labetextBox1l1 = new Label();
             this.tabControl1 = new SuperTabControl();
@@ -140,7 +140,7 @@ namespace rsapp
             this.superTabControlPanel0.TabItem = this.TabItem0;
             this.textBox1.AutoScroll = true;
             this.textBox1.BorderStyle = BorderStyle.FixedSingle;
-            this.textBox1.Encoding = (Encoding)componentResourceManager.GetObject("textBox1.Encoding");
+            this.textBox1.Encoding = (Encoding)resources.GetObject("textBox1.Encoding");
             this.textBox1.IsIconBarVisible = false;
             this.textBox1.Location = new Point(142, 47);
             this.textBox1.Name = "textBox1";

@@ -36,7 +36,7 @@ namespace rsapp
             components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(objatt));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(objatt));
             this.dataGridView1 = new DataGridView();
             this.name = new DataGridViewTextBoxColumn();
             this.val = new DataGridViewTextBoxColumn();
@@ -171,7 +171,7 @@ namespace rsapp
             this.comboBox1.Size = new Size(228, 20);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.SelectionChangeCommitted += new EventHandler(this.comboBox1_SelectionChangeCommitted);
-            this.imageList1.ImageStream = (ImageListStreamer)componentResourceManager.GetObject("imageList1.ImageStream");
+            this.imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             this.imageList1.TransparentColor = Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "delete.ico");
             base.AutoScaleDimensions = new SizeF(6f, 12f);

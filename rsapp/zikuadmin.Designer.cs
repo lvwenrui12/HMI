@@ -37,7 +37,7 @@ namespace rsapp
             components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(zikuadmin));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(zikuadmin));
             this.listBox1 = new ListBox();
             this.imageList1 = new ImageList(this.components);
             this.bar1 = new Bar();
@@ -61,7 +61,7 @@ namespace rsapp
             this.listBox1.Size = new Size(210, 144);
             this.listBox1.TabIndex = 50;
             this.listBox1.KeyDown += new KeyEventHandler(this.listBox1_KeyDown);
-            this.imageList1.ImageStream = (ImageListStreamer)componentResourceManager.GetObject("imageList1.ImageStream");
+            this.imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             this.imageList1.TransparentColor = Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "dec.ico");
             this.imageList1.Images.SetKeyName(1, "up.ico");
