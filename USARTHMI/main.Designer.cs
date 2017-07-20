@@ -74,7 +74,7 @@ namespace USARTHMI
             // imageList1
             // 
            
-            this.imageList1 = new ImageList(this.components);
+       
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.buttonItem16 = new ButtonItem();
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
@@ -95,8 +95,7 @@ namespace USARTHMI
             this.imageList1.Images.SetKeyName(14, "checkbox.ico");
             this.imageList1.Images.SetKeyName(15, "radio.ico");
 
-            int nn = imageList1.Images.Count;
-            // 
+          
             // main
             // 
             this.ClientSize = new System.Drawing.Size(284, 262);
