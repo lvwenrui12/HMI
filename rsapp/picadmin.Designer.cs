@@ -34,10 +34,10 @@ namespace rsapp
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.components = new Container();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(picadmin));
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+          
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(picadmin));
             this.contextMenuStrip1 = new ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new ToolStripMenuItem();
             this.toolStripMenuItem2 = new ToolStripMenuItem();
@@ -120,7 +120,7 @@ namespace rsapp
             this.bar1.TabIndex = 56;
             this.bar1.TabStop = false;
             this.bar1.Text = "bar1";
-            this.imageList1.ImageStream = (ImageListStreamer)componentResourceManager.GetObject("imageList1.ImageStream");
+            this.imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             this.imageList1.TransparentColor = Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "dec.ico");
             this.imageList1.Images.SetKeyName(1, "up.ico");
@@ -172,7 +172,7 @@ namespace rsapp
             this.pictureBox1.Size = new Size(41, 67);
             this.pictureBox1.TabIndex = 43;
             this.pictureBox1.TabStop = false;
-            this.toolStripButton1.Image = (Image)componentResourceManager.GetObject("toolStripButton1.Image");
+            this.toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
             this.toolStripButton1.ImageTransparentColor = Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new Size(123, 22);

@@ -383,6 +383,7 @@ namespace USARTHMI
             this.expandablePanel1.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
             if (datasize.Language == 0)
             {
+                
                 this.buttonItem26.Icon = Resources.chload;
                 this.buttonItemhelp1.Visible = true;
                 this.buttonItemhelp2.Visible = true;

@@ -117,29 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAADyOOAA8jjgAPI44ADyOOAA8jjgAPI44ADyOOAA8jjgAPI44ADyOOAA8jjgAPI44ADyO
-        OAA8jjgAAAAAAAAAAAA8jjgAPI44ATyOOD88jjhgPI44XzyOOF88jjhfPI44XzyOOF88jjhfPI44YDyO
-        OD88jjgBPI44AAAAAAAAAAAAPI44ADyOOAI8jjiUPI444zyOOOA8jjjgPI444DyOOOA8jjjgPI444DyO
-        OOM8jjiUPI44AjyOOAAAAAAAAAAAADyOOAA8jjgAPI44FDyOOB88jjgfPI44HzqMNh06jDYdPI44HzyO
-        OB88jjgfPI44FDyOOAA8jjgAAAAAAAAAAAA8jjgAPI44ADyOOAA8jjgAP5I7AEWcQQBRsE1GUbBNRkWc
-        QQA/kjsAPI44ADyOOAA8jjgAPI44AAAAAAAAAAAAAAAAAAAAAABQr0wAUK9MAFCvTABQr0xOUK9M5lCv
-        TOZQr0xOUK9MAFCvTABQr0wAAAAAAAAAAAAAAAAAAAAAAAAAAABQr0wAUK9MAFCvTABQr0xOUK9M5VCv
-        TP9Qr0z/UK9M5VCvTE5Qr0wAUK9MAFCvTAAAAAAAAAAAAAAAAABQr0wAUK9MAFCvTABQr0xQUK9M5lCv
-        TP9Qr0z/UK9M/1CvTP9Qr0zmUK9MUFCvTABQr0wAUK9MAAAAAAAAAAAAUK9MAFCvTABQr0w2UK9MxVCv
-        TOdQr0z7UK9M/1CvTP9Qr0z7UK9M51CvTMVQr0w2UK9MAFCvTAAAAAAAAAAAAFCvTABQr0wAUK9MElCv
-        TB9Qr0w5UK9M5FCvTP9Qr0z/UK9M5FCvTDlQr0wfUK9MElCvTABQr0wAAAAAAAAAAABQr0wAUK9MAFCv
-        TABQr0wAUK9MHVCvTOBQr0z/UK9M/1CvTOBQr0wdUK9MAFCvTABQr0wAUK9MAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAUK9MAFCvTB9Qr0ziUK9M/1CvTP9Qr0ziUK9MH1CvTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAFCvTABQr0wbUK9MxlCvTOJQr0ziUK9MxlCvTBtQr0wAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAABQr0wAUK9MBFCvTBtQr0wfUK9MH1CvTBtQr0wEUK9MAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAUK9MAFCvTABQr0wAUK9MAFCvTABQr0wAUK9MAFCvTAAAAAAAAAAAAAAA
-        AAAAAAAA//8AAIABAACAAQAAgAEAAIABAACAAQAA4AcAAMADAACAAQAAgAEAAIABAACAAQAA8A8AAPAP
-        AADwDwAA8A8AAA==
-</value>
-  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>267</value>
+  </metadata>
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>246, 212</value>
+  </metadata>
+  <metadata name="styleManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 212</value>
+  </metadata>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>156, 212</value>
+  </metadata>
+  <metadata name="timermessage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>361, 212</value>
+  </metadata>
+  <metadata name="timerclose.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>495, 212</value>
+  </metadata>
 </root>

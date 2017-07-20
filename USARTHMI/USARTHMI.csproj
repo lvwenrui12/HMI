@@ -133,17 +133,27 @@
       <Project>{783744ea-5e8c-4f9c-9364-fca27733243c}</Project>
       <Name>run</Name>
     </ProjectReference>
-    <ProjectReference Include="..\USARTHMI.Properties\USARTHMI.Properties.csproj">
-      <Project>{a21ca345-3b91-4fe2-aaf0-86aeffcb8e62}</Project>
-      <Name>USARTHMI.Properties</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="resouces\about.jpg" />
+    <None Include="Resources\iteadlogo.bmp" />
+    <None Include="Resources\tjclogo.bmp" />
+    <None Include="Resources\iteadtopmainlogo.bmp" />
+    <None Include="Resources\tjctopmainlogo.bmp" />
+    <None Include="Resources\chload.ico" />
+    <None Include="Resources\enload.bmp" />
+    <None Include="Resources\enload.ico" />
+    <None Include="Resources\Image1.bmp" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="about.resx">
       <DependentUpon>about.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="appset.resx">
+      <DependentUpon>appset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
