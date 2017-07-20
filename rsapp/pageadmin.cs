@@ -99,7 +99,10 @@ namespace rsapp
             this.Myapp = app;
             if (app == null)
             {
-                this.colListBox1.Items_Clear();
+                if (colListBox1!=null)
+                {
+                    this.colListBox1.Items_Clear();
+                }
                 this.bar1.Enabled = false;
                 this.label1.Text = "0";
             }

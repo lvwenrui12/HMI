@@ -73,7 +73,10 @@ namespace USARTHMI
             // 
             // imageList1
             // 
+           
+            this.imageList1 = new ImageList(this.components);
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.buttonItem16 = new ButtonItem();
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "text.ico");
             this.imageList1.Images.SetKeyName(1, "gt.ico");
@@ -91,6 +94,8 @@ namespace USARTHMI
             this.imageList1.Images.SetKeyName(13, "bt.ico");
             this.imageList1.Images.SetKeyName(14, "checkbox.ico");
             this.imageList1.Images.SetKeyName(15, "radio.ico");
+
+            int nn = imageList1.Images.Count;
             // 
             // main
             // 
@@ -209,8 +214,7 @@ namespace USARTHMI
             this.buttonItem45 = new ButtonItem();
             this.buttonItem46 = new ButtonItem();
             this.dockSite3 = new DockSite();
-            this.imageList1 = new ImageList(this.components);
-            this.buttonItem16 = new ButtonItem();
+          
             this.buttonItem19 = new ButtonItem();
             this.dockContainerItem11 = new DockContainerItem();
             this.panelDockContainer9 = new PanelDockContainer();

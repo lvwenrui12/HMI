@@ -433,102 +433,112 @@ namespace USARTHMI
                 this.colListBox1.Itemheight = 24;
                 this.colListBox1.itembackcolor_select = Color.YellowGreen;
                 this.colListBox1.idwidth = 0;
-                this.colListBox1.Items_Add(new ColListBoxItem
+              
+                #region colListBox1
+
+                if (imageList1.Images.Count>0)
                 {
-                    Text = "文本".Language(),
-                    img = this.imageList1.Images[0],
-                    obj = objtype.text
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "滚动文本".Language(),
-                    img = this.imageList1.Images[1],
-                    obj = objtype.gtext
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "数字".Language(),
-                    img = this.imageList1.Images[2],
-                    obj = objtype.number
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "按钮".Language(),
-                    img = this.imageList1.Images[3],
-                    obj = objtype.button
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "进度条".Language(),
-                    img = this.imageList1.Images[4],
-                    obj = objtype.prog
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "图片".Language(),
-                    img = this.imageList1.Images[5],
-                    obj = objtype.pic
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "切图".Language(),
-                    img = this.imageList1.Images[6],
-                    obj = objtype.picc
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "触摸热区".Language(),
-                    img = this.imageList1.Images[7],
-                    obj = objtype.touch
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "指针".Language(),
-                    img = this.imageList1.Images[8],
-                    obj = objtype.zhizhen
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "曲线/波形".Language(),
-                    img = this.imageList1.Images[9],
-                    obj = objtype.OBJECT_TYPE_CURVE
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "滑块".Language(),
-                    img = this.imageList1.Images[10],
-                    obj = objtype.OBJECT_TYPE_SLIDER
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "定时器".Language(),
-                    img = this.imageList1.Images[11],
-                    obj = objtype.Timer
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "变量".Language(),
-                    img = this.imageList1.Images[12],
-                    obj = objtype.variable
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "双态按钮".Language(),
-                    img = this.imageList1.Images[13],
-                    obj = objtype.button_t
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "复选框".Language(),
-                    img = this.imageList1.Images[14],
-                    obj = objtype.checkbox
-                });
-                this.colListBox1.Items_Add(new ColListBoxItem
-                {
-                    Text = "单选框".Language(),
-                    img = this.imageList1.Images[15],
-                    obj = objtype.radiobutton
-                });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "文本".Language(),
+                        img = this.imageList1.Images[0],
+                        obj = objtype.text
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "滚动文本".Language(),
+                        img = this.imageList1.Images[1],
+                        obj = objtype.gtext
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "数字".Language(),
+                        img = this.imageList1.Images[2],
+                        obj = objtype.number
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "按钮".Language(),
+                        img = this.imageList1.Images[3],
+                        obj = objtype.button
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "进度条".Language(),
+                        img = this.imageList1.Images[4],
+                        obj = objtype.prog
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "图片".Language(),
+                        img = this.imageList1.Images[5],
+                        obj = objtype.pic
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "切图".Language(),
+                        img = this.imageList1.Images[6],
+                        obj = objtype.picc
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "触摸热区".Language(),
+                        img = this.imageList1.Images[7],
+                        obj = objtype.touch
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "指针".Language(),
+                        img = this.imageList1.Images[8],
+                        obj = objtype.zhizhen
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "曲线/波形".Language(),
+                        img = this.imageList1.Images[9],
+                        obj = objtype.OBJECT_TYPE_CURVE
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "滑块".Language(),
+                        img = this.imageList1.Images[10],
+                        obj = objtype.OBJECT_TYPE_SLIDER
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "定时器".Language(),
+                        img = this.imageList1.Images[11],
+                        obj = objtype.Timer
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "变量".Language(),
+                        img = this.imageList1.Images[12],
+                        obj = objtype.variable
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "双态按钮".Language(),
+                        img = this.imageList1.Images[13],
+                        obj = objtype.button_t
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "复选框".Language(),
+                        img = this.imageList1.Images[14],
+                        obj = objtype.checkbox
+                    });
+                    this.colListBox1.Items_Add(new ColListBoxItem
+                    {
+                        Text = "单选框".Language(),
+                        img = this.imageList1.Images[15],
+                        obj = objtype.radiobutton
+                    });
+
+                }
+                
+
+                #endregion
                 this.runscr1.objpanel = this.objpanel;
                 this.webBrowser1.ScriptErrorsSuppressed = true;
                 this.webBrowser2.ScriptErrorsSuppressed = true;
