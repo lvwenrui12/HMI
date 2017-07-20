@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 
+using rsapp;
+
 namespace rsapp
 {
     partial class picselect
@@ -39,8 +41,10 @@ namespace rsapp
             this.radioButton2 = new RadioButton();
             this.panel1 = new Panel();
             this.button1 = new ButtonX();
-            this.picadmin1 = new picadmin();
+             this.picadmin1 = new picadmin();
+
             this.panel1.SuspendLayout();
+
             base.SuspendLayout();
             this.label1.AutoSize = true;
             this.label1.Location = new Point(9, 17);

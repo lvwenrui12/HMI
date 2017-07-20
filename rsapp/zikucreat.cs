@@ -156,10 +156,13 @@ namespace rsapp
             this.comboBox4.Text = SystemFonts.DefaultFont.Name;
             this.comboBoxEx1.Items.Clear();
             int[] encodes_This = datasize.encodes_This;
-            for (int j = 0; j < encodes_This.Length; j++)
+            if (encodes_This!=null)
             {
-                int i = encodes_This[j];
-                this.comboBoxEx1.Items.Add(datasize.encodes_App[i].encodename);
+                for (int j = 0; j < encodes_This.Length; j++)
+                {
+                    int i = encodes_This[j];
+                    this.comboBoxEx1.Items.Add(datasize.encodes_App[i].encodename);
+                }
             }
             string encodename = datasize.encodes_App[this.Encode].encodename;
             for (int i = 0; i < this.comboBoxEx1.Items.Count; i++)

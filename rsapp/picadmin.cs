@@ -10,6 +10,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
+
 namespace rsapp
 {
     public partial class picadmin : UserControl
@@ -20,8 +21,6 @@ namespace rsapp
 
         private List<imgpicture> imgpics = new List<imgpicture>();
 
-     
-        private PictureBox pictureBox1;
 
         private Colpanel.Colpanel panel1;
 

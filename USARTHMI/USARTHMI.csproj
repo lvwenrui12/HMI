@@ -136,6 +136,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="resouces\about.jpg" />
+    <None Include="Resources\guanyu.bmp" />
+    <None Include="Resources\add.bmp" />
+    <None Include="Resources\open.bmp" />
+    <None Include="Resources\bianyi.bmp" />
+    <None Include="Resources\tiaoshi.bmp" />
     <None Include="Resources\iteadlogo.bmp" />
     <None Include="Resources\tjclogo.bmp" />
     <None Include="Resources\iteadtopmainlogo.bmp" />

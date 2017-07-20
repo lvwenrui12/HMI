@@ -71,6 +71,26 @@ namespace USARTHMI.Properties {
         }
         
         /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap bianyi {
+            get {
+                object obj = ResourceManager.GetObject("bianyi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Icon chload {
@@ -93,6 +113,16 @@ namespace USARTHMI.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap guanyu {
+            get {
+                object obj = ResourceManager.GetObject("guanyu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap iteadlogo {
             get {
                 object obj = ResourceManager.GetObject("iteadlogo", resourceCulture);
@@ -106,6 +136,26 @@ namespace USARTHMI.Properties {
         internal static System.Drawing.Bitmap iteadtopmainlogo {
             get {
                 object obj = ResourceManager.GetObject("iteadtopmainlogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap open {
+            get {
+                object obj = ResourceManager.GetObject("open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap tiaoshi {
+            get {
+                object obj = ResourceManager.GetObject("tiaoshi", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

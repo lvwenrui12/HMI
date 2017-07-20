@@ -61,6 +61,12 @@
     <Compile Include="addpicjindu.Designer.cs">
       <DependentUpon>addpicjindu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="gdizi.cs" />
     <Compile Include="Graphicsstrsizetype.cs" />
     <Compile Include="imagesizexytype.cs" />
@@ -110,6 +116,11 @@
       <DependentUpon>picview.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="selectcomboxlei.cs" />
     <Compile Include="showzitype_.cs" />
     <Compile Include="unpagelock.cs">
@@ -143,6 +154,30 @@
       <Project>{e7ff6edc-5433-4635-95f4-24e0595e4e83}</Project>
       <Name>hmitype</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="objatt.resx">
+      <DependentUpon>objatt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="picadmin.resx">
+      <DependentUpon>picadmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="picselect.resx">
+      <DependentUpon>picselect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="zikucreat.resx">
+      <DependentUpon>zikucreat.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
