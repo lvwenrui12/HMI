@@ -162,6 +162,9 @@
     <EmbeddedResource Include="objatt.resx">
       <DependentUpon>objatt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="objattoo.resx">
+      <DependentUpon>objattoo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="picadmin.resx">
       <DependentUpon>picadmin.cs</DependentUpon>
     </EmbeddedResource>
