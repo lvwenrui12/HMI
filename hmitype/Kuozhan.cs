@@ -2069,30 +2069,30 @@ namespace hmitype
 
         public static object BytesTostruct(this byte[] bytes, Type strcutType)
         {
-            IntPtr intPtr = new IntPtr();
-            object result;
+            object obj2;
+            IntPtr destination = new IntPtr();
+            int cb = 0;
             try
             {
-                int num = Marshal.SizeOf(strcutType);
-                intPtr = Marshal.AllocHGlobal(num);
-                Marshal.Copy(bytes, 0, intPtr, num);
-                result = Marshal.PtrToStructure(intPtr, strcutType);
+                cb = Marshal.SizeOf(strcutType);
+                destination = Marshal.AllocHGlobal(cb);
+                Marshal.Copy(bytes, 0, destination, cb);
+                obj2 = Marshal.PtrToStructure(destination, strcutType);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                MessageOpen.Show(ex.Message);
-                result = null;
+                MessageOpen.Show(exception.Message);
+                obj2 = null;
             }
             finally
             {
-                Marshal.FreeHGlobal(intPtr);
+                Marshal.FreeHGlobal(destination);
             }
-            return result;
-
-         
-
-
+            return obj2;
         }
+
+        
+
 
         public unsafe static void BytesToptr(this byte[] bytes, byte* pt)
         {

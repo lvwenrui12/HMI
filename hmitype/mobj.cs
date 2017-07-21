@@ -978,816 +978,756 @@ namespace hmitype
         {
             string str = "0";
             int num = 0;
-            List<string>[] array = new List<string>[]
-            {
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>(),
-                new List<string>()
-            };
+            List<string>[] zhiling = new List<string>[] {
+        new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(),
+        new List<string>(), new List<string>(), new List<string>()
+    };
             this.myobj.objType = this.atts[0].zhi[0];
-            int result;
-            if (index >= array.Length)
+            if (index >= zhiling.Length)
             {
-                result = 0;
+                return 0;
             }
-            else
+            if ((this.atts.Count > 0) && (this.atts[0].zhi.Length == 1))
             {
-                if (this.atts.Count > 0 && this.atts[0].zhi.Length == 1)
+                string str2;
+                if (this.atts[0].zhi[0] == objtype.number)
                 {
-                    if (this.atts[0].zhi[0] == objtype.number)
+                    switch (this.GetattVal_string("sta"))
                     {
-                        string text = this.GetattVal_string("sta");
-                        if (text != null)
-                        {
-                            if (text == "0")
+                        case "0":
+                            zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',0,'&isbr&','&spax&','&spay&',0," + str);
+                            zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',0,'&isbr&','&spax&','&spay&',0," + str);
+                            if ((this.Mypage.objs[0].GetattVal_string("sta") != "2") || (this.Mypage.objs[0].GetattVal_string("pic") != this.GetattVal_string("picc")))
                             {
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',0,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',0,'&isbr&','&spax&','&spay&',0," + str);
-                                if (!(this.Mypage.objs[0].GetattVal_string("sta") == "2") || !(this.Mypage.objs[0].GetattVal_string("pic") == this.GetattVal_string("picc")))
+                                zhiling[2].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                            }
+                            zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
+                            zhiling[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                            zhiling[0].Add("nstr '&val&','&lenth&'");
+                            zhiling[2].Add("nstr '&val&','&lenth&'");
+                            zhiling[8].Add("nstr '&val&','&lenth&'");
+                            break;
+
+                        case "1":
+                            str2 = this.GetattVal_string("style");
+                            if (str2 != null)
+                            {
+                                if (str2 == "1")
                                 {
-                                    array[2].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                                    str = this.GetattVal_string("borderw");
                                 }
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
-                                array[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
-                                array[0].Add("nstr '&val&','&lenth&'");
-                                array[2].Add("nstr '&val&','&lenth&'");
-                                array[8].Add("nstr '&val&','&lenth&'");
-                            }
-                            else if (text == "1")
-                            {
-                                string text2 = this.GetattVal_string("style");
-                                if (text2 != null)
+                                else if (((str2 == "2") || (str2 == "3")) || (str2 == "4"))
                                 {
-                                    if (text2 == "1")
-                                    {
-                                        str = this.GetattVal_string("borderw");
-                                    }
-                                    else if (text2 == "2" || text2 == "3" || text2 == "4")
-                                    {
-                                        str = "1";
-                                    }
+                                    str = "1";
                                 }
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',1,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
-                                array[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                array[0].Add("nstr '&val&','&lenth&'");
-                                array[2].Add("nstr '&val&','&lenth&'");
-                                array[8].Add("nstr '&val&','&lenth&'");
-                                this.getstylecode(ref array, "0-2-8", text2);
                             }
-                            else if (text == "2")
-                            {
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',2,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("pic '&x&','&y&','&pic&'");
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
-                                array[8].Add("pic '&x&','&y&','&pic&'");
-                                array[0].Add("nstr '&val&','&lenth&'");
-                                array[2].Add("nstr '&val&','&lenth&'");
-                                array[8].Add("nstr '&val&','&lenth&'");
-                            }
-                        }
+                            zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',1,'&isbr&','&spax&','&spay&',0," + str);
+                            zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
+                            zhiling[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                            zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
+                            zhiling[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                            zhiling[0].Add("nstr '&val&','&lenth&'");
+                            zhiling[2].Add("nstr '&val&','&lenth&'");
+                            zhiling[8].Add("nstr '&val&','&lenth&'");
+                            this.getstylecode(ref zhiling, "0-2-8", str2);
+                            break;
+
+                        case "2":
+                            zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',2,'&isbr&','&spax&','&spay&',0," + str);
+                            zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
+                            zhiling[2].Add("pic '&x&','&y&','&pic&'");
+                            zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
+                            zhiling[8].Add("pic '&x&','&y&','&pic&'");
+                            zhiling[0].Add("nstr '&val&','&lenth&'");
+                            zhiling[2].Add("nstr '&val&','&lenth&'");
+                            zhiling[8].Add("nstr '&val&','&lenth&'");
+                            break;
                     }
-                    else if (this.atts[0].zhi[0] == objtype.button_t)
+                }
+                else
+                {
+                    string str3;
+                    string str4;
+                    if (this.atts[0].zhi[0] == objtype.button_t)
                     {
-                        string text = this.GetattVal_string("sta");
-                        string text3 = this.GetattVal_string("style");
-                        if (text != null)
+                        str3 = this.GetattVal_string("sta");
+                        str4 = this.GetattVal_string("style");
+                        if (str3 != null)
                         {
-                            if (text == "0")
+                            if (str3 == "0")
                             {
-                                array[0].Add("if('&val&'==1)");
-                                array[0].Add("{");
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc1&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
-                                array[0].Add("}else");
-                                array[0].Add("{");
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc0&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
-                                array[0].Add("}");
-                                array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[2].Add("if('&val&'==1)");
-                                array[2].Add("{");
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc1&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("}else");
-                                array[2].Add("{");
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc0&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("}");
-                                array[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[4].Add("if('&val&'==1)");
-                                array[4].Add("{");
-                                array[4].Add("'&val&'=0");
-                                array[4].Add("}else");
-                                array[4].Add("{");
-                                array[4].Add("'&val&'=1");
-                                array[4].Add("}");
+                                zhiling[0].Add("if('&val&'==1)");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc1&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[0].Add("}else");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc0&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[0].Add("}");
+                                zhiling[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[2].Add("if('&val&'==1)");
+                                zhiling[2].Add("{");
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc1&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[2].Add("}else");
+                                zhiling[2].Add("{");
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc0&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[2].Add("}");
+                                zhiling[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[4].Add("if('&val&'==1)");
+                                zhiling[4].Add("{");
+                                zhiling[4].Add("'&val&'=0");
+                                zhiling[4].Add("}else");
+                                zhiling[4].Add("{");
+                                zhiling[4].Add("'&val&'=1");
+                                zhiling[4].Add("}");
                                 if (this.GetattVal_string("val") == "0")
                                 {
-                                    array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc0&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                    zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc0&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
                                 }
                                 else
                                 {
-                                    array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc1&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                    zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc1&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
                                 }
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
                             }
-                            else if (text == "1")
+                            else if (str3 == "1")
                             {
-                                string text2 = this.GetattVal_string("style");
-                                if (text2 != null)
+                                str2 = this.GetattVal_string("style");
+                                if (str2 != null)
                                 {
-                                    if (text2 == "1")
+                                    if (str2 == "1")
                                     {
                                         str = this.GetattVal_string("borderw");
                                     }
-                                    else if (text2 == "2" || text2 == "3" || text2 == "4")
+                                    else if (((str2 == "2") || (str2 == "3")) || (str2 == "4"))
                                     {
                                         str = "1";
                                     }
                                 }
-                                array[0].Add("if('&val&'==1)");
-                                array[0].Add("{");
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco1&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                if (text3 != null && text3 == "4")
+                                zhiling[0].Add("if('&val&'==1)");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco1&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                if ((str4 != null) && (str4 == "4"))
                                 {
-                                    array[0].Add(string.Concat(new string[]
-                                    {
-                                        "draw3d '&x&','&y&','&endx&','&endy&',",
-                                        this.d3color0,
-                                        ",",
-                                        this.d3color1,
-                                        ",1"
-                                    }));
+                                    zhiling[0].Add("draw3d '&x&','&y&','&endx&','&endy&'," + this.d3color0 + "," + this.d3color1 + ",1");
                                 }
-                                array[0].Add("}else");
-                                array[0].Add("{");
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco0&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                if (text3 != null && text3 == "4")
+                                zhiling[0].Add("}else");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco0&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                if ((str4 != null) && (str4 == "4"))
                                 {
-                                    array[0].Add(string.Concat(new string[]
-                                    {
-                                        "draw3d '&x&','&y&','&endx&','&endy&',",
-                                        this.d3color1,
-                                        ",",
-                                        this.d3color0,
-                                        ",1"
-                                    }));
+                                    zhiling[0].Add("draw3d '&x&','&y&','&endx&','&endy&'," + this.d3color1 + "," + this.d3color0 + ",1");
                                 }
-                                array[0].Add("}");
-                                array[2].Add("if('&val&'==1)");
-                                array[2].Add("{");
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco1&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                if (text3 != null && text3 == "4")
+                                zhiling[0].Add("}");
+                                zhiling[2].Add("if('&val&'==1)");
+                                zhiling[2].Add("{");
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco1&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                if ((str4 != null) && (str4 == "4"))
                                 {
-                                    array[2].Add(string.Concat(new string[]
-                                    {
-                                        "draw3d '&x&','&y&','&endx&','&endy&',",
-                                        this.d3color0,
-                                        ",",
-                                        this.d3color1,
-                                        ",1"
-                                    }));
+                                    zhiling[2].Add("draw3d '&x&','&y&','&endx&','&endy&'," + this.d3color0 + "," + this.d3color1 + ",1");
                                 }
-                                array[2].Add("}else");
-                                array[2].Add("{");
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco0&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                if (text3 != null && text3 == "4")
+                                zhiling[2].Add("}else");
+                                zhiling[2].Add("{");
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco0&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                if ((str4 != null) && (str4 == "4"))
                                 {
-                                    array[2].Add(string.Concat(new string[]
-                                    {
-                                        "draw3d '&x&','&y&','&endx&','&endy&',",
-                                        this.d3color1,
-                                        ",",
-                                        this.d3color0,
-                                        ",1"
-                                    }));
+                                    zhiling[2].Add("draw3d '&x&','&y&','&endx&','&endy&'," + this.d3color1 + "," + this.d3color0 + ",1");
                                 }
-                                array[2].Add("}");
-                                array[4].Add("if('&val&'==1)");
-                                array[4].Add("{");
-                                array[4].Add("'&val&'=0");
-                                array[4].Add("}else");
-                                array[4].Add("{");
-                                array[4].Add("'&val&'=1");
-                                array[4].Add("}");
+                                zhiling[2].Add("}");
+                                zhiling[4].Add("if('&val&'==1)");
+                                zhiling[4].Add("{");
+                                zhiling[4].Add("'&val&'=0");
+                                zhiling[4].Add("}else");
+                                zhiling[4].Add("{");
+                                zhiling[4].Add("'&val&'=1");
+                                zhiling[4].Add("}");
                                 if (this.GetattVal_string("val") == "0")
                                 {
-                                    array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco0&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                    array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                    if (text3 != null && text3 == "4")
+                                    zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco0&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                    zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                    if ((str4 != null) && (str4 == "4"))
                                     {
-                                        array[8].Add(string.Concat(new string[]
-                                        {
-                                            "draw3d '&x&','&y&','&endx&','&endy&',",
-                                            this.d3color1,
-                                            ",",
-                                            this.d3color0,
-                                            ",1"
-                                        }));
+                                        zhiling[8].Add("draw3d '&x&','&y&','&endx&','&endy&'," + this.d3color1 + "," + this.d3color0 + ",1");
                                     }
                                 }
                                 else
                                 {
-                                    array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco1&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                    array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                    if (text3 != null && text3 == "4")
+                                    zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco1&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                    zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                    if ((str4 != null) && (str4 == "4"))
                                     {
-                                        array[8].Add(string.Concat(new string[]
-                                        {
-                                            "draw3d '&x&','&y&','&endx&','&endy&',",
-                                            this.d3color0,
-                                            ",",
-                                            this.d3color1,
-                                            ",1"
-                                        }));
+                                        zhiling[8].Add("draw3d '&x&','&y&','&endx&','&endy&'," + this.d3color0 + "," + this.d3color1 + ",1");
                                     }
                                 }
-                                if (text3 != null && text3 != "4")
+                                if ((str4 != null) && (str4 != "4"))
                                 {
-                                    this.getstylecode(ref array, "0-2-8", text2);
+                                    this.getstylecode(ref zhiling, "0-2-8", str2);
                                 }
                             }
-                            else if (text == "2")
+                            else if (str3 == "2")
                             {
-                                array[0].Add("if('&val&'==1)");
-                                array[0].Add("{");
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic1&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
-                                array[0].Add("}else");
-                                array[0].Add("{");
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic0&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
-                                array[0].Add("}");
-                                array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[2].Add("if('&val&'==1)");
-                                array[2].Add("{");
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic1&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("}else");
-                                array[2].Add("{");
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic0&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("}");
-                                array[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[4].Add("if('&val&'==1)");
-                                array[4].Add("{");
-                                array[4].Add("'&val&'=0");
-                                array[4].Add("}else");
-                                array[4].Add("{");
-                                array[4].Add("'&val&'=1");
-                                array[4].Add("}");
+                                zhiling[0].Add("if('&val&'==1)");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic1&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[0].Add("}else");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic0&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[0].Add("}");
+                                zhiling[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[2].Add("if('&val&'==1)");
+                                zhiling[2].Add("{");
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic1&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[2].Add("}else");
+                                zhiling[2].Add("{");
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic0&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[2].Add("}");
+                                zhiling[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[4].Add("if('&val&'==1)");
+                                zhiling[4].Add("{");
+                                zhiling[4].Add("'&val&'=0");
+                                zhiling[4].Add("}else");
+                                zhiling[4].Add("{");
+                                zhiling[4].Add("'&val&'=1");
+                                zhiling[4].Add("}");
                                 if (this.GetattVal_string("val") == "0")
                                 {
-                                    array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic0&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                    zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic0&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
                                 }
                                 else
                                 {
-                                    array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic1&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                    zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic1&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
                                 }
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
                             }
                         }
                     }
                     else if (this.atts[0].zhi[0] == objtype.checkbox)
                     {
-                        string text2 = this.GetattVal_string("style");
-                        array[0].Add("sya0='&w&'/4");
-                        array[0].Add("sya1='&w&'-sya0-sya0");
-                        array[0].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                        array[0].Add("if('&val&'==1)");
-                        array[0].Add("{");
-                        array[0].Add("fill '&x&'+sya0,'&y&'+sya0,sya1,sya1,'&pco&'");
-                        array[0].Add("}");
-                        array[2].Add("sya0='&w&'/4");
-                        array[2].Add("sya1='&w&'-sya0-sya0");
-                        array[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                        array[2].Add("if('&val&'==1)");
-                        array[2].Add("{");
-                        array[2].Add("fill '&x&'+sya0,'&y&'+sya0,sya1,sya1,'&pco&'");
-                        array[2].Add("}");
-                        array[4].Add("if('&val&'==1)");
-                        array[4].Add("{");
-                        array[4].Add("'&val&'=0");
-                        array[4].Add("}else");
-                        array[4].Add("{");
-                        array[4].Add("'&val&'=1");
-                        array[4].Add("}");
-                        array[8].Add("sya0='&w&'/4");
-                        array[8].Add("sya1='&w&'-sya0-sya0");
-                        array[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                        str2 = this.GetattVal_string("style");
+                        zhiling[0].Add("sya0='&w&'/4");
+                        zhiling[0].Add("sya1='&w&'-sya0-sya0");
+                        zhiling[0].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                        zhiling[0].Add("if('&val&'==1)");
+                        zhiling[0].Add("{");
+                        zhiling[0].Add("fill '&x&'+sya0,'&y&'+sya0,sya1,sya1,'&pco&'");
+                        zhiling[0].Add("}");
+                        zhiling[2].Add("sya0='&w&'/4");
+                        zhiling[2].Add("sya1='&w&'-sya0-sya0");
+                        zhiling[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                        zhiling[2].Add("if('&val&'==1)");
+                        zhiling[2].Add("{");
+                        zhiling[2].Add("fill '&x&'+sya0,'&y&'+sya0,sya1,sya1,'&pco&'");
+                        zhiling[2].Add("}");
+                        zhiling[4].Add("if('&val&'==1)");
+                        zhiling[4].Add("{");
+                        zhiling[4].Add("'&val&'=0");
+                        zhiling[4].Add("}else");
+                        zhiling[4].Add("{");
+                        zhiling[4].Add("'&val&'=1");
+                        zhiling[4].Add("}");
+                        zhiling[8].Add("sya0='&w&'/4");
+                        zhiling[8].Add("sya1='&w&'-sya0-sya0");
+                        zhiling[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
                         if (this.GetattVal_string("val") == "1")
                         {
-                            array[8].Add("fill '&x&'+sya0,'&y&'+sya0,sya1,sya1,'&pco&'");
+                            zhiling[8].Add("fill '&x&'+sya0,'&y&'+sya0,sya1,sya1,'&pco&'");
                         }
-                        this.getstylecode(ref array, "0-2-8", text2);
+                        this.getstylecode(ref zhiling, "0-2-8", str2);
                     }
                     else if (this.atts[0].zhi[0] == objtype.radiobutton)
                     {
-                        array[0].Add("sya0='&w&'/2");
-                        array[0].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0,'&bco&'");
-                        array[0].Add("cir '&x&'+sya0,'&y&'+sya0,sya0,16936");
-                        array[0].Add("if('&val&'==1)");
-                        array[0].Add("{");
-                        array[0].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0/2,'&pco&'");
-                        array[0].Add("}");
-                        array[2].Add("sya0='&w&'/2");
-                        array[2].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0,'&bco&'");
-                        array[2].Add("cir '&x&'+sya0,'&y&'+sya0,sya0,16936");
-                        array[2].Add("if('&val&'==1)");
-                        array[2].Add("{");
-                        array[2].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0/2,'&pco&'");
-                        array[2].Add("}");
-                        array[4].Add("if('&val&'==1)");
-                        array[4].Add("{");
-                        array[4].Add("'&val&'=0");
-                        array[4].Add("}else");
-                        array[4].Add("{");
-                        array[4].Add("'&val&'=1");
-                        array[4].Add("}");
-                        array[8].Add("sya0='&w&'/2");
-                        array[8].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0,'&bco&'");
-                        array[8].Add("cir '&x&'+sya0,'&y&'+sya0,sya0,16936");
+                        zhiling[0].Add("sya0='&w&'/2");
+                        zhiling[0].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0,'&bco&'");
+                        zhiling[0].Add("cir '&x&'+sya0,'&y&'+sya0,sya0,16936");
+                        zhiling[0].Add("if('&val&'==1)");
+                        zhiling[0].Add("{");
+                        zhiling[0].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0/2,'&pco&'");
+                        zhiling[0].Add("}");
+                        zhiling[2].Add("sya0='&w&'/2");
+                        zhiling[2].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0,'&bco&'");
+                        zhiling[2].Add("cir '&x&'+sya0,'&y&'+sya0,sya0,16936");
+                        zhiling[2].Add("if('&val&'==1)");
+                        zhiling[2].Add("{");
+                        zhiling[2].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0/2,'&pco&'");
+                        zhiling[2].Add("}");
+                        zhiling[4].Add("if('&val&'==1)");
+                        zhiling[4].Add("{");
+                        zhiling[4].Add("'&val&'=0");
+                        zhiling[4].Add("}else");
+                        zhiling[4].Add("{");
+                        zhiling[4].Add("'&val&'=1");
+                        zhiling[4].Add("}");
+                        zhiling[8].Add("sya0='&w&'/2");
+                        zhiling[8].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0,'&bco&'");
+                        zhiling[8].Add("cir '&x&'+sya0,'&y&'+sya0,sya0,16936");
                         if (this.GetattVal_string("val") == "1")
                         {
-                            array[8].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0/2,'&pco&'");
+                            zhiling[8].Add("cirs '&x&'+sya0,'&y&'+sya0,sya0/2,'&pco&'");
                         }
                     }
                     else if (this.atts[0].zhi[0] == objtype.Timer)
                     {
-                        array[1].Add("timerset 0,'&id&',65535");
-                        array[1].Add("L '&pageid&'-'&id&'a");
-                        array[2].Add("if('&en&'==1)");
-                        array[2].Add("{");
-                        array[2].Add("timerset 1,'&id&','&tim&'");
-                        array[2].Add("}");
-                        array[7].Add("S '&pageid&'-'&id&'a");
-                        array[0].Add("S '&pageid&'-'&id&'r");
-                        array[0].Add("if('&en&'==1)");
-                        array[0].Add("{");
-                        array[0].Add("timerset 1,'&id&','&tim&'");
-                        array[0].Add("}else");
-                        array[0].Add("{");
-                        array[0].Add("timerset 1,'&id&',65535");
-                        array[0].Add("}");
-                        array[17].Add("ifvis '&id&',1");
-                        array[17].Add("L '&pageid&'-'&id&'r");
+                        zhiling[1].Add("timerset 0,'&id&',65535");
+                        zhiling[1].Add("L '&pageid&'-'&id&'a");
+                        zhiling[2].Add("if('&en&'==1)");
+                        zhiling[2].Add("{");
+                        zhiling[2].Add("timerset 1,'&id&','&tim&'");
+                        zhiling[2].Add("}");
+                        zhiling[7].Add("S '&pageid&'-'&id&'a");
+                        zhiling[0].Add("S '&pageid&'-'&id&'r");
+                        zhiling[0].Add("if('&en&'==1)");
+                        zhiling[0].Add("{");
+                        zhiling[0].Add("timerset 1,'&id&','&tim&'");
+                        zhiling[0].Add("}else");
+                        zhiling[0].Add("{");
+                        zhiling[0].Add("timerset 1,'&id&',65535");
+                        zhiling[0].Add("}");
+                        zhiling[0x11].Add("ifvis '&id&',1");
+                        zhiling[0x11].Add("L '&pageid&'-'&id&'r");
                     }
                     else if (this.atts[0].zhi[0] == objtype.OBJECT_TYPE_SLIDER)
                     {
-                        array[2].Add("load '&id&'");
+                        zhiling[2].Add("load '&id&'");
                     }
                     else if (this.atts[0].zhi[0] == objtype.OBJECT_TYPE_CURVE)
                     {
-                        array[1].Add("init '&id&'");
-                        array[2].Add("load '&id&'");
+                        zhiling[1].Add("init '&id&'");
+                        zhiling[2].Add("load '&id&'");
                     }
                     else if (this.atts[0].zhi[0] == objtype.text)
                     {
-                        string text = this.GetattVal_string("sta");
-                        if (text != null)
+                        str3 = this.GetattVal_string("sta");
+                        if (str3 != null)
                         {
-                            if (text == "0")
+                            if (str3 == "0")
                             {
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',0,'&isbr&','&spax&','&spay&','&pw&'," + str);
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',0,'&isbr&','&spax&','&spay&','&pw&'," + str);
-                                if (!(this.Mypage.objs[0].GetattVal_string("sta") == "2") || !(this.Mypage.objs[0].GetattVal_string("pic") == this.GetattVal_string("picc")))
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',0,'&isbr&','&spax&','&spay&','&pw&'," + str);
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',0,'&isbr&','&spax&','&spay&','&pw&'," + str);
+                                if ((this.Mypage.objs[0].GetattVal_string("sta") != "2") || (this.Mypage.objs[0].GetattVal_string("pic") != this.GetattVal_string("picc")))
                                 {
-                                    array[2].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                                    zhiling[2].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
                                 }
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&','&pw&'," + str);
-                                array[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
-                                array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&','&pw&'," + str);
+                                zhiling[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                                zhiling[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
                             }
-                            else if (text == "1")
+                            else if (str3 == "1")
                             {
-                                string text2 = this.GetattVal_string("style");
-                                if (text2 != null)
+                                str2 = this.GetattVal_string("style");
+                                if (str2 != null)
                                 {
-                                    if (text2 == "1")
+                                    if (str2 == "1")
                                     {
                                         str = this.GetattVal_string("borderw");
                                     }
-                                    else if (text2 == "2" || text2 == "3" || text2 == "4")
+                                    else if (((str2 == "2") || (str2 == "3")) || (str2 == "4"))
                                     {
                                         str = "1";
                                     }
                                 }
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',1,'&isbr&','&spax&','&spay&','&pw&'," + str);
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&','&pw&'," + str);
-                                array[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&','&pw&'," + str);
-                                array[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                this.getstylecode(ref array, "0-2-8", text2);
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',1,'&isbr&','&spax&','&spay&','&pw&'," + str);
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&','&pw&'," + str);
+                                zhiling[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&','&pw&'," + str);
+                                zhiling[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                zhiling[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                this.getstylecode(ref zhiling, "0-2-8", str2);
                             }
-                            else if (text == "2")
+                            else if (str3 == "2")
                             {
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',2,'&isbr&','&spax&','&spay&','&pw&'," + str);
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&','&pw&'," + str);
-                                array[2].Add("pic '&x&','&y&','&pic&'");
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&','&pw&'," + str);
-                                array[8].Add("pic '&x&','&y&','&pic&'");
-                                array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',2,'&isbr&','&spax&','&spay&','&pw&'," + str);
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&','&pw&'," + str);
+                                zhiling[2].Add("pic '&x&','&y&','&pic&'");
+                                zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&','&pw&'," + str);
+                                zhiling[8].Add("pic '&x&','&y&','&pic&'");
+                                zhiling[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
                             }
                         }
                     }
                     else if (this.atts[0].zhi[0] == objtype.gtext)
                     {
-                        string text = this.GetattVal_string("sta");
-                        string text3 = this.GetattVal_string("style");
-                        string text2 = this.GetattVal_string("style");
-                        if (text == "1")
+                        str3 = this.GetattVal_string("sta");
+                        str4 = this.GetattVal_string("style");
+                        str2 = this.GetattVal_string("style");
+                        if ((str3 == "1") && (str2 != null))
                         {
-                            if (text2 != null)
+                            if (str2 == "1")
                             {
-                                if (text2 == "1")
-                                {
-                                    str = this.GetattVal_string("borderw");
-                                }
-                                else if (text2 == "2" || text2 == "3" || text2 == "4")
-                                {
-                                    str = "1";
-                                }
+                                str = this.GetattVal_string("borderw");
+                            }
+                            else if (((str2 == "2") || (str2 == "3")) || (str2 == "4"))
+                            {
+                                str = "1";
                             }
                         }
-                        if (text != null)
+                        if (str3 != null)
                         {
-                            array[0].Add("S '&pageid&'-'&id&'r");
-                            array[1].Add("setbrush '&x&','&y&','&w&','&h&','&font&',0,0,0,0,0,'&isbr&','&spax&','&spay&',0," + str);
-                            array[1].Add("strsize '&txt&','&vvs2&','&vvs3&'");
-                            array[1].Add("if('&dir&'==0)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs0&'='&x&'-'&vvs2&'-1");
-                            array[1].Add("'&vvs1&'=32767");
-                            array[1].Add("}else if('&dir&'==1)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs0&'='&endx&'+1");
-                            array[1].Add("'&vvs1&'=32767");
-                            array[1].Add("}else if('&dir&'==2)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs1&'='&y&'-'&vvs3&'-1");
-                            array[1].Add("'&vvs0&'=32767");
-                            array[1].Add("}else if('&dir&'==3)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs1&'='&endy&'+1");
-                            array[1].Add("'&vvs0&'=32767");
-                            array[1].Add("}");
-                            array[1].Add("timerset 0,'&id&',65535");
-                            array[1].Add("L '&pageid&'-'&id&'a");
-                            array[1].Add("L '&pageid&'-'&id&'b");
-                            array[1].Add("S '&pageid&'-'&id&'a");
-                            array[1].Add("if('&en&'==1)");
-                            array[1].Add("{");
-                            array[1].Add("setbrush '&x&','&y&','&w&','&h&','&font&',0,0,0,0,0,'&isbr&','&spax&','&spay&',0," + str);
-                            array[1].Add("strsize '&txt&','&vvs2&','&vvs3&'");
-                            array[1].Add("if('&dir&'==0)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs1&'=32767");
-                            array[1].Add("'&vvs0&'='&vvs0&'+'&dis&'");
-                            array[1].Add("sya0='&x&'-'&vvs2&'");
-                            array[1].Add("if('&vvs0&'>'&endx&')");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs0&'='&x&'-'&vvs2&'");
-                            array[1].Add("}else if('&vvs0&'<sya0)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs0&'=sya0");
-                            array[1].Add("}");
-                            array[1].Add("}else if('&dir&'==1)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs1&'=32767");
-                            array[1].Add("'&vvs0&'='&vvs0&'-'&dis&'");
-                            array[1].Add("sya0='&x&'-'&vvs2&'");
-                            array[1].Add("if('&vvs0&'<sya0)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs0&'='&endx&'");
-                            array[1].Add("}else if('&vvs0&'>'&endx&')");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs0&'='&endx&'");
-                            array[1].Add("}");
-                            array[1].Add("}else if('&dir&'==2)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs0&'=32767");
-                            array[1].Add("'&vvs1&'='&vvs1&'+'&dis&'");
-                            array[1].Add("sya0='&y&'-'&vvs3&'");
-                            array[1].Add("if('&vvs1&'>'&endy&')");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs1&'='&y&'-'&vvs3&'");
-                            array[1].Add("}else if('&vvs1&'<sya0)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs1&'=sya0");
-                            array[1].Add("}");
-                            array[1].Add("}else if('&dir&'==3)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs0&'=32767");
-                            array[1].Add("'&vvs1&'='&vvs1&'-'&dis&'");
-                            array[1].Add("sya0='&y&'-'&vvs3&'");
-                            array[1].Add("if('&vvs1&'<sya0)");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs1&'='&endy&'");
-                            array[1].Add("}else if('&vvs1&'>'&endy&')");
-                            array[1].Add("{");
-                            array[1].Add("'&vvs1&'='&endy&'");
-                            array[1].Add("}");
-                            array[1].Add("}");
-                            array[1].Add("ifvis '&id&',1");
-                            array[1].Add("L '&pageid&'-'&id&'r");
-                            array[1].Add("E");
-                            array[1].Add("}");
-                            array[1].Add("S '&pageid&'-'&id&'b");
-                            if (text == "0")
+                            zhiling[0].Add("S '&pageid&'-'&id&'r");
+                            zhiling[1].Add("setbrush '&x&','&y&','&w&','&h&','&font&',0,0,0,0,0,'&isbr&','&spax&','&spay&',0," + str);
+                            zhiling[1].Add("strsize '&txt&','&vvs2&','&vvs3&'");
+                            zhiling[1].Add("if('&dir&'==0)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs0&'='&x&'-'&vvs2&'-1");
+                            zhiling[1].Add("'&vvs1&'=32767");
+                            zhiling[1].Add("}else if('&dir&'==1)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs0&'='&endx&'+1");
+                            zhiling[1].Add("'&vvs1&'=32767");
+                            zhiling[1].Add("}else if('&dir&'==2)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs1&'='&y&'-'&vvs3&'-1");
+                            zhiling[1].Add("'&vvs0&'=32767");
+                            zhiling[1].Add("}else if('&dir&'==3)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs1&'='&endy&'+1");
+                            zhiling[1].Add("'&vvs0&'=32767");
+                            zhiling[1].Add("}");
+                            zhiling[1].Add("timerset 0,'&id&',65535");
+                            zhiling[1].Add("L '&pageid&'-'&id&'a");
+                            zhiling[1].Add("L '&pageid&'-'&id&'b");
+                            zhiling[1].Add("S '&pageid&'-'&id&'a");
+                            zhiling[1].Add("if('&en&'==1)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("setbrush '&x&','&y&','&w&','&h&','&font&',0,0,0,0,0,'&isbr&','&spax&','&spay&',0," + str);
+                            zhiling[1].Add("strsize '&txt&','&vvs2&','&vvs3&'");
+                            zhiling[1].Add("if('&dir&'==0)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs1&'=32767");
+                            zhiling[1].Add("'&vvs0&'='&vvs0&'+'&dis&'");
+                            zhiling[1].Add("sya0='&x&'-'&vvs2&'");
+                            zhiling[1].Add("if('&vvs0&'>'&endx&')");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs0&'='&x&'-'&vvs2&'");
+                            zhiling[1].Add("}else if('&vvs0&'<sya0)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs0&'=sya0");
+                            zhiling[1].Add("}");
+                            zhiling[1].Add("}else if('&dir&'==1)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs1&'=32767");
+                            zhiling[1].Add("'&vvs0&'='&vvs0&'-'&dis&'");
+                            zhiling[1].Add("sya0='&x&'-'&vvs2&'");
+                            zhiling[1].Add("if('&vvs0&'<sya0)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs0&'='&endx&'");
+                            zhiling[1].Add("}else if('&vvs0&'>'&endx&')");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs0&'='&endx&'");
+                            zhiling[1].Add("}");
+                            zhiling[1].Add("}else if('&dir&'==2)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs0&'=32767");
+                            zhiling[1].Add("'&vvs1&'='&vvs1&'+'&dis&'");
+                            zhiling[1].Add("sya0='&y&'-'&vvs3&'");
+                            zhiling[1].Add("if('&vvs1&'>'&endy&')");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs1&'='&y&'-'&vvs3&'");
+                            zhiling[1].Add("}else if('&vvs1&'<sya0)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs1&'=sya0");
+                            zhiling[1].Add("}");
+                            zhiling[1].Add("}else if('&dir&'==3)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs0&'=32767");
+                            zhiling[1].Add("'&vvs1&'='&vvs1&'-'&dis&'");
+                            zhiling[1].Add("sya0='&y&'-'&vvs3&'");
+                            zhiling[1].Add("if('&vvs1&'<sya0)");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs1&'='&endy&'");
+                            zhiling[1].Add("}else if('&vvs1&'>'&endy&')");
+                            zhiling[1].Add("{");
+                            zhiling[1].Add("'&vvs1&'='&endy&'");
+                            zhiling[1].Add("}");
+                            zhiling[1].Add("}");
+                            zhiling[1].Add("ifvis '&id&',1");
+                            zhiling[1].Add("L '&pageid&'-'&id&'r");
+                            zhiling[1].Add("E");
+                            zhiling[1].Add("}");
+                            zhiling[1].Add("S '&pageid&'-'&id&'b");
+                            if (str3 == "0")
                             {
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',0,'&isbr&','&spax&','&spay&',0," + str);
-                                if (!(this.Mypage.objs[0].GetattVal_string("sta") == "2") || !(this.Mypage.objs[0].GetattVal_string("pic") == this.GetattVal_string("picc")))
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',0,'&isbr&','&spax&','&spay&',0," + str);
+                                if ((this.Mypage.objs[0].GetattVal_string("sta") != "2") || (this.Mypage.objs[0].GetattVal_string("pic") != this.GetattVal_string("picc")))
                                 {
-                                    array[2].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
-                                    array[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                                    zhiling[2].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                                    zhiling[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
                                 }
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
-                                array[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
-                                array[2].Add("if('&en&'==1)");
-                                array[2].Add("{");
-                                array[2].Add("timerset 1,'&id&','&tim&'");
-                                array[2].Add("}");
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[0].Add("zstr '&vvs0&','&vvs1&','&vvs2&','&vvs3&','&txt&'");
-                                array[0].Add("if('&en&'==1)");
-                                array[0].Add("{");
-                                array[0].Add("timerset 1,'&id&','&tim&'");
-                                array[0].Add("}else");
-                                array[0].Add("{");
-                                array[0].Add("timerset 1,'&id&',65535");
-                                array[0].Add("}");
+                                zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                                zhiling[2].Add("if('&en&'==1)");
+                                zhiling[2].Add("{");
+                                zhiling[2].Add("timerset 1,'&id&','&tim&'");
+                                zhiling[2].Add("}");
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[0].Add("zstr '&vvs0&','&vvs1&','&vvs2&','&vvs3&','&txt&'");
+                                zhiling[0].Add("if('&en&'==1)");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("timerset 1,'&id&','&tim&'");
+                                zhiling[0].Add("}else");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("timerset 1,'&id&',65535");
+                                zhiling[0].Add("}");
                             }
-                            else if (text == "1")
+                            else if (str3 == "1")
                             {
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',1,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
-                                array[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                array[2].Add("if('&en&'==1)");
-                                array[2].Add("{");
-                                array[2].Add("timerset 1,'&id&','&tim&'");
-                                array[2].Add("}");
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[0].Add("zstr '&vvs0&','&vvs1&','&vvs2&','&vvs3&','&txt&'");
-                                this.getstylecode(ref array, "0-2-8", text2);
-                                array[0].Add("if('&en&'==1)");
-                                array[0].Add("{");
-                                array[0].Add("timerset 1,'&id&','&tim&'");
-                                array[0].Add("}else");
-                                array[0].Add("{");
-                                array[0].Add("timerset 1,'&id&',65535");
-                                array[0].Add("}");
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',1,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                zhiling[2].Add("if('&en&'==1)");
+                                zhiling[2].Add("{");
+                                zhiling[2].Add("timerset 1,'&id&','&tim&'");
+                                zhiling[2].Add("}");
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[0].Add("zstr '&vvs0&','&vvs1&','&vvs2&','&vvs3&','&txt&'");
+                                this.getstylecode(ref zhiling, "0-2-8", str2);
+                                zhiling[0].Add("if('&en&'==1)");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("timerset 1,'&id&','&tim&'");
+                                zhiling[0].Add("}else");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("timerset 1,'&id&',65535");
+                                zhiling[0].Add("}");
                             }
-                            else if (text == "2")
+                            else if (str3 == "2")
                             {
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',2,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("pic '&x&','&y&','&pic&'");
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
-                                array[8].Add("pic '&x&','&y&','&pic&'");
-                                array[2].Add("if('&en&'==1)");
-                                array[2].Add("{");
-                                array[2].Add("timerset 1,'&id&','&tim&'");
-                                array[2].Add("}");
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[0].Add("zstr '&vvs0&','&vvs1&','&vvs2&','&vvs3&','&txt&'");
-                                array[0].Add("if('&en&'==1)");
-                                array[0].Add("{");
-                                array[0].Add("timerset 1,'&id&','&tim&'");
-                                array[0].Add("}else");
-                                array[0].Add("{");
-                                array[0].Add("timerset 1,'&id&',65535");
-                                array[0].Add("}");
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',2,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[2].Add("pic '&x&','&y&','&pic&'");
+                                zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[8].Add("pic '&x&','&y&','&pic&'");
+                                zhiling[2].Add("if('&en&'==1)");
+                                zhiling[2].Add("{");
+                                zhiling[2].Add("timerset 1,'&id&','&tim&'");
+                                zhiling[2].Add("}");
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[0].Add("zstr '&vvs0&','&vvs1&','&vvs2&','&vvs3&','&txt&'");
+                                zhiling[0].Add("if('&en&'==1)");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("timerset 1,'&id&','&tim&'");
+                                zhiling[0].Add("}else");
+                                zhiling[0].Add("{");
+                                zhiling[0].Add("timerset 1,'&id&',65535");
+                                zhiling[0].Add("}");
                             }
                         }
                     }
                     else if (this.atts[0].zhi[0] == objtype.button)
                     {
-                        string text = this.GetattVal_string("sta");
-                        if (text != null)
+                        str3 = this.GetattVal_string("sta");
+                        if (str3 != null)
                         {
-                            if (text == "0")
+                            if (str3 == "0")
                             {
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
-                                array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-
-                                if (this.Mypage.objs[0].GetattVal_string("sta") == "2" && this.Mypage.objs.Count>0)
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                if ((this.Mypage.objs[0].GetattVal_string("sta") == "2") && (this.Mypage.objs[0].GetattVal_string("pic") == this.GetattVal_string("picc")))
                                 {
-                                    if (this.Mypage.objs[0].GetattVal_string("pic") == this.GetattVal_string("picc"))
-                                    {
-                                        array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
-                                    }
-
-                                   
+                                    zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
                                 }
                                 else
                                 {
-                                    array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                    zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
                                 }
-                                array[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[4].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco2&','&picc2&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
-                                array[4].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[6].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
-                                array[6].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[4].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco2&','&picc2&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[4].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[6].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[6].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
                             }
-                            else if (text == "1")
+                            else if (str3 == "1")
                             {
-                                string text2 = this.GetattVal_string("style");
-                                if (text2 != null)
+                                str2 = this.GetattVal_string("style");
+                                if (str2 != null)
                                 {
-                                    if (text2 == "1")
+                                    if (str2 == "1")
                                     {
                                         str = this.GetattVal_string("borderw");
                                     }
-                                    else if (text2 == "2" || text2 == "3" || text2 == "4")
+                                    else if (((str2 == "2") || (str2 == "3")) || (str2 == "4"))
                                     {
                                         str = "1";
                                     }
                                 }
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[4].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco2&','&bco2&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                array[4].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[6].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                array[6].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                this.getstylecode(ref array, "0-2-4-6-8", text2);
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[4].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco2&','&bco2&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[4].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[6].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[6].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&bco&','&xcen&','&ycen&',11,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                this.getstylecode(ref zhiling, "0-2-4-6-8", str2);
                             }
-                            else if (text == "2")
+                            else if (str3 == "2")
                             {
-                                array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
-                                array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
-                                array[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[4].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco2&','&pic2&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
-                                array[4].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[6].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
-                                array[6].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                array[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
-                                array[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[2].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[4].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco2&','&pic2&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[4].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[6].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[6].Add("zstr 32767,32767,32767,32767,'&txt&'");
+                                zhiling[8].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&pic&','&xcen&','&ycen&',12,'&isbr&','&spax&','&spay&',0," + str);
+                                zhiling[8].Add("zstr 32767,32767,32767,32767,'&txt&'");
                             }
                         }
                     }
                     else if (this.atts[0].zhi[0] == objtype.prog)
                     {
-                        string text = this.GetattVal_string("sta");
-                        string text3 = this.GetattVal_string("dez");
-                        if (text != null)
+                        str3 = this.GetattVal_string("sta");
+                        str4 = this.GetattVal_string("dez");
+                        if (str3 != null)
                         {
-                            if (text == "0")
+                            if (str3 == "0")
                             {
-                                if (text3 == "0")
+                                switch (str4)
                                 {
-                                    array[0].Add("sya0='&val&'*'&w&'/100");
-                                    array[0].Add("fill '&x&','&y&',sya0,'&h&','&pco&'");
-                                    array[0].Add("fill '&x&'+sya0,'&y&','&w&'-sya0,'&h&','&bco&'");
-                                    array[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                    array[2].Add("fill '&x&','&y&','&val&'*'&w&'/100,'&h&','&pco&'");
-                                    array[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                    array[8].Add("fill '&x&','&y&','&val&'*'&w&'/100,'&h&','&pco&'");
-                                }
-                                if (text3 == "1")
-                                {
-                                    array[0].Add("sya0='&val&'*'&h&'/100");
-                                    array[0].Add("fill '&x&','&endy&'+1-sya0,'&w&',sya0,'&pco&'");
-                                    array[0].Add("fill '&x&','&y&','&w&','&h&'-sya0,'&bco&'");
-                                    array[2].Add("sya0='&val&'*'&h&'/100");
-                                    array[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                    array[2].Add("fill '&x&','&endy&'+1-sya0,'&w&',sya0,'&pco&'");
-                                    array[8].Add("sya0='&val&'*'&h&'/100");
-                                    array[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                    array[8].Add("fill '&x&','&endy&'+1-sya0,'&w&',sya0,'&pco&'");
+                                    case "0":
+                                        zhiling[0].Add("sya0='&val&'*'&w&'/100");
+                                        zhiling[0].Add("fill '&x&','&y&',sya0,'&h&','&pco&'");
+                                        zhiling[0].Add("fill '&x&'+sya0,'&y&','&w&'-sya0,'&h&','&bco&'");
+                                        zhiling[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                        zhiling[2].Add("fill '&x&','&y&','&val&'*'&w&'/100,'&h&','&pco&'");
+                                        zhiling[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                        zhiling[8].Add("fill '&x&','&y&','&val&'*'&w&'/100,'&h&','&pco&'");
+                                        break;
+
+                                    case "1":
+                                        zhiling[0].Add("sya0='&val&'*'&h&'/100");
+                                        zhiling[0].Add("fill '&x&','&endy&'+1-sya0,'&w&',sya0,'&pco&'");
+                                        zhiling[0].Add("fill '&x&','&y&','&w&','&h&'-sya0,'&bco&'");
+                                        zhiling[2].Add("sya0='&val&'*'&h&'/100");
+                                        zhiling[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                        zhiling[2].Add("fill '&x&','&endy&'+1-sya0,'&w&',sya0,'&pco&'");
+                                        zhiling[8].Add("sya0='&val&'*'&h&'/100");
+                                        zhiling[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                        zhiling[8].Add("fill '&x&','&endy&'+1-sya0,'&w&',sya0,'&pco&'");
+                                        break;
                                 }
                             }
-                            else if (text == "1")
+                            else if (str3 == "1")
                             {
-                                if (text3 == "0")
+                                switch (str4)
                                 {
-                                    array[0].Add("sya0='&val&'*'&w&'/100");
-                                    array[0].Add("xpic '&x&','&y&',sya0,'&h&',0,0,'&ppic&'");
-                                    array[0].Add("xpic '&x&'+sya0,'&y&','&w&'-sya0,'&h&',sya0,0,'&bpic&'");
-                                    array[2].Add("pic '&x&','&y&','&bpic&'");
-                                    array[2].Add("xpic '&x&','&y&','&val&'*'&w&'/100,'&h&',0,0,'&ppic&'");
-                                    array[8].Add("pic '&x&','&y&','&bpic&'");
-                                    array[8].Add("xpic '&x&','&y&','&val&'*'&w&'/100,'&h&',0,0,'&ppic&'");
-                                }
-                                if (text3 == "1")
-                                {
-                                    array[0].Add("sya0='&val&'*'&h&'/100");
-                                    array[0].Add("xpic '&x&','&endy&'+1-sya0,'&w&',sya0,0,'&h&'-sya0,'&ppic&'");
-                                    array[0].Add("xpic '&x&','&y&','&w&','&h&'-sya0,0,0,'&bpic&'");
-                                    array[2].Add("sya0='&val&'*'&h&'/100");
-                                    array[2].Add("pic '&x&','&y&','&bpic&'");
-                                    array[2].Add("xpic '&x&','&endy&'+1-sya0,'&w&',sya0,0,'&h&'-sya0,'&ppic&'");
-                                    array[8].Add("sya0='&val&'*'&h&'/100");
-                                    array[8].Add("pic '&x&','&y&','&bpic&'");
-                                    array[8].Add("xpic '&x&','&endy&'+1-sya0,'&w&',sya0,0,'&h&'-sya0,'&ppic&'");
+                                    case "0":
+                                        zhiling[0].Add("sya0='&val&'*'&w&'/100");
+                                        zhiling[0].Add("xpic '&x&','&y&',sya0,'&h&',0,0,'&ppic&'");
+                                        zhiling[0].Add("xpic '&x&'+sya0,'&y&','&w&'-sya0,'&h&',sya0,0,'&bpic&'");
+                                        zhiling[2].Add("pic '&x&','&y&','&bpic&'");
+                                        zhiling[2].Add("xpic '&x&','&y&','&val&'*'&w&'/100,'&h&',0,0,'&ppic&'");
+                                        zhiling[8].Add("pic '&x&','&y&','&bpic&'");
+                                        zhiling[8].Add("xpic '&x&','&y&','&val&'*'&w&'/100,'&h&',0,0,'&ppic&'");
+                                        break;
+
+                                    case "1":
+                                        zhiling[0].Add("sya0='&val&'*'&h&'/100");
+                                        zhiling[0].Add("xpic '&x&','&endy&'+1-sya0,'&w&',sya0,0,'&h&'-sya0,'&ppic&'");
+                                        zhiling[0].Add("xpic '&x&','&y&','&w&','&h&'-sya0,0,0,'&bpic&'");
+                                        zhiling[2].Add("sya0='&val&'*'&h&'/100");
+                                        zhiling[2].Add("pic '&x&','&y&','&bpic&'");
+                                        zhiling[2].Add("xpic '&x&','&endy&'+1-sya0,'&w&',sya0,0,'&h&'-sya0,'&ppic&'");
+                                        zhiling[8].Add("sya0='&val&'*'&h&'/100");
+                                        zhiling[8].Add("pic '&x&','&y&','&bpic&'");
+                                        zhiling[8].Add("xpic '&x&','&endy&'+1-sya0,'&w&',sya0,0,'&h&'-sya0,'&ppic&'");
+                                        break;
                                 }
                             }
                         }
                     }
                     else if (this.atts[0].zhi[0] == objtype.pic)
                     {
-                        array[0].Add("pic '&x&','&y&','&pic&'");
-                        array[2].Add("pic '&x&','&y&','&pic&'");
-                        array[8].Add("pic '&x&','&y&','&pic&'");
+                        zhiling[0].Add("pic '&x&','&y&','&pic&'");
+                        zhiling[2].Add("pic '&x&','&y&','&pic&'");
+                        zhiling[8].Add("pic '&x&','&y&','&pic&'");
                     }
                     else if (this.atts[0].zhi[0] == objtype.picc)
                     {
-                        array[0].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
-                        array[2].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
-                        array[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                        zhiling[0].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                        zhiling[2].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                        zhiling[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
                     }
                     else if (this.atts[0].zhi[0] != objtype.touch)
                     {
                         if (this.atts[0].zhi[0] == objtype.zhizhen)
                         {
-                            string text = this.GetattVal_string("sta");
-                            if (text != null)
+                            str3 = this.GetattVal_string("sta");
+                            if (str3 != null)
                             {
-                                if (text == "0")
+                                if (str3 == "0")
                                 {
-                                    array[0].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
-                                    if (!(this.Mypage.objs[0].GetattVal_string("sta") == "2") || !(this.Mypage.objs[0].GetattVal_string("pic") == this.GetattVal_string("picc")))
+                                    zhiling[0].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                                    if ((this.Mypage.objs[0].GetattVal_string("sta") != "2") || (this.Mypage.objs[0].GetattVal_string("pic") != this.GetattVal_string("picc")))
                                     {
-                                        array[2].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                                        zhiling[2].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
                                     }
-                                    array[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
+                                    zhiling[8].Add("xpic '&x&','&y&','&w&','&h&','&x&','&y&','&picc&'");
                                 }
-                                else if (text == "1")
+                                else if (str3 == "1")
                                 {
-                                    array[0].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                    array[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                    array[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                    zhiling[0].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                    zhiling[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                    zhiling[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
                                 }
-                                else if (text == "2")
+                                else if (str3 == "2")
                                 {
-                                    array[0].Add("pic '&x&','&y&','&pic&'");
-                                    array[2].Add("pic '&x&','&y&','&pic&'");
-                                    array[8].Add("pic '&x&','&y&','&pic&'");
+                                    zhiling[0].Add("pic '&x&','&y&','&pic&'");
+                                    zhiling[2].Add("pic '&x&','&y&','&pic&'");
+                                    zhiling[8].Add("pic '&x&','&y&','&pic&'");
                                 }
-                                array[0].Add("draw_h '&w&'/2+'&x&','&h&'/2+'&y&','&h&'/2-'&wid&','&val&','&wid&','&pco&'");
-                                array[2].Add("draw_h '&w&'/2+'&x&','&h&'/2+'&y&','&h&'/2-'&wid&','&val&','&wid&','&pco&'");
-                                array[8].Add("draw_h '&w&'/2+'&x&','&h&'/2+'&y&','&h&'/2-'&wid&','&val&','&wid&','&pco&'");
+                                zhiling[0].Add("draw_h '&w&'/2+'&x&','&h&'/2+'&y&','&h&'/2-'&wid&','&val&','&wid&','&pco&'");
+                                zhiling[2].Add("draw_h '&w&'/2+'&x&','&h&'/2+'&y&','&h&'/2-'&wid&','&val&','&wid&','&pco&'");
+                                zhiling[8].Add("draw_h '&w&'/2+'&x&','&h&'/2+'&y&','&h&'/2-'&wid&','&val&','&wid&','&pco&'");
                             }
                         }
                         else if (this.atts[0].zhi[0] == objtype.page)
                         {
-                            string text = this.GetattVal_string("sta");
-                            if (text != null)
+                            switch (this.GetattVal_string("sta"))
                             {
-                                if (text == "1")
-                                {
-                                    array[0].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                    array[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                    array[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
-                                }
-                                else if (text == "2")
-                                {
-                                    array[0].Add("pic '&x&','&y&','&pic&'");
-                                    array[2].Add("pic '&x&','&y&','&pic&'");
-                                    array[8].Add("pic '&x&','&y&','&pic&'");
-                                }
+                                case "1":
+                                    zhiling[0].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                    zhiling[2].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                    zhiling[8].Add("fill '&x&','&y&','&w&','&h&','&bco&'");
+                                    break;
+
+                                case "2":
+                                    zhiling[0].Add("pic '&x&','&y&','&pic&'");
+                                    zhiling[2].Add("pic '&x&','&y&','&pic&'");
+                                    zhiling[8].Add("pic '&x&','&y&','&pic&'");
+                                    break;
                             }
                         }
                     }
                 }
-                foreach (string current in array[index])
-                {
-                    num++;
-                    mycodes.Add(current);
-                }
-                result = num;
             }
-            return result;
+            foreach (string str5 in zhiling[index])
+            {
+                num++;
+                mycodes.Add(str5);
+            }
+            return num;
         }
+
+
+
+
+     
+
+
+
 
         public string checkattval(matt at)
         {
