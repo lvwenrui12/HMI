@@ -34,58 +34,64 @@ namespace hmitype
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new Container();
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(ListMessage));
-            this.timerclose = new Timer(this.components);
-            this.messageimage = new ImageList(this.components);
-            this.colListBox1 = new ColListBox();
-            base.SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this.timerclose = new System.Windows.Forms.Timer(this.components);
+            this.messageimage = new System.Windows.Forms.ImageList(this.components);
+            this.colListBox1 = new ColList.ColListBox();
+            this.SuspendLayout();
+            // 
+            // timerclose
+            // 
             this.timerclose.Interval = 10;
-            this.timerclose.Tick += new EventHandler(this.timer1_Tick);
-            this.messageimage.ImageStream = (ImageListStreamer)resources.GetObject("messageimage.ImageStream");
-            this.messageimage.TransparentColor = Color.Transparent;
-            this.messageimage.Images.SetKeyName(0, "message-0.ico");
-            this.messageimage.Images.SetKeyName(1, "message-1.ico");
-            this.messageimage.Images.SetKeyName(2, "message-2.ico");
-            this.messageimage.Images.SetKeyName(3, "message-3.ico");
-            this.messageimage.Images.SetKeyName(4, "message-4.ico");
-            this.colListBox1.BackColor = Color.White;
-            this.colListBox1.BackgroundImage = (Image)resources.GetObject("colListBox1.BackgroundImage");
+            this.timerclose.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // messageimage
+            // 
+            this.messageimage.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.messageimage.ImageSize = new System.Drawing.Size(16, 16);
+            this.messageimage.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // colListBox1
+            // 
+            this.colListBox1.BackColor = System.Drawing.Color.White;
             this.colListBox1.EditState = false;
             this.colListBox1.idwidth = 5;
-            this.colListBox1.imglayout = 0;
-            this.colListBox1.itembackcolor_select = Color.Blue;
-            this.colListBox1.itembordercolor_move = Color.FromArgb(0xe4, 0x9c, 5);
-            this.colListBox1.itembordercolor_select = Color.Blue;
+            this.colListBox1.imglayout = ((byte)(0));
+            this.colListBox1.itembackcolor_select = System.Drawing.Color.Blue;
+            this.colListBox1.itembordercolor_move = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(156)))), ((int)(((byte)(5)))));
+            this.colListBox1.itembordercolor_select = System.Drawing.Color.Blue;
             this.colListBox1.itemeditenabled = false;
-            this.colListBox1.itemfontcolor_defaut = Color.Black;
-            this.colListBox1.itemfontcolor_select = Color.White;
+            this.colListBox1.itemfontcolor_defaut = System.Drawing.Color.Black;
+            this.colListBox1.itemfontcolor_select = System.Drawing.Color.White;
             this.colListBox1.Itemfontsize = 9;
-            this.colListBox1.Itemheight = 0x12;
-            this.colListBox1.itemmovebackcolor1 = Color.FromArgb(0xfc, 0xeb, 0x9a);
+            this.colListBox1.Itemheight = 18;
+            this.colListBox1.itemmovebackcolor1 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(235)))), ((int)(((byte)(154)))));
             this.colListBox1.itemmovestate = true;
             this.colListBox1.Itemschonghui = true;
-            this.colListBox1.listbordercolor = Color.FromArgb(0x33, 0x99, 0xff);
+            this.colListBox1.listbordercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.colListBox1.listborderwidth = 1;
-            this.colListBox1.Location = new Point(0x2b, 0x1b);
+            this.colListBox1.Location = new System.Drawing.Point(43, 27);
             this.colListBox1.Name = "colListBox1";
             this.colListBox1.SelectItemindex = -1;
-            this.colListBox1.Size = new Size(0x7d, 0x42);
+            this.colListBox1.Size = new System.Drawing.Size(125, 66);
             this.colListBox1.TabIndex = 0;
-            base.AutoScaleDimensions = new SizeF(6f, 12f);
-            base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = Color.Silver;
-            base.ClientSize = new Size(0x105, 0xa6);
-            base.Controls.Add(this.colListBox1);
-            base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            base.Name = "ListMessage";
-            base.ShowIcon = false;
-            base.ShowInTaskbar = false;
-            base.TopMost = true;
-            base.Load += new EventHandler(this.ListMessage_Load);
-            base.FormClosing += new FormClosingEventHandler(this.ListMessage_FormClosing);
-            base.Resize += new EventHandler(this.ListMessage_Resize);
-            base.ResumeLayout(false);
+            // 
+            // ListMessage
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(261, 166);
+            this.Controls.Add(this.colListBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "ListMessage";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListMessage_FormClosing);
+            this.Load += new System.EventHandler(this.ListMessage_Load);
+            this.Resize += new System.EventHandler(this.ListMessage_Resize);
+            this.ResumeLayout(false);
 
         }
 

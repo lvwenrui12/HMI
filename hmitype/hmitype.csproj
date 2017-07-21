@@ -177,6 +177,11 @@
     <Compile Include="progform.Designer.cs">
       <DependentUpon>progform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Readdata.cs" />
     <Compile Include="readdata0.cs" />
     <Compile Include="redianinf.cs" />
@@ -238,6 +243,10 @@
     <Content Include="help\help_for.htm" />
     <Content Include="help\help_va.htm" />
     <Content Include="help\index.htm" />
+    <None Include="Resources\message-3.bmp" />
+    <None Include="Resources\message-2.bmp" />
+    <None Include="Resources\message-1.bmp" />
+    <None Include="Resources\message-0.bmp" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="download.resx">
@@ -245,6 +254,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListMessage.resx">
+      <DependentUpon>ListMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
