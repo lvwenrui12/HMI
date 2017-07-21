@@ -1592,9 +1592,15 @@ namespace hmitype
                             {
                                 array[0].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',10,'&isbr&','&spax&','&spay&',0," + str);
                                 array[0].Add("zstr 32767,32767,32767,32767,'&txt&'");
-                                if (this.Mypage.objs[0].GetattVal_string("sta") == "2" && this.Mypage.objs[0].GetattVal_string("pic") == this.GetattVal_string("picc"))
+
+                                if (this.Mypage.objs[0].GetattVal_string("sta") == "2" && this.Mypage.objs.Count>0)
                                 {
-                                    array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
+                                    if (this.Mypage.objs[0].GetattVal_string("pic") == this.GetattVal_string("picc"))
+                                    {
+                                        array[2].Add("setbrush '&x&','&y&','&w&','&h&','&font&','&pco&','&picc&','&xcen&','&ycen&',3,'&isbr&','&spax&','&spay&',0," + str);
+                                    }
+
+                                   
                                 }
                                 else
                                 {

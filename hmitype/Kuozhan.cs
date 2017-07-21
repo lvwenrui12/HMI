@@ -441,13 +441,8 @@ namespace hmitype
             matt.att.isbangding = isbangding;
             matt.att.isxiugai = isxiugai;
             matt.att.chonghui = chonghui;
-            if (datasize.Objzhushiencoding != null)
-            {
-                matt.zhushi = datasize.Objzhushiencoding.GetBytes(zhushi);//  获取编码方式
-
-            }
+            matt.zhushi = datasize.Objzhushiencoding.GetBytes(zhushi);
             atts.Add(matt);
-
         }
 
         public static void Getlinpath()
@@ -2074,26 +2069,28 @@ namespace hmitype
 
         public static object BytesTostruct(this byte[] bytes, Type strcutType)
         {
-            object obj2;
-            IntPtr destination = new IntPtr();
-            int cb = 0;
+            IntPtr intPtr = new IntPtr();
+            object result;
             try
             {
-                cb = Marshal.SizeOf(strcutType);
-                destination = Marshal.AllocHGlobal(cb);
-                Marshal.Copy(bytes, 0, destination, cb);
-                obj2 = Marshal.PtrToStructure(destination, strcutType);
+                int num = Marshal.SizeOf(strcutType);
+                intPtr = Marshal.AllocHGlobal(num);
+                Marshal.Copy(bytes, 0, intPtr, num);
+                result = Marshal.PtrToStructure(intPtr, strcutType);
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                MessageOpen.Show(exception.Message);
-                obj2 = null;
+                MessageOpen.Show(ex.Message);
+                result = null;
             }
             finally
             {
-                Marshal.FreeHGlobal(destination);
+                Marshal.FreeHGlobal(intPtr);
             }
-            return obj2;
+            return result;
+
+         
+
 
         }
 
@@ -2128,6 +2125,7 @@ namespace hmitype
                 {
                     try
                     {
+                        //fixed (void* ptr = (void*)(&bytes[beg]))
                         fixed (void* ptr =(&bytes[beg]))
                         {
                             IntPtr ptr2 = new IntPtr(ptr);

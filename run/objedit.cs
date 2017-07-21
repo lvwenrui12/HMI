@@ -355,6 +355,7 @@ namespace run
             }
         }
 
+        // run.objedit
         public unsafe void Chonghuibmp()
         {
             List<byte[]> list = new List<byte[]>();
@@ -401,8 +402,7 @@ namespace run
                                 array = array.subbytes(0, (int)myobj.attposqyt);
                                 array.BytesToptr(0, this.runscr1.myapp.mymerry);
                                 array = new byte[1];
-
-                                hmitype.GuiObjControl.GuiObjControls[(int)this.dobj.atts[0].zhi[0]].Init(&myobj, (byte)this.dobj.objid);
+                                GuiObjControl.GuiObjControls[(int)this.dobj.atts[0].zhi[0]].Init(&myobj, (byte)this.dobj.objid);
                             }
                             else
                             {

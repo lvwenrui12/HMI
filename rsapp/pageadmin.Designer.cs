@@ -39,6 +39,7 @@ namespace rsapp
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pageadmin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
@@ -66,11 +67,10 @@ namespace rsapp
             this.suodingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colListBox1 = new ColList.ColListBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,6 +83,15 @@ namespace rsapp
             this.panel1.Size = new System.Drawing.Size(67, 108);
             this.panel1.TabIndex = 44;
             this.panel1.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Location = new System.Drawing.Point(-66, -111);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(131, 61);
+            this.pictureBox2.TabIndex = 51;
+            this.pictureBox2.TabStop = false;
             // 
             // imageList1
             // 
@@ -123,7 +132,7 @@ namespace rsapp
             this.label1});
             this.bar1.Location = new System.Drawing.Point(3, 3);
             this.bar1.Name = "bar1";
-            this.bar1.Size = new System.Drawing.Size(357, 27);
+            this.bar1.Size = new System.Drawing.Size(357, 25);
             this.bar1.Stretch = true;
             this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar1.TabIndex = 57;
@@ -349,15 +358,6 @@ namespace rsapp
             this.colListBox1.ItemDoubleClick += new System.EventHandler(this.colListBox1_ItemDoubleClick);
             this.colListBox1.ItemEditEnd += new ColList.ColListBoxItemEditEventHandler(this.colListBox1_ItemEditEnd);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(-66, -111);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(131, 61);
-            this.pictureBox2.TabIndex = 51;
-            this.pictureBox2.TabStop = false;
-            // 
             // pageadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -372,9 +372,9 @@ namespace rsapp
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.pageadmin_Paint);
             this.Resize += new System.EventHandler(this.pageadmin_Resize);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

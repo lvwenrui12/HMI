@@ -910,36 +910,297 @@ namespace USARTHMI
 
         private bool hmiopen(string str, string s)
         {
-            bool result = false;
-            if (str != null)
+            string str5 = str;
+            if (str5 != null)
             {
-                if ((str == "add"))
+                SaveFileDialog dialog;
+                if (str5 == "add")
                 {
-                    result = Add();
-                }
-                if (str == "open")
-                {
-                    result = Open(s);
-                }
-                if ((str == "save"))
-                {
-                    result = Save();
-                }
-                if (str == "bianyi")
-                {
+                    if ((this.Myapp != null) && this.Myapp.changapp)
+                    {
+                        switch (MessageOpen.Show("当前工程内容有修改，需要保存吗?".Language(), "确认".Language(), MessageBoxButtons.YesNoCancel))
+                        {
+                            case DialogResult.Yes:
+                                if (!this.filecaozuo("save", ""))
+                                {
+                                    return false;
+                                }
+                                break;
 
-                    result = BianYi();
+                            case DialogResult.Cancel:
+                                return false;
+                        }
+                    }
+                    dialog = new SaveFileDialog
+                    {
+                        Filter = "HMI文件|*.HMI|所有文件|*.*".Language()
+                    };
+                    dialog.Getpath("file");
+                    if (dialog.ShowDialog() != DialogResult.OK)
+                    {
+                        return false;
+                    }
+                    this.closehmi();
+                    this.Myapp = new Myapp_inf();
+                    this.Myapp.changappevent = new Myapp_inf.appchangevent(this.appchangevent);
+                    this.Myapp.savetempfile = new Myapp_inf.savetempfile_(this.savetempfile);
+                    this.Myapp.refzikuevent = new Myapp_inf.refzikuevent_(this.zikuadmin1.Ref);
+                    this.Myapp.refpicevent = new Myapp_inf.refpicevent_(this.picadmin1.Ref);
+                    this.Myapp.changappevent(false);
+                    mpage item = this.Myapp.Creatnewpage(true);
+                    this.Myapp.pages.Add(item);
+                    this.Myapp.RefpageID();
+                    if (new appset(this.Myapp, 0).ShowDialog() != DialogResult.OK)
+                    {
+                        return false;
+                    }
+                    this.runscr1.RunStop();
+                    this.Openfilepath = dialog.FileName;
+                    dialog.Putpath("file");
+                    this.Myapp.Savefile(this.Openfilepath, 0, this.textbianyi);
+                    this.closehmi();
+                    this.filecaozuo("open", this.Openfilepath);
                 }
-
-                if (str == "lsave")
+                else if (str5 == "open")
                 {
-                    result= IsSave();
+                    if ((this.Myapp != null) && this.Myapp.changapp)
+                    {
+                        switch (MessageOpen.Show("当前工程内容有修改，需要保存吗?".Language(), "确认".Language(), MessageBoxButtons.YesNoCancel))
+                        {
+                            case DialogResult.Yes:
+                                if (!this.filecaozuo("save", ""))
+                                {
+                                    return false;
+                                }
+                                break;
+
+                            case DialogResult.Cancel:
+                                return false;
+                        }
+                    }
+                    OpenFileDialog op = new OpenFileDialog();
+                    if (s == "")
+                    {
+                        op.Filter = "HMI文件|*.HMI|所有文件|*.*".Language();
+                        op.Getpath("file");
+                        if (op.ShowDialog() != DialogResult.OK)
+                        {
+                            return false;
+                        }
+                        op.Putpath("file");
+                        this.Openfilepath = op.FileName;
+                    }
+                    else
+                    {
+                        this.Openfilepath = s;
+                    }
+                    this.closehmi();
+                    this.Myapp = new Myapp_inf();
+                    this.Myapp.changappevent = new Myapp_inf.appchangevent(this.appchangevent);
+                    this.Myapp.savetempfile = new Myapp_inf.savetempfile_(this.savetempfile);
+                    this.Myapp.refzikuevent = new Myapp_inf.refzikuevent_(this.zikuadmin1.Ref);
+                    this.Myapp.refpicevent = new Myapp_inf.refpicevent_(this.picadmin1.Ref);
+                    this.Myapp.changappevent(false);
+                    if (!this.Myapp.Open(this.Openfilepath))
+                    {
+                        this.closehmi();
+                        return false;
+                    }
+                    this.Myapp.savetempfile();
+                    this.runscr1.guiint_bianji(this.Myapp, datasize.runfilepath);
+                    this.runscr1.Visible = true;
+                    this.pageadmin1.Setapp(this.Myapp);
+                    this.picadmin1.Setapp(this.Myapp);
+                    this.zikuadmin1.Setapp(this.Myapp);
+                    this.objatt2.Setapp(this.Myapp);
+                    this.picadmin1.Ref();
+                    this.zikuadmin1.Ref();
+                    this.tbianyi.Enabled = true;
+                    this.colListBox1.Enabled = true;
+                    this.gongju1.Enabled = true;
+                    this.gongju4.Enabled = true;
+                    this.gongju2.Enabled = true;
+                    this.gongju3.Enabled = true;
+                    if (this.Myapp.Model.Modelstring == "")
+                    {
+                        MessageOpen.Show("当前资源文件需要配置一个硬件型号才能继续编辑，点击确认进入型号设置页面".Language());
+                        Form form = new appset(this.Myapp, 0);
+                        form.ShowDialog();
+                        if (form.DialogResult != DialogResult.OK)
+                        {
+                            this.closehmi();
+                            return false;
+                        }
+                        this.Myapp.savetempfile();
+                        this.Myapp.changappevent(true);
+                        this.runscr1.RunStop();
+                        this.runscr1.guiint_bianji(this.Myapp, datasize.runfilepath);
+                        this.RefPage();
+                    }
+                    this.Text = datasize.softname + "(" + this.Openfilepath + ")";
+                    this.labelItem1.Text = "Model:" + this.Myapp.Model.Modelstring + "  inch:".Language() + this.Myapp.Model.inch + "(" + this.Myapp.Model.fenbianlv + ") Flash:" + this.Myapp.Model.Flash + " RAM:" + this.Myapp.Model.RAM.ToString() + "B Frequency:" + this.Myapp.Model.GPU;
+                    this.labelItem4.Text = "Encoding:" + datasize.encodes_App[this.Myapp.myencode].encodename;
+                    this.Savehistorypath(this.Openfilepath);
+                    this.Setpanel(false);
+                    this.pageadmin1.selectindex(0);
                 }
-                
+                else
+                {
+                    if (str5 == "save")
+                    {
+                        if (((this.Myapp != null) && (this.Openfilepath != null)) && (datasize.runfilepath != null))
+                        {
+                            this.runscr1.Pausesr();
+                            this.objatt1.SaveCodes();
+                            this.binpath = "";
+                            if (this.Myapp.Savefile(datasize.runfilepath, 0, this.textbianyi))
+                            {
+                                if (File.Exists(this.Openfilepath))
+                                {
+                                    StreamReader reader = new StreamReader(this.Openfilepath)
+                                    {
+                                        BaseStream = { Position = 0L }
+                                    };
+                                    byte[] buffer = new byte[datasize.appxinxisize0];
+                                    reader.BaseStream.Read(buffer, 0, datasize.appxinxisize0);
+                                    reader.Close();
+                                    reader.Dispose();
+                                    reader = null;
+                                    appinf0 appinf = (appinf0)buffer.BytesTostruct(new appinf0().GetType());
+                                    if (appinf.filever != datasize.filever)
+                                    {
+                                        MessageOpen.Show("当前文件由老版本的HMI软件创建,系统将自动拷贝一份保存前的副本到版本备份目录,从如下菜单可进入版本备份目录:文件-版本备份目录".Language());
+                                        if (!Directory.Exists(datasize.Verzhuanhuanpath))
+                                        {
+                                            Directory.CreateDirectory(datasize.Verzhuanhuanpath);
+                                        }
+                                        string extension = Path.GetExtension(this.Openfilepath);
+                                        string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(this.Openfilepath);
+                                        if (fileNameWithoutExtension.Length > 240)
+                                        {
+                                            fileNameWithoutExtension = fileNameWithoutExtension.Substring(0, 240);
+                                        }
+                                        string str4 = "(bak_" + appinf.banbenh.ToString() + "." + appinf.banbenl.ToString() + ")" + fileNameWithoutExtension;
+                                        for (int i = 1; File.Exists(datasize.Verzhuanhuanpath + @"\" + str4 + extension); i++)
+                                        {
+                                            str4 = fileNameWithoutExtension + "-" + i.ToString();
+                                        }
+                                        File.Copy(this.Openfilepath, datasize.Verzhuanhuanpath + @"\" + str4 + extension);
+                                    }
+                                }
+                                if (!Kuozhan.delfile(this.Openfilepath))
+                                {
+                                    this.runscr1.Upsr();
+                                    return false;
+                                }
+                                File.Copy(datasize.runfilepath, this.Openfilepath);
+                                this.runscr1.Upsr();
+                                this.Myapp.changappevent(false);
+                                goto Label_0BB1;
+                            }
+                            this.runscr1.Upsr();
+                        }
+                        return false;
+                    }
+                    if (str5 == "bianyi")
+                    {
+                        if ((this.Myapp != null) && (this.Openfilepath != null))
+                        {
+                            if (this.Myapp.changapp && !this.filecaozuo("save", ""))
+                            {
+                                return false;
+                            }
+                            if (!Directory.Exists(datasize.Bianyipath))
+                            {
+                                Directory.CreateDirectory(datasize.Bianyipath);
+                            }
+                            this.binpath = datasize.Bianyipath + @"\" + Path.GetFileNameWithoutExtension(this.Openfilepath) + ".tft";
+                            if (this.Myapp.Savefile(this.binpath, 1, this.textbianyi))
+                            {
+                                this.Myapp.changappevent(false);
+                                goto Label_0BB1;
+                            }
+                            this.binpath = "";
+                        }
+                        return false;
+                    }
+                    if ((str5 == "lsave") && (this.Myapp != null))
+                    {
+                        dialog = new SaveFileDialog
+                        {
+                            Filter = "HMI文件|*.HMI|所有文件|*.*".Language()
+                        };
+                        dialog.Getpath("file");
+                        if (dialog.ShowDialog() != DialogResult.OK)
+                        {
+                            return false;
+                        }
+                        this.Openfilepath = dialog.FileName;
+                        dialog.Putpath("file");
+                        this.runscr1.Pausesr();
+                        this.objatt1.SaveCodes();
+                        if (this.Myapp.Savefile(datasize.runfilepath, 0, this.textbianyi))
+                        {
+                            if (!Kuozhan.delfile(this.Openfilepath))
+                            {
+                                this.runscr1.Upsr();
+                                return false;
+                            }
+                            File.Copy(datasize.runfilepath, this.Openfilepath);
+                        }
+                        this.runscr1.Upsr();
+                        this.RefPage();
+                        this.Myapp.changappevent(false);
+                        this.Text = datasize.softname + "(" + this.Openfilepath + ")";
+                        this.Savehistorypath(this.Openfilepath);
+                        return true;
+                    }
+                }
             }
-
-            return result;
+            Label_0BB1:
+            return true;
         }
+
+
+
+
+    
+
+
+
+
+        //private bool hmiopen(string str, string s)
+        //{
+        //    bool result = false;
+        //    if (str != null)
+        //    {
+        //        if (str == "add")
+        //        {
+        //            result = Add();
+        //        }
+        //        if (str == "open")
+        //        {
+        //            result = Open(s);
+        //        }
+        //        if ((str == "save"))
+        //        {
+        //            result = Save();
+        //        }
+        //        if (str == "bianyi")
+        //        {
+
+        //            result = BianYi();
+        //        }
+
+        //        if (str == "lsave")
+        //        {
+        //            result= IsSave();
+        //        }
+
+        //    }
+
+        //    return result;
+        //}
 
         private bool Open(string s)
         {
