@@ -364,6 +364,8 @@ namespace USARTHMI
         [DllImport("kernel32.dll")]
         public static extern int WinExec(string exeName, int operType);
         #endregion
+
+        #region 构造函数
         public main()
         {
             this.appestyles = new eStyle[]
@@ -383,7 +385,7 @@ namespace USARTHMI
             this.expandablePanel1.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
             if (datasize.Language == 0)
             {
-                
+
                 this.buttonItem26.Icon = Resources.chload;
                 this.buttonItemhelp1.Visible = true;
                 this.buttonItemhelp2.Visible = true;
@@ -417,7 +419,9 @@ namespace USARTHMI
             }
 
         }
+        #endregion
 
+        #region 窗体加载
         private void Form1_Load(object sender, EventArgs e)
         {
             this.objpanel.panel_init();
@@ -433,10 +437,10 @@ namespace USARTHMI
                 this.colListBox1.Itemheight = 24;
                 this.colListBox1.itembackcolor_select = Color.YellowGreen;
                 this.colListBox1.idwidth = 0;
-              
+
                 #region colListBox1
 
-                if (imageList1.Images.Count>0)
+                if (imageList1.Images.Count > 0)
                 {
                     this.colListBox1.Items_Add(new ColListBoxItem
                     {
@@ -536,7 +540,7 @@ namespace USARTHMI
                     });
 
                 }
-                
+
 
                 #endregion
                 this.runscr1.objpanel = this.objpanel;
@@ -616,7 +620,8 @@ namespace USARTHMI
             {
                 MessageOpen.Show(ex.Message);
             }
-        }
+        } 
+        #endregion
 
         private void downloginjpg()
         {

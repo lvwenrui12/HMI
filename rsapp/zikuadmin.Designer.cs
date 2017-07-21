@@ -94,7 +94,7 @@ namespace rsapp
             this.label1});
             this.bar1.Location = new System.Drawing.Point(46, 17);
             this.bar1.Name = "bar1";
-            this.bar1.Size = new System.Drawing.Size(238, 27);
+            this.bar1.Size = new System.Drawing.Size(238, 25);
             this.bar1.Stretch = true;
             this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar1.TabIndex = 60;

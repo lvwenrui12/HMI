@@ -93,6 +93,16 @@ namespace USARTHMI.Properties {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Icon buttonItem43 {
+            get {
+                object obj = ResourceManager.GetObject("buttonItem43", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Icon chload {
             get {
                 object obj = ResourceManager.GetObject("chload", resourceCulture);
@@ -116,6 +126,16 @@ namespace USARTHMI.Properties {
         internal static System.Drawing.Bitmap guanyu {
             get {
                 object obj = ResourceManager.GetObject("guanyu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap hmi {
+            get {
+                object obj = ResourceManager.GetObject("hmi", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
