@@ -721,8 +721,8 @@ namespace USARTHMI
             this.objatt2.Size = new System.Drawing.Size(211, 289);
             this.objatt2.TabIndex = 113;
             this.objatt2.attch += new System.EventHandler(this.objatt2_attch);
-            this.objatt2.changepage += new System.EventHandler(this.objatt2_changepage);
             this.objatt2.attchhuigun += new System.EventHandler(this.objatt2_attchhuigun);
+            this.objatt2.changepage += new System.EventHandler(this.objatt2_changepage);
             this.objatt2.selectobj += new System.EventHandler(this.objatt2_selectobj);
             // 
             // dockContainerItem8
@@ -1591,9 +1591,9 @@ namespace USARTHMI
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textobjbianyi);
-            this.groupBox1.Controls.Add(this.panelEx1);
             this.groupBox1.Controls.Add(this.textobj);
             this.groupBox1.Controls.Add(this.textpage);
+            this.groupBox1.Controls.Add(this.panelEx1);
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.listBox4);
             this.groupBox1.Location = new System.Drawing.Point(6, 53);
@@ -1802,12 +1802,12 @@ namespace USARTHMI
             this.runscr1.TabIndex = 175;
             this.runscr1.Tag = new System.Drawing.Point(401, 53);
             this.runscr1.Visible = false;
-            this.runscr1.Objselect += new System.EventHandler(this.runscr1_Objselect);
-            this.runscr1.ObjXYchang += new System.EventHandler(this.runscr1_ObjXYchang);
-            this.runscr1.ObjKeyDown += new System.EventHandler(this.runscr1_ObjKeyDown);
-            this.runscr1.Objpanelresize += new System.EventHandler(this.runscr1_Objpanelresize);
             this.runscr1.Dragobj += new System.EventHandler(this.runscr1_Dragobj);
             this.runscr1.Moveobj += new System.EventHandler(this.runscr1_Moveobj);
+            this.runscr1.ObjKeyDown += new System.EventHandler(this.runscr1_ObjKeyDown);
+            this.runscr1.Objpanelresize += new System.EventHandler(this.runscr1_Objpanelresize);
+            this.runscr1.Objselect += new System.EventHandler(this.runscr1_Objselect);
+            this.runscr1.ObjXYchang += new System.EventHandler(this.runscr1_ObjXYchang);
             this.runscr1.SendCom += new System.EventHandler(this.runscr1_SendCom);
             this.runscr1.Load += new System.EventHandler(this.runscr1_Load);
             this.runscr1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.runscr1_MouseMove);
