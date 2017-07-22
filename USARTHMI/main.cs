@@ -1730,8 +1730,9 @@ namespace USARTHMI
                 this.pageadmin1.Setapp(null);
                 this.zikuadmin1.Setapp(null);
                 this.picadmin1.Setapp(null);
-                this.runscr1.RunStop();
+            
                 this.runscr1.Visible = false;
+                this.runscr1.RunStop();
                 this.binpath = "";
                 this.tsave.Enabled = false;
                 this.tbianyi.Enabled = false;

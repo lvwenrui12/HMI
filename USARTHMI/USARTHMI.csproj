@@ -47,6 +47,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
+    <Reference Include="hmitype, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\hmitype.dll</HintPath>
+    </Reference>
+    <Reference Include="run, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\run.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -121,20 +129,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\hmitype\hmitype.csproj">
-      <Project>{e7ff6edc-5433-4635-95f4-24e0595e4e83}</Project>
-      <Name>hmitype</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\rsapp\rsapp.csproj">
-      <Project>{54fb1796-d448-4755-847e-ec2876be5978}</Project>
-      <Name>rsapp</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\run\run.csproj">
-      <Project>{783744ea-5e8c-4f9c-9364-fca27733243c}</Project>
-      <Name>run</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\hmi.png" />
     <None Include="Resources\iteadico.ico" />
     <None Include="Resources\tjcico.ico" />
@@ -206,6 +200,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Text_Spacing_Horizontal.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\rsapp\rsapp.csproj">
+      <Project>{54fb1796-d448-4755-847e-ec2876be5978}</Project>
+      <Name>rsapp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
