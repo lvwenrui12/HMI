@@ -40,10 +40,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
-    <Reference Include="hmitype, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\hmitype.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -186,6 +182,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dec.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\hmitype\hmitype.csproj">
+      <Project>{e7ff6edc-5433-4635-95f4-24e0595e4e83}</Project>
+      <Name>hmitype</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
