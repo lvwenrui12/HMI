@@ -79,41 +79,34 @@ public static class Commake
 
     private static unsafe byte Commake_Comyouxian(PosLaction* pos)
     {
-        byte result;
-        if (Strmake.Strmake_Makestr(Commake.Comstrbuf + pos->star, "runmod=", 7) == 1)
+        if (Strmake.Strmake_Makestr(Comstrbuf + pos->star, "runmod=", 7) == 1)
         {
-            byte b = (byte)(Commake.Comstrbuf[pos->star + 7] - 48);
-            if (b == 0 || b == 1 || b == 2)
+            byte val = (byte)(Comstrbuf[pos->star + 7] - 0x30);
+            switch (val)
             {
-                Sysatt.Sysatt_SetXitongval(21, (int)b);
-                Commake.Commake_SendBacksuc();
-                result = 1;
+                case 0:
+                case 1:
+                case 2:
+                    Sysatt.Sysatt_SetXitongval(0x15, val);
+                    Commake_SendBacksuc();
+                    return 1;
             }
-            else
+            return 0;
+        }
+        if (Strmake.Strmake_Makestr(Comstrbuf + pos->star, "com_st", 6) == 1)
+        {
+            if (Strmake.Strmake_Makestr(Comstrbuf + pos->star, "com_star", 8) == 1)
             {
-                result = 0;
+                NorComSta.runmod = 1;
+                return 1;
+            }
+            if (Strmake.Strmake_Makestr(Comstrbuf + pos->star, "com_stop", 8) == 1)
+            {
+                NorComSta.runmod = 0;
+                return 1;
             }
         }
-        else
-        {
-            if (Strmake.Strmake_Makestr(Commake.Comstrbuf + pos->star, "com_st", 6) == 1)
-            {
-                if (Strmake.Strmake_Makestr(Commake.Comstrbuf + pos->star, "com_star", 8) == 1)
-                {
-                    Commake.NorComSta.runmod = 1;
-                    result = 1;
-                    return result;
-                }
-                if (Strmake.Strmake_Makestr(Commake.Comstrbuf + pos->star, "com_stop", 8) == 1)
-                {
-                    Commake.NorComSta.runmod = 0;
-                    result = 1;
-                    return result;
-                }
-            }
-            result = 0;
-        }
-        return result;
+        return 0;
     }
 
     public static unsafe byte Commake_GetComm(PosLaction* pos)
@@ -329,68 +322,35 @@ public static class Commake
         Usart.usartzhongduan = true;
     }
 
-    //public static unsafe void Commake_SendAtt(ref runattinf att1, byte state)
-    //{
-    //    fixed (runattinf* runattinfRef = ((runattinf*)att1))
-    //    {
-    //        Commake_SendAtt(runattinfRef, state);
-    //    }
-    //}
-
-    public unsafe static void Commake_SendAtt(ref runattinf att1, byte state)
+    public static unsafe void Commake_SendAtt(ref runattinf att1, byte state)
     {
-        fixed (runattinf* ptr = &att1)
+        fixed (runattinf* runattinfRef = (&att1))
         {
-            Commake.Commake_SendAtt(ptr, state);
+            Commake_SendAtt(runattinfRef, state);
         }
     }
 
-
-    //public static unsafe void Commake_SendAtt(runattinf* att1, byte state)
-    //{
-    //    if (att1.attlei == attshulei.Sstr.typevalue)
-    //    {
-    //        if (state == 1)
-    //        {
-    //            Usart.Usart_SendByte(0x70);
-    //        }
-    //        Commake_Prints(att1.Pz, 0);
-    //    }
-    //    else
-    //    {
-    //        if (state == 1)
-    //        {
-    //            Usart.Usart_SendByte(0x71);
-    //        }
-    //        Commake_PrintBytes((byte*)&att1.val, 4);
-    //    }
-    //    if (state == 1)
-    //    {
-    //        Commake_SendEnd();
-    //    }
-    //}
-
-    public unsafe static void Commake_SendAtt(runattinf* att1, byte state)
+    public static unsafe void Commake_SendAtt(runattinf* att1, byte state)
     {
         if (att1->attlei == attshulei.Sstr.typevalue)
         {
             if (state == 1)
             {
-                Usart.Usart_SendByte(112);
+                Usart.Usart_SendByte(0x70);
             }
-            Commake.Commake_Prints(att1->Pz, 0);
+            Commake_Prints(att1->Pz, 0);
         }
         else
         {
             if (state == 1)
             {
-                Usart.Usart_SendByte(113);
+                Usart.Usart_SendByte(0x71);
             }
-            Commake.Commake_PrintBytes((byte*)(&att1->val), 4);
+            Commake_PrintBytes((byte*)&att1->val, 4);
         }
         if (state == 1)
         {
-            Commake.Commake_SendEnd();
+            Commake_SendEnd();
         }
     }
 
@@ -432,8 +392,6 @@ public static class Commake
         public byte Recving;
     }
 }
-
-
 
 
 
