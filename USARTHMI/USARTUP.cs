@@ -42,7 +42,7 @@ namespace USARTHMI
 
         private ComboBoxEx comboBox2;
 
-        private ButtonX button3;
+        private ButtonX btnBeginDownLoad;
 
         private ButtonX button2;
 
@@ -92,8 +92,8 @@ namespace USARTHMI
                 this.com1.Close();
                 this.islianji = false;
                 this.isupdata = false;
-                this.button3.Text = "联机并开始下载".Language();
-                this.button3.Enabled = true;
+                this.btnBeginDownLoad.Text = "联机并开始下载".Language();
+                this.btnBeginDownLoad.Enabled = true;
                 this.button2.Enabled = true;
                 this.sendsize = 0;
                 TextBox expr_59 = this.textBox2;
@@ -381,8 +381,8 @@ namespace USARTHMI
                     }
                 }
                 this.sendsize = 0;
-                this.button3.Enabled = true;
-                this.button3.Text = "停止".Language();
+                this.btnBeginDownLoad.Enabled = true;
+                this.btnBeginDownLoad.Text = "停止".Language();
                 this.sk = 0;
                 this.isupdata = true;
                 while (true)
@@ -533,8 +533,8 @@ namespace USARTHMI
                 this.timer1.Enabled = false;
                 this.comboBox3.Enabled = true;
                 this.comboBox2.Enabled = true;
-                this.button3.Enabled = true;
-                this.button3.Text = "联机并开始下载".Language();
+                this.btnBeginDownLoad.Enabled = true;
+                this.btnBeginDownLoad.Text = "联机并开始下载".Language();
                 if (num3 == 3)
                 {
                     MessageOpen.Show("强制下载已经结束,请给设备重新上电".Language() + "\r\n" + "设备重新上电之后可能会白屏5-10秒(内部固件升级),然后会出现提示:Please re download the resource file 如果看到此提示说明强制下载成功,再次按正常流程下载一次即可!".Language());
@@ -697,7 +697,7 @@ namespace USARTHMI
                 this.mycom.State = 2;
                 e.Cancel = true;
             }
-            else if (this.islianji || !this.button3.Enabled)
+            else if (this.islianji || !this.btnBeginDownLoad.Enabled)
             {
                 e.Cancel = true;
             }
@@ -718,9 +718,10 @@ namespace USARTHMI
             });
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        #region 联机并开始下载
+        private void btnBeginDownLoad_Click(object sender, EventArgs e)
         {
-            this.button3.Enabled = false;
+            this.btnBeginDownLoad.Enabled = false;
             this.button2.Enabled = false;
             this.comboBox3.Enabled = false;
             this.comboBox2.Enabled = false;
@@ -734,12 +735,12 @@ namespace USARTHMI
                 if (this.comboBox2.Text == "")
                 {
                     MessageOpen.Show("请选择下载使用的波特率".Language());
-                    this.button3.Enabled = true;
+                    this.btnBeginDownLoad.Enabled = true;
                 }
                 else if (this.comboBox3.Text == "")
                 {
                     MessageOpen.Show("请选择串口号".Language());
-                    this.button3.Enabled = true;
+                    this.btnBeginDownLoad.Enabled = true;
                 }
                 else
                 {
@@ -755,11 +756,12 @@ namespace USARTHMI
                 }
                 else
                 {
-                    this.button3.Enabled = true;
+                    this.btnBeginDownLoad.Enabled = true;
                 }
                 this.timer1.Enabled = true;
             }
         }
 
+        #endregion
     }
 }

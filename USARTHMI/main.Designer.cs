@@ -171,9 +171,9 @@ namespace USARTHMI
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textobjbianyi = new System.Windows.Forms.TextBox();
+            this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.textobj = new System.Windows.Forms.TextBox();
             this.textpage = new System.Windows.Forms.TextBox();
-            this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
@@ -356,6 +356,9 @@ namespace USARTHMI
             this.dockSite4.Controls.Add(this.bar3);
             this.dockSite4.Controls.Add(this.bar9);
             this.dockSite4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dockSite4.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer(new DevComponents.DotNetBar.DocumentBaseContainer[] {
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar3, 291, 226))),
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar9, 274, 226)))}, DevComponents.DotNetBar.eOrientation.Horizontal);
             this.dockSite4.Location = new System.Drawing.Point(220, 480);
             this.dockSite4.Name = "dockSite4";
             this.dockSite4.Size = new System.Drawing.Size(568, 229);
@@ -483,6 +486,9 @@ namespace USARTHMI
             this.dockSite1.Controls.Add(this.bar2);
             this.dockSite1.Controls.Add(this.bargongju);
             this.dockSite1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dockSite1.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer(new DevComponents.DotNetBar.DocumentBaseContainer[] {
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bargongju, 217, 307))),
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar2, 217, 317)))}, DevComponents.DotNetBar.eOrientation.Vertical);
             this.dockSite1.Location = new System.Drawing.Point(0, 82);
             this.dockSite1.Name = "dockSite1";
             this.dockSite1.Size = new System.Drawing.Size(220, 627);
@@ -658,6 +664,9 @@ namespace USARTHMI
             this.dockSite2.Controls.Add(this.bar4);
             this.dockSite2.Controls.Add(this.bar8);
             this.dockSite2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dockSite2.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer(new DevComponents.DotNetBar.DocumentBaseContainer[] {
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar8, 217, 309))),
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar4, 217, 315)))}, DevComponents.DotNetBar.eOrientation.Vertical);
             this.dockSite2.Location = new System.Drawing.Point(788, 82);
             this.dockSite2.Name = "dockSite2";
             this.dockSite2.Size = new System.Drawing.Size(220, 627);
@@ -712,8 +721,8 @@ namespace USARTHMI
             this.objatt2.Size = new System.Drawing.Size(211, 289);
             this.objatt2.TabIndex = 113;
             this.objatt2.attch += new System.EventHandler(this.objatt2_attch);
-            this.objatt2.attchhuigun += new System.EventHandler(this.objatt2_attchhuigun);
             this.objatt2.changepage += new System.EventHandler(this.objatt2_changepage);
+            this.objatt2.attchhuigun += new System.EventHandler(this.objatt2_attchhuigun);
             this.objatt2.selectobj += new System.EventHandler(this.objatt2_selectobj);
             // 
             // dockContainerItem8
@@ -1415,6 +1424,7 @@ namespace USARTHMI
             // 
             this.dockSite3.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dockSite3.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
             this.dockSite3.Location = new System.Drawing.Point(220, 82);
             this.dockSite3.Name = "dockSite3";
             this.dockSite3.Size = new System.Drawing.Size(568, 0);
@@ -1486,6 +1496,7 @@ namespace USARTHMI
             // styleManager1
             // 
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007Blue;
+            this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(26))))));
             // 
             // tabControl1
             // 
@@ -1580,9 +1591,9 @@ namespace USARTHMI
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textobjbianyi);
+            this.groupBox1.Controls.Add(this.panelEx1);
             this.groupBox1.Controls.Add(this.textobj);
             this.groupBox1.Controls.Add(this.textpage);
-            this.groupBox1.Controls.Add(this.panelEx1);
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.listBox4);
             this.groupBox1.Location = new System.Drawing.Point(6, 53);
@@ -1613,25 +1624,6 @@ namespace USARTHMI
             this.textobjbianyi.Size = new System.Drawing.Size(283, 241);
             this.textobjbianyi.TabIndex = 146;
             // 
-            // textobj
-            // 
-            this.textobj.Location = new System.Drawing.Point(6, 187);
-            this.textobj.Multiline = true;
-            this.textobj.Name = "textobj";
-            this.textobj.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textobj.Size = new System.Drawing.Size(283, 59);
-            this.textobj.TabIndex = 145;
-            // 
-            // textpage
-            // 
-            this.textpage.BackColor = System.Drawing.Color.White;
-            this.textpage.Location = new System.Drawing.Point(6, 13);
-            this.textpage.Multiline = true;
-            this.textpage.Name = "textpage";
-            this.textpage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textpage.Size = new System.Drawing.Size(283, 168);
-            this.textpage.TabIndex = 144;
-            // 
             // panelEx1
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
@@ -1651,6 +1643,25 @@ namespace USARTHMI
             this.panelEx1.Tag = new System.Drawing.Point(46, 93);
             this.panelEx1.Text = "panelEx1";
             this.panelEx1.Visible = false;
+            // 
+            // textobj
+            // 
+            this.textobj.Location = new System.Drawing.Point(6, 187);
+            this.textobj.Multiline = true;
+            this.textobj.Name = "textobj";
+            this.textobj.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textobj.Size = new System.Drawing.Size(283, 59);
+            this.textobj.TabIndex = 145;
+            // 
+            // textpage
+            // 
+            this.textpage.BackColor = System.Drawing.Color.White;
+            this.textpage.Location = new System.Drawing.Point(6, 13);
+            this.textpage.Multiline = true;
+            this.textpage.Name = "textpage";
+            this.textpage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textpage.Size = new System.Drawing.Size(283, 168);
+            this.textpage.TabIndex = 144;
             // 
             // listBox1
             // 
@@ -1733,7 +1744,7 @@ namespace USARTHMI
             this.itemPanel2.Size = new System.Drawing.Size(77, 41);
             this.itemPanel2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2013;
             this.itemPanel2.TabIndex = 4;
-            this.itemPanel2.Text = "¹ØÓÚ";
+            this.itemPanel2.Text = "itemPanel2";
             this.itemPanel2.Resize += new System.EventHandler(this.itemPanel2_Resize);
             // 
             // labelX2
@@ -1791,12 +1802,12 @@ namespace USARTHMI
             this.runscr1.TabIndex = 175;
             this.runscr1.Tag = new System.Drawing.Point(401, 53);
             this.runscr1.Visible = false;
-            this.runscr1.Dragobj += new System.EventHandler(this.runscr1_Dragobj);
-            this.runscr1.Moveobj += new System.EventHandler(this.runscr1_Moveobj);
-            this.runscr1.ObjKeyDown += new System.EventHandler(this.runscr1_ObjKeyDown);
-            this.runscr1.Objpanelresize += new System.EventHandler(this.runscr1_Objpanelresize);
             this.runscr1.Objselect += new System.EventHandler(this.runscr1_Objselect);
             this.runscr1.ObjXYchang += new System.EventHandler(this.runscr1_ObjXYchang);
+            this.runscr1.ObjKeyDown += new System.EventHandler(this.runscr1_ObjKeyDown);
+            this.runscr1.Objpanelresize += new System.EventHandler(this.runscr1_Objpanelresize);
+            this.runscr1.Dragobj += new System.EventHandler(this.runscr1_Dragobj);
+            this.runscr1.Moveobj += new System.EventHandler(this.runscr1_Moveobj);
             this.runscr1.SendCom += new System.EventHandler(this.runscr1_SendCom);
             this.runscr1.Load += new System.EventHandler(this.runscr1_Load);
             this.runscr1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.runscr1_MouseMove);
@@ -2057,7 +2068,6 @@ namespace USARTHMI
 
 
         #endregion
-
         private ButtonItem buttonItem2;
         private ButtonItem buttonItem3;
     }
