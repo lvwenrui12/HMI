@@ -22,7 +22,7 @@ namespace USARTHMI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            string text = Application.StartupPath + "\\hmics.lang";
+            string text = Application.StartupPath + "\\hmics.lang";//中英文切换的文件
             if (!File.Exists(text))
             {
                 MessageOpen.Show("The file is missing:" + text);
@@ -31,7 +31,7 @@ namespace USARTHMI
             else
             {
                 Kuozhan.LanguageInit();
-                datasize.Language = 0;
+                datasize.Language = 0;//默认为中文
                 if (datasize.Language == 0)
                 {
                     datasize.Myencoding = Encoding.GetEncoding("gb2312");
@@ -39,8 +39,8 @@ namespace USARTHMI
                     datasize.hmibiaoshiL = 84;
                     datasize.softname = "USART HMI";
                     datasize.Myico = Resources.tjcico;
-                    datasize.verfindaddr = "http://hmi.tjc1688.com/ver/ver.php";
-                    datasize.clientupaddr = "http://hmi.tjc1688.com/ver/up.php";
+                    datasize.verfindaddr = "http://hmi.tjc1688.com/ver/ver.php";//返回this is run!
+                    datasize.clientupaddr = "http://hmi.tjc1688.com/ver/up.php";//返回up is run!
                     datasize.encodes_This = datasize.encodes_Ch;
                 }
                 else
@@ -51,7 +51,7 @@ namespace USARTHMI
                     datasize.softname = "Nextion Editor";
                     datasize.Myico = Resources.iteadico;
                     datasize.verfindaddr = "http://nextion.itead.cc/ver/ver.php";
-                    datasize.clientupaddr = "http://nextion.itead.cc/ver/up.php";
+                    datasize.clientupaddr = "http://nextion.itead.cc/ver/up.php";//链接到厂家在国外的一个网站
                     datasize.encodes_This = datasize.encodes_En;
                 }
                 datasize.Modelinit();

@@ -18,7 +18,7 @@ namespace hmitype
 {
     public static class Kuozhan
     {
-        private static string[] En_cs;
+        private static string[] En_cs;//存放中英文切换的字符
 
         private static uint[] tab256 = new uint[]
         {
@@ -282,7 +282,7 @@ namespace hmitype
 
         public static void LanguageInit()
         {
-            string text = Application.StartupPath + "\\hmics.lang";
+            string text = Application.StartupPath + "\\hmics.lang";//中英文切换文件,可以用文本编辑器打开
             if (!File.Exists(text))
             {
                 MessageOpen.Show("The file is missing:" + text);
@@ -1617,6 +1617,12 @@ namespace hmitype
             return result;
         }
 
+        #region 将字符串转换成 byte数组
+        /// <summary>
+        /// 将字符串转换成 byte数组
+        /// </summary>
+        /// <param name="str">输入字符串</param>
+        /// <returns></returns>
         public static byte[] GetbytesssASCII(this string str)
         {
             byte[] result;
@@ -1629,7 +1635,8 @@ namespace hmitype
                 result = datasize.Myencoding.GetBytes(str);
             }
             return result;
-        }
+        } 
+        #endregion
 
         public static bool makebytes(byte[] b0, byte[] b1)
         {
@@ -2791,11 +2798,13 @@ namespace hmitype
             return pData.getcrc(Convert.ToUInt32("0xFFFFFFFF", 16), beg, pData.Length - beg);
         }
 
+        #region crc校验
         public static uint getcrc(this byte[] pData, uint intcrc, int beg)
         {
             return pData.getcrc(intcrc, beg, pData.Length - beg);
         }
 
+      
         public static uint getcrc(this byte[] pData, uint intcrc, int beg, int Length)
         {
             uint num = intcrc;
@@ -2820,7 +2829,8 @@ namespace hmitype
                 result = num;
             }
             return result;
-        }
+        } 
+       
 
         public unsafe static uint CRC32(byte* buf, int lenth)
         {
@@ -2873,6 +2883,8 @@ namespace hmitype
             return num;
         }
 
+
+        #endregion
         public static bool CheckData(StreamReader sr, byte mark, byte state)
         {
             bool result;

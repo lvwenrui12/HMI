@@ -34,9 +34,9 @@ namespace hmitype
 
         public static int Language = 0;
 
-        public static byte banbenh = 0;
+        public static byte banbenh = 0;//版本
 
-        public static byte banbenl = 48;
+        public static byte banbenl = 48;//版本
 
         public static byte filever = 17;
 
@@ -68,15 +68,15 @@ namespace hmitype
 
         public static string downloadpage = "";
 
-        public static byte interbanbenh = 0;
+        public static byte interbanbenh = 0;//网上的高版本
 
-        public static byte interbanbenl = 0;
+        public static byte interbanbenl = 0;//网上的低版本
 
         public static string uptext = "";
 
         public static Icon Myico;
 
-        public static string softname = "";
+        public static string softname = "";//软件名字：USART HMI
 
         public static string softlogo = "";
 
@@ -382,8 +382,12 @@ namespace hmitype
 
         public static int[] encodes_This;
 
+        #region 中文版本各个型号信息
+        /// <summary>
+        /// 中文版本各个型号信息
+        /// </summary>
         public static modelxinxi[] Modes_ch0 = new modelxinxi[]
-        {
+       {
             new modelxinxi
             {
                 Modelstring = "TJC3224T022_011",
@@ -465,7 +469,7 @@ namespace hmitype
                 RAM = 3584,
                 GPU = "48M"
             }
-        };
+       };
 
         public static modelxinxi[] Modes_ch1 = new modelxinxi[]
         {
@@ -627,9 +631,14 @@ namespace hmitype
                 GPU = "48M"
             }
         };
+        #endregion
 
+        #region 英文版本的各个型号信息
+        /// <summary>
+        /// 英文版本的各个型号信息
+        /// </summary>
         public static modelxinxi[] Modes_en1 = new modelxinxi[]
-        {
+      {
             new modelxinxi
             {
                 Modelstring = "NX3224K024_011",
@@ -702,7 +711,8 @@ namespace hmitype
                 RAM = 8192,
                 GPU = "108M"
             }
-        };
+      }; 
+        #endregion
 
         public static modelxinxi[][] Modes;
 

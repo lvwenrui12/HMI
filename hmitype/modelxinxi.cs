@@ -8,7 +8,7 @@ namespace hmitype
 
         public uint Modelcrc;
 
-        public string fenbianlv;
+        public string fenbianlv;//分辨率
 
         public string inch;
 

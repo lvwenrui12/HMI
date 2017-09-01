@@ -199,7 +199,7 @@ namespace USARTHMI
 
         private ButtonItem tsave;
 
-        private ButtonItem buttonItem26;
+        private ButtonItem btnDownload;
 
         private ButtonItem buttonItem19;
 
@@ -386,7 +386,7 @@ namespace USARTHMI
             if (datasize.Language == 0)
             {
 
-                this.buttonItem26.Icon = Resources.chload;
+                this.btnDownload.Icon = Resources.chload;
                 this.buttonItemhelp1.Visible = true;
                 this.buttonItemhelp2.Visible = true;
                 this.buttonItemhelp3.Visible = true;
@@ -405,7 +405,7 @@ namespace USARTHMI
             }
             else
             {
-                this.buttonItem26.Icon = Resources.enload;
+                this.btnDownload.Icon = Resources.enload;
                 this.buttonItemhelp1.Visible = false;
                 this.buttonItemhelp2.Visible = false;
                 this.buttonItemhelp3.Visible = false;
@@ -581,7 +581,7 @@ namespace USARTHMI
                         }
                     }
                 }
-                this.RefLinklabel1Ref();
+                this.RefLinklabel1Ref();//中间界面的关于的版本检查
                 if (datasize.dowloadurl == "err")
                 {
                     this.buttonItem35.Enabled = false;
@@ -610,7 +610,7 @@ namespace USARTHMI
                         MessageOpen.Show("当前版本已是最新版本!".Language());
                     }
                     this.buttonItem35.Enabled = true;
-                    this.RefLinklabel1Ref();
+                    this.RefLinklabel1Ref();//中间界面的关于的版本检查
                 }
                 this.downloginjpg();
                 this.timermessage.Interval = 100;
@@ -644,8 +644,10 @@ namespace USARTHMI
             }
         }
 
+        #region 版本比较
         private void RefLinklabel1Ref()
         {
+            //版本比较，网上的版本和软件版本比较
             if (datasize.interbanbenh == datasize.banbenh && datasize.interbanbenl == datasize.banbenl)
             {
                 this.linkLabel1.Text = "(已是最新版本)".Language();
@@ -654,7 +656,9 @@ namespace USARTHMI
             {
                 this.linkLabel1.Text = "(立即更新)".Language();
             }
-        }
+        } 
+        #endregion
+
 
         private void Gehistorypath(ref List<historypath_type> hs)
         {
@@ -825,6 +829,10 @@ namespace USARTHMI
             this.setui(true);
             return result;
         }
+        /// <summary>
+        /// 控制按钮enable
+        /// </summary>
+        /// <param name="val"></param>
         private void setui(bool val)
         {
             this.dockSite7.Enabled = val;
@@ -874,6 +882,7 @@ namespace USARTHMI
 
         }
 
+        #region 编译
         private bool BianYi()
         {
             bool result = false;
@@ -905,7 +914,8 @@ namespace USARTHMI
             this.Myapp.changappevent(false);
             result = true;
             return result;
-        }
+        } 
+        #endregion
 
 
         private bool hmiopen(string str, string s)
@@ -1776,6 +1786,7 @@ namespace USARTHMI
             }
         }
 
+        #region 下载代码
         private void download()
         {
             if (this.Myapp == null)
@@ -1796,7 +1807,8 @@ namespace USARTHMI
                 }
             }
             new USARTUP(this.binpath).ShowDialog();
-        }
+        } 
+        #endregion
 
         private void ResizeRunscr()
         {
@@ -2182,10 +2194,12 @@ namespace USARTHMI
             }
         }
 
-        private void buttonItem26_Click(object sender, EventArgs e)
+        #region 下载
+        private void btnDownload_Click(object sender, EventArgs e)
         {
             this.download();
-        }
+        } 
+        #endregion
 
         private void buttonItem20_Click(object sender, EventArgs e)
         {
@@ -2515,11 +2529,15 @@ namespace USARTHMI
             Kuozhan.Openhttp("http://tjc1688.com/Support/Download/");
         }
 
+        #region 关于
         private void buttonItem34_Click(object sender, EventArgs e)
         {
             new about().ShowDialog();
-        }
+        } 
+        #endregion
 
+
+        #region 中间界面的关于的版本，已是最新版本检查的点击
         private void buttonItem35_Click(object sender, EventArgs e)
         {
             this.buttonItem35.Enabled = false;
@@ -2550,8 +2568,10 @@ namespace USARTHMI
             this.timermessage.Interval = 100;
             this.timermessage.Enabled = true;
             this.buttonItem35.Enabled = true;
-            this.RefLinklabel1Ref();
-        }
+            this.RefLinklabel1Ref();//中间界面的关于的版本检查
+        } 
+        #endregion
+
 
         private void panelEx3_MouseUp(object sender, MouseEventArgs e)
         {

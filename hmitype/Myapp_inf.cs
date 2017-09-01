@@ -104,6 +104,9 @@ namespace hmitype
 
         public List<byte[]> Staticstring = new List<byte[]>();
 
+        /// <summary>
+        /// 工程是否有改动
+        /// </summary>
         public bool changapp = false;
 
         public bool redianidshow = true;
